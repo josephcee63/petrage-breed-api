@@ -1,0 +1,5025 @@
+{
+  "breeds": [
+    {
+      "id": "affenpinscher",
+      "display_name": "AFFENPINSCHER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "affenpinscher"
+      ],
+      "preferred_tag_slug": "affenpinscher",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "affenpinscher"
+      ]
+    },
+    {
+      "id": "afghan-hound",
+      "display_name": "AFGHAN HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "afghanhound"
+      ],
+      "preferred_tag_slug": "afghanhound",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "afghanhound"
+      ]
+    },
+    {
+      "id": "aidi",
+      "display_name": "AIDI",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "aidi"
+      ]
+    },
+    {
+      "id": "airedale-terrier",
+      "display_name": "AIREDALE TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "airedaleterrier"
+      ],
+      "preferred_tag_slug": "airedaleterrier",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "airedaleterrier"
+      ]
+    },
+    {
+      "id": "akita-inu",
+      "display_name": "AKITA INU",
+      "aka_names": [],
+      "aliases": [
+        "Akita"
+      ],
+      "tag_slugs": [
+        "akita"
+      ],
+      "preferred_tag_slug": "akita",
+      "shared_content_key": "akita",
+      "lookup_keys": [
+        "akitainu",
+        "akita"
+      ]
+    },
+    {
+      "id": "alaskan-malamute",
+      "display_name": "ALASKAN MALAMUTE",
+      "aka_names": [],
+      "aliases": [
+        "Malamute"
+      ],
+      "tag_slugs": [
+        "malamute",
+        "alaskanmalamute"
+      ],
+      "preferred_tag_slug": "malamute",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "alaskanmalamute",
+        "malamute"
+      ]
+    },
+    {
+      "id": "alpine-dachsbracke",
+      "display_name": "ALPINE DACHSBRACKE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "alpinedachsbracke"
+      ]
+    },
+    {
+      "id": "american-akita",
+      "display_name": "AMERICAN AKITA",
+      "aka_names": [],
+      "aliases": [
+        "Akita"
+      ],
+      "tag_slugs": [
+        "akita"
+      ],
+      "preferred_tag_slug": "akita",
+      "shared_content_key": "akita",
+      "lookup_keys": [
+        "americanakita",
+        "akita"
+      ]
+    },
+    {
+      "id": "american-cocker-spaniel",
+      "display_name": "AMERICAN COCKER SPANIEL",
+      "aka_names": [],
+      "aliases": [
+        "Cocker Spaniel"
+      ],
+      "tag_slugs": [
+        "cockerspaniel",
+        "americancockerspaniel"
+      ],
+      "preferred_tag_slug": "cockerspaniel",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "americancockerspaniel",
+        "cockerspaniel"
+      ]
+    },
+    {
+      "id": "american-eskimo-dog",
+      "display_name": "AMERICAN ESKIMO DOG",
+      "aka_names": [],
+      "aliases": [
+        "Eskie"
+      ],
+      "tag_slugs": [
+        "americaneskimodog",
+        "eskie"
+      ],
+      "preferred_tag_slug": "eskie",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "americaneskimodog",
+        "eskie"
+      ]
+    },
+    {
+      "id": "american-foxhound",
+      "display_name": "AMERICAN FOXHOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "americanfoxhound"
+      ]
+    },
+    {
+      "id": "american-hairless-terrier",
+      "display_name": "AMERICAN HAIRLESS TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "americanhairlessterrier"
+      ]
+    },
+    {
+      "id": "american-staffordshire-terrier",
+      "display_name": "AMERICAN STAFFORDSHIRE TERRIER",
+      "aka_names": [
+        "AMSTAFF"
+      ],
+      "aliases": [
+        "AmStaff"
+      ],
+      "tag_slugs": [
+        "staffy"
+      ],
+      "preferred_tag_slug": "staffy",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "americanstaffordshireterrier",
+        "amstaff",
+        "staffy"
+      ]
+    },
+    {
+      "id": "american-water-spaniel",
+      "display_name": "AMERICAN WATER SPANIEL",
+      "aka_names": [
+        "AWS"
+      ],
+      "aliases": [
+        "AWS"
+      ],
+      "tag_slugs": [
+        "americanwaterspaniel",
+        "aws"
+      ],
+      "preferred_tag_slug": "aws",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "americanwaterspaniel",
+        "aws"
+      ]
+    },
+    {
+      "id": "anglo-french-hound",
+      "display_name": "ANGLO-FRENCH HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "anglofrenchhound"
+      ]
+    },
+    {
+      "id": "appenzeller-sennenhund",
+      "display_name": "APPENZELLER SENNENHUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "appenzellersennenhund"
+      ]
+    },
+    {
+      "id": "ariege-pointing-dog",
+      "display_name": "ARIEGE POINTING DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "ariegepointingdog"
+      ]
+    },
+    {
+      "id": "ariegeois-hound",
+      "display_name": "ARIEGEOIS HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "ariegeoishound"
+      ]
+    },
+    {
+      "id": "artois-hound",
+      "display_name": "ARTOIS HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "artoishound"
+      ]
+    },
+    {
+      "id": "australian-cattle-dog",
+      "display_name": "AUSTRALIAN CATTLE DOG",
+      "aka_names": [],
+      "aliases": [
+        "ACD",
+        "Blue Heeler",
+        "Red Heeler"
+      ],
+      "tag_slugs": [
+        "acd",
+        "australiancattledog"
+      ],
+      "preferred_tag_slug": "acd",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "australiancattledog",
+        "acd",
+        "blueheeler",
+        "redheeler"
+      ]
+    },
+    {
+      "id": "australian-kelpie",
+      "display_name": "AUSTRALIAN KELPIE",
+      "aka_names": [],
+      "aliases": [
+        "Kelpie"
+      ],
+      "tag_slugs": [
+        "kelpie",
+        "australiankelpie"
+      ],
+      "preferred_tag_slug": "kelpie",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "australiankelpie",
+        "kelpie"
+      ]
+    },
+    {
+      "id": "australian-shepherd",
+      "display_name": "AUSTRALIAN SHEPHERD",
+      "aka_names": [],
+      "aliases": [
+        "Aussie"
+      ],
+      "tag_slugs": [
+        "aussie",
+        "australianshepherd"
+      ],
+      "preferred_tag_slug": "aussie",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "australianshepherd",
+        "aussie"
+      ]
+    },
+    {
+      "id": "australian-silky-terrier",
+      "display_name": "AUSTRALIAN SILKY TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "australiansilkyterrier"
+      ]
+    },
+    {
+      "id": "australian-stumpy-tail-cattle-dog",
+      "display_name": "AUSTRALIAN STUMPY TAIL CATTLE DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "australianstumpytailcattledog"
+      ]
+    },
+    {
+      "id": "australian-terrier",
+      "display_name": "AUSTRALIAN TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "australianterrier"
+      ]
+    },
+    {
+      "id": "austrian-black-and-tan-hound",
+      "display_name": "AUSTRIAN BLACK AND TAN HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "austrianblackandtanhound"
+      ]
+    },
+    {
+      "id": "austrian-pinscher",
+      "display_name": "AUSTRIAN PINSCHER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "austrianpinscher"
+      ]
+    },
+    {
+      "id": "auvergne-pointer",
+      "display_name": "AUVERGNE POINTER",
+      "aka_names": [
+        "Braque d’Auvergne"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "auvergnepointer",
+        "braquedauvergne"
+      ]
+    },
+    {
+      "id": "azawakh",
+      "display_name": "AZAWAKH",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "azawakh"
+      ]
+    },
+    {
+      "id": "basset-artesien-normand",
+      "display_name": "BASSET ARTESIEN NORMAND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bassetartesiennormand"
+      ]
+    },
+    {
+      "id": "basset-bleu-de-gascogne",
+      "display_name": "BASSET BLEU DE GASCOGNE",
+      "aka_names": [
+        "BLUE GASCONY BASSET"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bassetbleudegascogne",
+        "bluegasconybasset"
+      ]
+    },
+    {
+      "id": "basset-fauve-de-bretagne",
+      "display_name": "BASSET FAUVE DE BRETAGNE",
+      "aka_names": [
+        "FAWN BRITTANY BASSET"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bassetfauvedebretagne",
+        "fawnbrittanybasset"
+      ]
+    },
+    {
+      "id": "bavarian-mountain-scent-hound",
+      "display_name": "BAVARIAN MOUNTAIN SCENT HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bavarianmountainscenthound"
+      ]
+    },
+    {
+      "id": "bearded-collie",
+      "display_name": "BEARDED COLLIE",
+      "aka_names": [
+        "BEARDIE"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "beardedcollie"
+      ],
+      "preferred_tag_slug": "beardedcollie",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "beardedcollie",
+        "beardie"
+      ]
+    },
+    {
+      "id": "beauceron",
+      "display_name": "BEAUCERON",
+      "aka_names": [
+        "BERGER DE BEAUCE"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "beauceron",
+        "bergerdebeauce"
+      ]
+    },
+    {
+      "id": "bedlington-terrier",
+      "display_name": "BEDLINGTON TERRIER",
+      "aka_names": [
+        "ROTHBURY TERRIER"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "bedlingtonterrier"
+      ],
+      "preferred_tag_slug": "bedlingtonterrier",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bedlingtonterrier",
+        "rothburyterrier"
+      ]
+    },
+    {
+      "id": "billy",
+      "display_name": "BILLY",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "billy"
+      ]
+    },
+    {
+      "id": "blue-picardy-spaniel",
+      "display_name": "BLUE PICARDY SPANIEL",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bluepicardyspaniel"
+      ]
+    },
+    {
+      "id": "bohemian-shepherd-dog",
+      "display_name": "BOHEMIAN SHEPHERD DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bohemianshepherddog"
+      ]
+    },
+    {
+      "id": "bohemian-wirehaired-pointing-griffon",
+      "display_name": "BOHEMIAN WIREHAIRED POINTING GRIFFON",
+      "aka_names": [
+        "Cesky Fousek"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bohemianwirehairedpointinggriffon",
+        "ceskyfousek"
+      ]
+    },
+    {
+      "id": "bolognese",
+      "display_name": "BOLOGNESE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "bolognese"
+      ],
+      "preferred_tag_slug": "bolognese",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bolognese"
+      ]
+    },
+    {
+      "id": "bosnian-broken-haired-hound",
+      "display_name": "BOSNIAN BROKEN-HAIRED HOUND",
+      "aka_names": [
+        "BARAK"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bosnianbrokenhairedhound",
+        "barak"
+      ]
+    },
+    {
+      "id": "bracco-italiano",
+      "display_name": "BRACCO ITALIANO",
+      "aka_names": [
+        "ITALIAN POINTER"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "braccoitaliano"
+      ],
+      "preferred_tag_slug": "braccoitaliano",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "braccoitaliano",
+        "italianpointer"
+      ]
+    },
+    {
+      "id": "braque-du-bourbonnais",
+      "display_name": "BRAQUE DU BOURBONNAIS",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "braquedubourbonnais"
+      ]
+    },
+    {
+      "id": "braque-francais-type-gascogne",
+      "display_name": "BRAQUE FRANÇAIS – TYPE GASCOGNE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "braquefrancaistypegascogne"
+      ]
+    },
+    {
+      "id": "braque-francais-type-pyrenees",
+      "display_name": "BRAQUE FRANÇAIS – TYPE PYRENEES",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "braquefrancaistypepyrenees"
+      ]
+    },
+    {
+      "id": "braque-saint-germain",
+      "display_name": "BRAQUE SAINT-GERMAIN",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "braquesaintgermain"
+      ]
+    },
+    {
+      "id": "brazilian-terrier",
+      "display_name": "BRAZILIAN TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "brazilianterrier"
+      ]
+    },
+    {
+      "id": "briard",
+      "display_name": "BRIARD",
+      "aka_names": [
+        "BERGER DE BRIE"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "briard"
+      ],
+      "preferred_tag_slug": "briard",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "briard",
+        "bergerdebrie"
+      ]
+    },
+    {
+      "id": "briquet-griffon-vendeen",
+      "display_name": "BRIQUET GRIFFON VENDEEN",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "briquetgriffonvendeen"
+      ]
+    },
+    {
+      "id": "brittany-spaniel-brittany",
+      "display_name": "BRITTANY SPANIEL / BRITTANY",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "brittany"
+      ],
+      "preferred_tag_slug": "brittany",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "brittanyspanielbrittany",
+        "brittany"
+      ]
+    },
+    {
+      "id": "burgos-pointing-dog",
+      "display_name": "BURGOS POINTING DOG",
+      "aka_names": [
+        "SPANISH POINTER"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "burgospointingdog",
+        "spanishpointer"
+      ]
+    },
+    {
+      "id": "barbet",
+      "display_name": "BARBET",
+      "aka_names": [
+        "FRENCH WATER DOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "barbet"
+      ],
+      "preferred_tag_slug": "barbet",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "barbet",
+        "frenchwaterdog"
+      ]
+    },
+    {
+      "id": "basenji",
+      "display_name": "BASENJI",
+      "aka_names": [
+        "AFRICAN BUSH DOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "basenji"
+      ],
+      "preferred_tag_slug": "basenji",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "basenji",
+        "africanbushdog"
+      ]
+    },
+    {
+      "id": "basset-hound",
+      "display_name": "BASSET HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "bassethound"
+      ],
+      "preferred_tag_slug": "bassethound",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bassethound"
+      ]
+    },
+    {
+      "id": "beagle",
+      "display_name": "BEAGLE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "beagle"
+      ],
+      "preferred_tag_slug": "beagle",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "beagle"
+      ]
+    },
+    {
+      "id": "bergamasco-shepherd-dog",
+      "display_name": "BERGAMASCO SHEPHERD DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bergamascoshepherddog"
+      ]
+    },
+    {
+      "id": "berger-blanc-suisse",
+      "display_name": "BERGER BLANC SUISSE",
+      "aka_names": [
+        "WHITE SWISS SHEPHERD"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bergerblancsuisse",
+        "whiteswissshepherd"
+      ]
+    },
+    {
+      "id": "berger-de-picardie",
+      "display_name": "BERGER DE PICARDIE",
+      "aka_names": [
+        "PICARDY SHEEPDOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bergerdepicardie",
+        "picardysheepdog"
+      ]
+    },
+    {
+      "id": "bernese-mountain-dog",
+      "display_name": "BERNESE MOUNTAIN DOG",
+      "aka_names": [
+        "BERNER"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "bmd"
+      ],
+      "preferred_tag_slug": "bmd",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bernesemountaindog",
+        "berner",
+        "bmd"
+      ]
+    },
+    {
+      "id": "bichon-frise",
+      "display_name": "BICHON FRISE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "bichonfrise"
+      ],
+      "preferred_tag_slug": "bichonfrise",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bichonfrise"
+      ]
+    },
+    {
+      "id": "black-and-tan-coonhound",
+      "display_name": "BLACK AND TAN COONHOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "coonhound"
+      ],
+      "preferred_tag_slug": "coonhound",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "blackandtancoonhound",
+        "coonhound"
+      ]
+    },
+    {
+      "id": "bloodhound",
+      "display_name": "BLOODHOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "bloodhound"
+      ],
+      "preferred_tag_slug": "bloodhound",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bloodhound"
+      ]
+    },
+    {
+      "id": "border-terrier",
+      "display_name": "BORDER TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "borderterrier"
+      ],
+      "preferred_tag_slug": "borderterrier",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "borderterrier"
+      ]
+    },
+    {
+      "id": "borzoi",
+      "display_name": "BORZOI",
+      "aka_names": [
+        "RUSSIAN WOLFHOUND"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "borzoi"
+      ],
+      "preferred_tag_slug": "borzoi",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "borzoi",
+        "russianwolfhound"
+      ]
+    },
+    {
+      "id": "boston-terrier",
+      "display_name": "BOSTON TERRIER",
+      "aka_names": [
+        "AMERICAN GENTLEMAN"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "bostonterrier"
+      ],
+      "preferred_tag_slug": "bostonterrier",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bostonterrier",
+        "americangentleman"
+      ]
+    },
+    {
+      "id": "bouvier-des-ardennes",
+      "display_name": "BOUVIER DES ARDENNES",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bouvierdesardennes"
+      ]
+    },
+    {
+      "id": "bouvier-des-flandres",
+      "display_name": "BOUVIER DES FLANDRES",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "bouvierdesflanders"
+      ],
+      "preferred_tag_slug": "bouvierdesflanders",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bouvierdesflandres",
+        "bouvierdesflanders"
+      ]
+    },
+    {
+      "id": "boxer-dog",
+      "display_name": "BOXER DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "boxerdog"
+      ],
+      "preferred_tag_slug": "boxerdog",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "boxerdog"
+      ]
+    },
+    {
+      "id": "brazilian-tracker",
+      "display_name": "BRAZILIAN TRACKER",
+      "aka_names": [
+        "RASTREADOR BRASILARIO"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "braziliantracker",
+        "rastreadorbrasilario"
+      ]
+    },
+    {
+      "id": "broholmer",
+      "display_name": "BROHOLMER",
+      "aka_names": [
+        "DANISH MASTIFF"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "broholmer",
+        "danishmastiff"
+      ]
+    },
+    {
+      "id": "brussels-griffon",
+      "display_name": "BRUSSELS GRIFFON",
+      "aka_names": [
+        "PETIT BRABANCON"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "brusselsgriffon"
+      ],
+      "preferred_tag_slug": "brusselsgriffon",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "brusselsgriffon",
+        "petitbrabancon"
+      ]
+    },
+    {
+      "id": "bucovina-shepherd",
+      "display_name": "BUCOVINA SHEPHERD",
+      "aka_names": [
+        "BUKOVINA SHEEPDOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bucovinashepherd",
+        "bukovinasheepdog"
+      ]
+    },
+    {
+      "id": "bull-terrier",
+      "display_name": "BULL TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "bullterrier"
+      ],
+      "preferred_tag_slug": "bullterrier",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bullterrier"
+      ]
+    },
+    {
+      "id": "bulldog",
+      "display_name": "BULLDOG",
+      "aka_names": [
+        "ENGLISH BULLDOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "bulldog"
+      ],
+      "preferred_tag_slug": "bulldog",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bulldog",
+        "englishbulldog"
+      ]
+    },
+    {
+      "id": "belgian-malinois-chien-de-berger-belge",
+      "display_name": "BELGIAN MALINOIS-CHIEN DE BERGER BELGE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "malinois"
+      ],
+      "preferred_tag_slug": "malinois",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "belgianmalinoischiendebergerbelge",
+        "malinois"
+      ]
+    },
+    {
+      "id": "boerboel",
+      "display_name": "BOERBOEL",
+      "aka_names": [
+        "SOUTH AFRICAN MASTIFF"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "boerboel"
+      ],
+      "preferred_tag_slug": "boerboel",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "boerboel",
+        "southafricanmastiff"
+      ]
+    },
+    {
+      "id": "border-collie",
+      "display_name": "BORDER COLLIE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "bordercollie"
+      ],
+      "preferred_tag_slug": "bordercollie",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bordercollie"
+      ]
+    },
+    {
+      "id": "bullmastiff",
+      "display_name": "BULLMASTIFF",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "bullmastiff"
+      ],
+      "preferred_tag_slug": "bullmastiff",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "bullmastiff"
+      ]
+    },
+    {
+      "id": "canaan-dog",
+      "display_name": "CANAAN DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "canaandog"
+      ]
+    },
+    {
+      "id": "canadian-eskimo-dog",
+      "display_name": "CANADIAN ESKIMO DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "canadianeskimodog"
+      ]
+    },
+    {
+      "id": "canarian-warren-hound",
+      "display_name": "CANARIAN WARREN HOUND",
+      "aka_names": [
+        "PODENCO CANARIO"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "canarianwarrenhound",
+        "podencocanario"
+      ]
+    },
+    {
+      "id": "catalan-sheepdog",
+      "display_name": "CATALAN SHEEPDOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "catalansheepdog"
+      ]
+    },
+    {
+      "id": "cavalier-king-charles-spaniel",
+      "display_name": "CAVALIER KING CHARLES SPANIEL",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "cavalierkingcharlesspaniel"
+      ],
+      "preferred_tag_slug": "cavalierkingcharlesspaniel",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "cavalierkingcharlesspaniel"
+      ]
+    },
+    {
+      "id": "cesky-terier",
+      "display_name": "CESKÝ TERIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "ceskyterier"
+      ]
+    },
+    {
+      "id": "chin",
+      "display_name": "CHIN",
+      "aka_names": [
+        "JAPANESE CHIN"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "chin",
+        "japanesechin"
+      ]
+    },
+    {
+      "id": "cirneco-delletna",
+      "display_name": "CIRNECO DELL'ETNA",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "cirnecodelletna"
+      ]
+    },
+    {
+      "id": "clumber-spaniel",
+      "display_name": "CLUMBER SPANIEL",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "clumberspaniel"
+      ]
+    },
+    {
+      "id": "continental-bulldog",
+      "display_name": "CONTINENTAL BULLDOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "continentalbulldog"
+      ]
+    },
+    {
+      "id": "croatian-shepherd-dog",
+      "display_name": "CROATIAN SHEPHERD DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "croatianshepherddog"
+      ]
+    },
+    {
+      "id": "curly-coated-retriever",
+      "display_name": "CURLY COATED RETRIEVER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "curlycoatedretriever"
+      ]
+    },
+    {
+      "id": "cairn-terrier",
+      "display_name": "CAIRN TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "cairnterrier"
+      ],
+      "preferred_tag_slug": "cairnterrier",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "cairnterrier"
+      ]
+    },
+    {
+      "id": "carpathian-shepherd-dog",
+      "display_name": "CARPATHIAN SHEPHERD DOG",
+      "aka_names": [
+        "CARPATHIAN SHEPHERD"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "carpathianshepherddog",
+        "carpathianshepherd"
+      ]
+    },
+    {
+      "id": "castro-laboreiro-dog",
+      "display_name": "CASTRO LABOREIRO DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "castrolaboreirodog"
+      ]
+    },
+    {
+      "id": "central-asian-ovcharka",
+      "display_name": "CENTRAL ASIAN OVCHARKA",
+      "aka_names": [
+        "CENTRAL ASIAN SHEPHERD"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "centralasianshepherd"
+      ],
+      "preferred_tag_slug": "centralasianshepherd",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "centralasianovcharka",
+        "centralasianshepherd"
+      ]
+    },
+    {
+      "id": "chesapeake-bay-retriever",
+      "display_name": "CHESAPEAKE BAY RETRIEVER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "chesapeakebayretriever"
+      ],
+      "preferred_tag_slug": "chesapeakebayretriever",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "chesapeakebayretriever"
+      ]
+    },
+    {
+      "id": "chihuahua",
+      "display_name": "CHIHUAHUA",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "chihuahua"
+      ],
+      "preferred_tag_slug": "chihuahua",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "chihuahua"
+      ]
+    },
+    {
+      "id": "chinook",
+      "display_name": "CHINOOK",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "chinook"
+      ]
+    },
+    {
+      "id": "chinese-crested-dog",
+      "display_name": "CHINESE CRESTED DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "chinesecrested"
+      ],
+      "preferred_tag_slug": "chinesecrested",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "chinesecresteddog",
+        "chinesecrested"
+      ]
+    },
+    {
+      "id": "cimarron-uruguayo",
+      "display_name": "CIMARRÓN URUGUAYO",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "cimarronuruguayo"
+      ]
+    },
+    {
+      "id": "collie-rough",
+      "display_name": "COLLIE ROUGH",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "collie"
+      ],
+      "preferred_tag_slug": "collie",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "collierough",
+        "collie"
+      ]
+    },
+    {
+      "id": "collie-smooth",
+      "display_name": "COLLIE SMOOTH",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "collie"
+      ],
+      "preferred_tag_slug": "collie",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "colliesmooth",
+        "collie"
+      ]
+    },
+    {
+      "id": "coton-de-tulear",
+      "display_name": "COTON DE TULEAR",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "coton"
+      ],
+      "preferred_tag_slug": "coton",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "cotondetulear",
+        "coton"
+      ]
+    },
+    {
+      "id": "czechoslovakian-wolfdog",
+      "display_name": "CZECHOSLOVAKIAN WOLFDOG",
+      "aka_names": [
+        "CZECHOSLOVAKIAN VLCAK"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "czechoslovakianwolfdog",
+        "czechoslovakianvlcak"
+      ]
+    },
+    {
+      "id": "cane-corso-italiano",
+      "display_name": "CANE CORSO ITALIANO",
+      "aka_names": [
+        "ITALIAN MASTIFF"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "canecorso"
+      ],
+      "preferred_tag_slug": "canecorso",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "canecorsoitaliano",
+        "italianmastiff",
+        "canecorso"
+      ]
+    },
+    {
+      "id": "caucasian-ovcharka",
+      "display_name": "CAUCASIAN OVCHARKA",
+      "aka_names": [
+        "CAUCASIAN SHEPHERD"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "caucasianshepherd"
+      ],
+      "preferred_tag_slug": "caucasianshepherd",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "caucasianovcharka",
+        "caucasianshepherd"
+      ]
+    },
+    {
+      "id": "chow-chow",
+      "display_name": "CHOW CHOW",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "chowchow"
+      ],
+      "preferred_tag_slug": "chowchow",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "chowchow"
+      ]
+    },
+    {
+      "id": "catahoula-leopard-dog",
+      "display_name": "CATAHOULA LEOPARD DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "catahoula"
+      ],
+      "preferred_tag_slug": "catahoula",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "catahoulaleoparddog",
+        "catahoula"
+      ]
+    },
+    {
+      "id": "danish-swedish-farmdog",
+      "display_name": "DANISH-SWEDISH FARMDOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "danishswedishfarmdog"
+      ]
+    },
+    {
+      "id": "deutsche-bracke",
+      "display_name": "DEUTSCHE BRACKE",
+      "aka_names": [
+        "GERMAN HOUND"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "deutschebracke",
+        "germanhound"
+      ]
+    },
+    {
+      "id": "drentsche-partridge-dog",
+      "display_name": "DRENTSCHE PARTRIDGE DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "drentschepartridgedog"
+      ]
+    },
+    {
+      "id": "drever",
+      "display_name": "DREVER",
+      "aka_names": [
+        "SWEDISH DACHSBRACKE"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "drever",
+        "swedishdachsbracke"
+      ]
+    },
+    {
+      "id": "dutch-schapendoes",
+      "display_name": "DUTCH SCHAPENDOES",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "dutchschapendoes"
+      ]
+    },
+    {
+      "id": "dutch-shepherd-dog",
+      "display_name": "DUTCH SHEPHERD DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "dutchshepherddog"
+      ]
+    },
+    {
+      "id": "dutch-smoushond",
+      "display_name": "DUTCH SMOUSHOND",
+      "aka_names": [
+        "DUTCH RATTER"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "dutchsmoushond",
+        "dutchratter"
+      ]
+    },
+    {
+      "id": "dachshund",
+      "display_name": "DACHSHUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "dachshund"
+      ]
+    },
+    {
+      "id": "dalmatian",
+      "display_name": "DALMATIAN",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "dalmatian"
+      ],
+      "preferred_tag_slug": "dalmatian",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "dalmatian"
+      ]
+    },
+    {
+      "id": "dandie-dinmont-terrier",
+      "display_name": "DANDIE DINMONT TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "dandie"
+      ],
+      "preferred_tag_slug": "dandie",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "dandiedinmontterrier",
+        "dandie"
+      ]
+    },
+    {
+      "id": "dobermann-pinscher",
+      "display_name": "DOBERMANN PINSCHER",
+      "aka_names": [
+        "DOBIE"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "doberman"
+      ],
+      "preferred_tag_slug": "doberman",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "dobermannpinscher",
+        "dobie",
+        "doberman"
+      ]
+    },
+    {
+      "id": "dogo-argentino",
+      "display_name": "DOGO ARGENTINO",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "dogoargentino"
+      ],
+      "preferred_tag_slug": "dogoargentino",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "dogoargentino"
+      ]
+    },
+    {
+      "id": "dogue-de-bordeaux",
+      "display_name": "DOGUE DE BORDEAUX",
+      "aka_names": [
+        "FRENCH MASTIFF"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "dogue"
+      ],
+      "preferred_tag_slug": "dogue",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "doguedebordeaux",
+        "frenchmastiff",
+        "dogue"
+      ]
+    },
+    {
+      "id": "east-siberian-laika",
+      "display_name": "EAST SIBERIAN LAIKA",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "eastsiberianlaika"
+      ]
+    },
+    {
+      "id": "english-pointer",
+      "display_name": "ENGLISH POINTER",
+      "aka_names": [
+        "POINTER"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "englishpointer",
+        "pointer"
+      ]
+    },
+    {
+      "id": "english-setter",
+      "display_name": "ENGLISH SETTER",
+      "aka_names": [
+        "LLEWELLIN"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "englishsetter"
+      ],
+      "preferred_tag_slug": "englishsetter",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "englishsetter",
+        "llewellin"
+      ]
+    },
+    {
+      "id": "english-springer-spaniel",
+      "display_name": "ENGLISH SPRINGER SPANIEL",
+      "aka_names": [
+        "SPRINGER SPANIEL"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "springerspaniel"
+      ],
+      "preferred_tag_slug": "springerspaniel",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "englishspringerspaniel",
+        "springerspaniel"
+      ]
+    },
+    {
+      "id": "english-toy-terrier",
+      "display_name": "ENGLISH TOY TERRIER",
+      "aka_names": [
+        "MANCHESTER TERRIER"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "englishtoyterrier",
+        "manchesterterrier"
+      ]
+    },
+    {
+      "id": "entlebucher-mountain-dog",
+      "display_name": "ENTLEBUCHER MOUNTAIN DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "entlebuchermountaindog"
+      ]
+    },
+    {
+      "id": "estonian-hound",
+      "display_name": "ESTONIAN HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "estonianhound"
+      ]
+    },
+    {
+      "id": "estrela-mountain-dog",
+      "display_name": "ESTRELA MOUNTAIN DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "estrelamountaindog"
+      ]
+    },
+    {
+      "id": "eurasier",
+      "display_name": "EURASIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "eurasier"
+      ]
+    },
+    {
+      "id": "english-cocker-spaniel",
+      "display_name": "ENGLISH COCKER SPANIEL",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "cockerspaniel"
+      ],
+      "preferred_tag_slug": "cockerspaniel",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "englishcockerspaniel",
+        "cockerspaniel"
+      ]
+    },
+    {
+      "id": "english-foxhound",
+      "display_name": "ENGLISH FOXHOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "englishfoxhound"
+      ]
+    },
+    {
+      "id": "fawn-brittany-griffon",
+      "display_name": "FAWN BRITTANY GRIFFON",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "fawnbrittanygriffon"
+      ]
+    },
+    {
+      "id": "field-spaniel",
+      "display_name": "FIELD SPANIEL",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "fieldspaniel"
+      ]
+    },
+    {
+      "id": "finnish-hound",
+      "display_name": "FINNISH HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "finnishhound"
+      ]
+    },
+    {
+      "id": "finnish-lapphund",
+      "display_name": "FINNISH LAPPHUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "lapphund"
+      ],
+      "preferred_tag_slug": "lapphund",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "finnishlapphund",
+        "lapphund"
+      ]
+    },
+    {
+      "id": "finnish-spitz",
+      "display_name": "FINNISH SPITZ",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "finnishspitz"
+      ]
+    },
+    {
+      "id": "flat-coated-retriever",
+      "display_name": "FLAT COATED RETRIEVER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "flatcoatedretriever"
+      ],
+      "preferred_tag_slug": "flatcoatedretriever",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "flatcoatedretriever"
+      ]
+    },
+    {
+      "id": "fox-terrier-smooth",
+      "display_name": "FOX TERRIER (SMOOTH)",
+      "aka_names": [
+        "SFT"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "foxterrier"
+      ],
+      "preferred_tag_slug": "foxterrier",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "foxterriersmooth",
+        "sft",
+        "foxterrier"
+      ]
+    },
+    {
+      "id": "fox-terrier-wire",
+      "display_name": "FOX TERRIER (WIRE)",
+      "aka_names": [
+        "WFT"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "foxterrier"
+      ],
+      "preferred_tag_slug": "foxterrier",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "foxterrierwire",
+        "wft",
+        "foxterrier"
+      ]
+    },
+    {
+      "id": "french-spaniel",
+      "display_name": "FRENCH SPANIEL",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "frenchspaniel"
+      ],
+      "preferred_tag_slug": "frenchspaniel",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "frenchspaniel"
+      ]
+    },
+    {
+      "id": "french-white-and-black-hound",
+      "display_name": "FRENCH WHITE & BLACK HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "frenchwhiteandblackhound"
+      ]
+    },
+    {
+      "id": "french-white-and-orange-hound",
+      "display_name": "FRENCH WHITE AND ORANGE HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "frenchwhiteandorangehound"
+      ]
+    },
+    {
+      "id": "frisian-water-dog",
+      "display_name": "FRISIAN WATER DOG",
+      "aka_names": [
+        "DUTCH SPANIEL"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "frisianwaterdog",
+        "dutchspaniel"
+      ]
+    },
+    {
+      "id": "fila-brasileiro",
+      "display_name": "FILA BRASILEIRO",
+      "aka_names": [
+        "BRAZILIAN MASTIFF"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "filabrasileiro",
+        "brazilianmastiff"
+      ]
+    },
+    {
+      "id": "french-bulldog",
+      "display_name": "FRENCH BULLDOG",
+      "aka_names": [
+        "FRENCHIE"
+      ],
+      "aliases": [
+        "Frenchie"
+      ],
+      "tag_slugs": [
+        "frenchie",
+        "frenchbulldog"
+      ],
+      "preferred_tag_slug": "frenchbulldog",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "frenchbulldog",
+        "frenchie"
+      ]
+    },
+    {
+      "id": "french-tricolour-hound",
+      "display_name": "FRENCH TRICOLOUR HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "frenchtricolourhound"
+      ]
+    },
+    {
+      "id": "gascon-saintongeois",
+      "display_name": "GASCON SAINTONGEOIS",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "gasconsaintongeois"
+      ]
+    },
+    {
+      "id": "german-hunting-terrier",
+      "display_name": "GERMAN HUNTING TERRIER",
+      "aka_names": [
+        "JAGDTERRIER"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "germanhuntingterrier",
+        "jagdterrier"
+      ]
+    },
+    {
+      "id": "german-long-haired-pointing-dog",
+      "display_name": "GERMAN LONG HAIRED POINTING DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "germanlonghairedpointingdog"
+      ]
+    },
+    {
+      "id": "german-pinscher",
+      "display_name": "GERMAN PINSCHER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "germanpinscher"
+      ]
+    },
+    {
+      "id": "german-spaniel",
+      "display_name": "GERMAN SPANIEL",
+      "aka_names": [
+        "DEUTSCHER WACHTELHUND"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "germanspaniel",
+        "deutscherwachtelhund"
+      ]
+    },
+    {
+      "id": "german-spitz",
+      "display_name": "GERMAN SPITZ",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "germanspitz"
+      ]
+    },
+    {
+      "id": "gordon-setter",
+      "display_name": "GORDON SETTER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "gordonsetter"
+      ]
+    },
+    {
+      "id": "grand-basset-griffon-vendeen",
+      "display_name": "GRAND BASSET GRIFFON VENDEEN",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "grandbassetgriffonvendeen"
+      ]
+    },
+    {
+      "id": "grand-bleu-de-gascogne",
+      "display_name": "GRAND BLEU DE GASCOGNE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "grandbleudegascogne"
+      ]
+    },
+    {
+      "id": "grand-griffon-vendeen",
+      "display_name": "GRAND GRIFFON VENDEEN",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "grandgriffonvendeen"
+      ]
+    },
+    {
+      "id": "greenland-dog",
+      "display_name": "GREENLAND DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "greenlanddog"
+      ]
+    },
+    {
+      "id": "griffon-bleu-de-gascogne",
+      "display_name": "GRIFFON BLEU DE GASCOGNE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "griffonbleudegascogne"
+      ]
+    },
+    {
+      "id": "griffon-nivernais",
+      "display_name": "GRIFFON NIVERNAIS",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "griffonnivernais"
+      ]
+    },
+    {
+      "id": "german-short-haired-pointing-dog",
+      "display_name": "GERMAN SHORT-HAIRED POINTING DOG",
+      "aka_names": [
+        "GSP"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "gsp"
+      ],
+      "preferred_tag_slug": "gsp",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "germanshorthairedpointingdog",
+        "gsp"
+      ]
+    },
+    {
+      "id": "german-wire-haired-pointing-dog",
+      "display_name": "GERMAN WIRE-HAIRED POINTING DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "germanwirehairedpointer"
+      ],
+      "preferred_tag_slug": "germanwirehairedpointer",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "germanwirehairedpointingdog",
+        "germanwirehairedpointer"
+      ]
+    },
+    {
+      "id": "giant-schnauzer",
+      "display_name": "GIANT SCHNAUZER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "giantschnauzer"
+      ],
+      "preferred_tag_slug": "giantschnauzer",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "giantschnauzer"
+      ]
+    },
+    {
+      "id": "golden-retriever",
+      "display_name": "GOLDEN RETRIEVER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "goldenretriever"
+      ],
+      "preferred_tag_slug": "goldenretriever",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "goldenretriever"
+      ]
+    },
+    {
+      "id": "great-dane",
+      "display_name": "GREAT DANE",
+      "aka_names": [
+        "GERMAN MASTIFF"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "greatdane"
+      ],
+      "preferred_tag_slug": "greatdane",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "greatdane",
+        "germanmastiff"
+      ]
+    },
+    {
+      "id": "great-pyrenees",
+      "display_name": "GREAT PYRENEES",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "greatpyrenees"
+      ],
+      "preferred_tag_slug": "greatpyrenees",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "greatpyrenees"
+      ]
+    },
+    {
+      "id": "greater-swiss-mountain-dog",
+      "display_name": "GREATER SWISS MOUNTAIN DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "swissy"
+      ],
+      "preferred_tag_slug": "swissy",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "greaterswissmountaindog",
+        "swissy"
+      ]
+    },
+    {
+      "id": "greyhound",
+      "display_name": "GREYHOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "greyhound"
+      ],
+      "preferred_tag_slug": "greyhound",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "greyhound"
+      ]
+    },
+    {
+      "id": "griffon-belge",
+      "display_name": "GRIFFON BELGE",
+      "aka_names": [
+        "BRUSSELS GRIFFON"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "brusselsgriffon"
+      ],
+      "preferred_tag_slug": "brusselsgriffon",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "griffonbelge",
+        "brusselsgriffon"
+      ]
+    },
+    {
+      "id": "german-shepherd-dog",
+      "display_name": "GERMAN SHEPHERD DOG",
+      "aka_names": [
+        "GSD"
+      ],
+      "aliases": [
+        "German Shepherd",
+        "GSD"
+      ],
+      "tag_slugs": [
+        "gsd",
+        "germanshepherddog",
+        "germanshepherd"
+      ],
+      "preferred_tag_slug": "germanshepherddog",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "germanshepherddog",
+        "gsd",
+        "germanshepherd"
+      ]
+    },
+    {
+      "id": "groenendael",
+      "display_name": "GROENENDAEL",
+      "aka_names": [
+        "BELGIAN SHEEPDOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "groenendael",
+        "belgiansheepdog"
+      ]
+    },
+    {
+      "id": "halden-hound",
+      "display_name": "HALDEN HOUND",
+      "aka_names": [
+        "HALDENSTØVER"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "haldenhound",
+        "haldenstver"
+      ]
+    },
+    {
+      "id": "hamiltonstovare",
+      "display_name": "HAMILTONSTÖVARE",
+      "aka_names": [
+        "SWEDISH FOXHOUND"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "hamiltonstovare",
+        "swedishfoxhound"
+      ]
+    },
+    {
+      "id": "hanoverian-scent-hound",
+      "display_name": "HANOVERIAN SCENT HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "hanoverianscenthound"
+      ]
+    },
+    {
+      "id": "harrier",
+      "display_name": "HARRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "harrier"
+      ]
+    },
+    {
+      "id": "hellenic-hound",
+      "display_name": "HELLENIC HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "hellenichound"
+      ]
+    },
+    {
+      "id": "hokkaido",
+      "display_name": "HOKKAIDO",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "hokkaido"
+      ]
+    },
+    {
+      "id": "hovawart",
+      "display_name": "HOVAWART",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "hovawart"
+      ]
+    },
+    {
+      "id": "hungarian-greyhound",
+      "display_name": "HUNGARIAN GREYHOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "hungariangreyhound"
+      ]
+    },
+    {
+      "id": "hygenhund",
+      "display_name": "HYGENHUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "hygenhund"
+      ]
+    },
+    {
+      "id": "havanese",
+      "display_name": "HAVANESE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "havanese"
+      ],
+      "preferred_tag_slug": "havanese",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "havanese"
+      ]
+    },
+    {
+      "id": "ibizan-hound",
+      "display_name": "IBIZAN HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "ibizanhound"
+      ]
+    },
+    {
+      "id": "irish-glen-of-imaal-terrier",
+      "display_name": "IRISH GLEN OF IMAAL TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "irishglenofimaalterrier"
+      ]
+    },
+    {
+      "id": "irish-red-and-white-setter",
+      "display_name": "IRISH RED AND WHITE SETTER",
+      "aka_names": [
+        "IRWS"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "irishredandwhitesetter",
+        "irws"
+      ]
+    },
+    {
+      "id": "irish-terrier",
+      "display_name": "IRISH TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "irishterrier"
+      ],
+      "preferred_tag_slug": "irishterrier",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "irishterrier"
+      ]
+    },
+    {
+      "id": "istrian-short-haired-hound",
+      "display_name": "ISTRIAN SHORT-HAIRED HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "istrianshorthairedhound"
+      ]
+    },
+    {
+      "id": "italian-greyhound",
+      "display_name": "ITALIAN GREYHOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "italiangreyhound"
+      ],
+      "preferred_tag_slug": "italiangreyhound",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "italiangreyhound"
+      ]
+    },
+    {
+      "id": "jamthund",
+      "display_name": "JÄMTHUND",
+      "aka_names": [
+        "SWEDISH ELKHOUND"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "jamthund",
+        "swedishelkhound"
+      ]
+    },
+    {
+      "id": "japanese-spitz",
+      "display_name": "JAPANESE SPITZ",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "japanesespitz"
+      ]
+    },
+    {
+      "id": "icelandic-sheepdog",
+      "display_name": "ICELANDIC SHEEPDOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "icelandicsheepdog"
+      ],
+      "preferred_tag_slug": "icelandicsheepdog",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "icelandicsheepdog"
+      ]
+    },
+    {
+      "id": "irish-setter",
+      "display_name": "IRISH SETTER",
+      "aka_names": [
+        "IRISH RED SETTER"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "irishsetter"
+      ],
+      "preferred_tag_slug": "irishsetter",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "irishsetter",
+        "irishredsetter"
+      ]
+    },
+    {
+      "id": "irish-water-spaniel",
+      "display_name": "IRISH WATER SPANIEL",
+      "aka_names": [
+        "RAT TAIL SPANIEL"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "irishwaterspaniel",
+        "rattailspaniel"
+      ]
+    },
+    {
+      "id": "irish-wolfhound",
+      "display_name": "IRISH WOLFHOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "irishwolfhound"
+      ],
+      "preferred_tag_slug": "irishwolfhound",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "irishwolfhound"
+      ]
+    },
+    {
+      "id": "istrian-wire-haired-hound",
+      "display_name": "ISTRIAN WIRE-HAIRED HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "istrianwirehairedhound"
+      ]
+    },
+    {
+      "id": "jack-russell-terrier",
+      "display_name": "JACK RUSSELL TERRIER",
+      "aka_names": [
+        "PARSON RUSSELL TERRIER"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "jrt"
+      ],
+      "preferred_tag_slug": "jrt",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "jackrussellterrier",
+        "parsonrussellterrier",
+        "jrt"
+      ]
+    },
+    {
+      "id": "japanese-terrier",
+      "display_name": "JAPANESE TERRIER",
+      "aka_names": [
+        "NIPPON TERRIER"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "japaneseterrier",
+        "nipponterrier"
+      ]
+    },
+    {
+      "id": "kangal-shepherd-dog",
+      "display_name": "KANGAL SHEPHERD DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "kangalshepherddog"
+      ]
+    },
+    {
+      "id": "karst-shepherd-dog",
+      "display_name": "KARST SHEPHERD DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "karstshepherddog"
+      ]
+    },
+    {
+      "id": "keeshond",
+      "display_name": "KEESHOND",
+      "aka_names": [
+        "DUTCH BARGE DOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "keeshond"
+      ],
+      "preferred_tag_slug": "keeshond",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "keeshond",
+        "dutchbargedog"
+      ]
+    },
+    {
+      "id": "kerry-blue-terrier",
+      "display_name": "KERRY BLUE TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "kerryblueterrier"
+      ],
+      "preferred_tag_slug": "kerryblueterrier",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "kerryblueterrier"
+      ]
+    },
+    {
+      "id": "kintamani-bali-dog",
+      "display_name": "KINTAMANI-BALI DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "kintamanibalidog"
+      ]
+    },
+    {
+      "id": "kishu-ken",
+      "display_name": "KISHU KEN",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "kishuken"
+      ]
+    },
+    {
+      "id": "komondor",
+      "display_name": "KOMONDOR",
+      "aka_names": [
+        "HUNGARIAN SHEEPDOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "komondor",
+        "hungariansheepdog"
+      ]
+    },
+    {
+      "id": "kromfohrlander",
+      "display_name": "KROMFOHRLÄNDER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "kromfohrlander"
+      ]
+    },
+    {
+      "id": "kai-ken",
+      "display_name": "KAI KEN",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "kaiken"
+      ],
+      "preferred_tag_slug": "kaiken",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "kaiken"
+      ]
+    },
+    {
+      "id": "karelian-bear-dog",
+      "display_name": "KARELIAN BEAR DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "karelianbeardog"
+      ],
+      "preferred_tag_slug": "karelianbeardog",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "karelianbeardog"
+      ]
+    },
+    {
+      "id": "king-charles-spaniel",
+      "display_name": "KING CHARLES SPANIEL",
+      "aka_names": [
+        "ENGLISH TOY SPANIEL"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "cavalierkingcharlesspaniel"
+      ],
+      "preferred_tag_slug": "cavalierkingcharlesspaniel",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "kingcharlesspaniel",
+        "englishtoyspaniel",
+        "cavalierkingcharlesspaniel"
+      ]
+    },
+    {
+      "id": "korea-jindo-dog",
+      "display_name": "KOREA JINDO DOG",
+      "aka_names": [
+        "JINDO"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "koreajindodog",
+        "jindo"
+      ]
+    },
+    {
+      "id": "kuvasz",
+      "display_name": "KUVASZ",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "kuvasz"
+      ],
+      "preferred_tag_slug": "kuvasz",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "kuvasz"
+      ]
+    },
+    {
+      "id": "laekenois",
+      "display_name": "LAEKENOIS",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "laekenois"
+      ]
+    },
+    {
+      "id": "lagotto-romagnolo",
+      "display_name": "LAGOTTO ROMAGNOLO",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "lagottoromagnolo"
+      ]
+    },
+    {
+      "id": "lakeland-terrier",
+      "display_name": "LAKELAND TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "lakelandterrier"
+      ],
+      "preferred_tag_slug": "lakelandterrier",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "lakelandterrier"
+      ]
+    },
+    {
+      "id": "landseer",
+      "display_name": "LANDSEER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "newfoundland"
+      ],
+      "preferred_tag_slug": "newfoundland",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "landseer",
+        "newfoundland"
+      ]
+    },
+    {
+      "id": "lapponian-herder",
+      "display_name": "LAPPONIAN HERDER",
+      "aka_names": [
+        "LAPLAND REINDEER DOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "lapponianherder",
+        "laplandreindeerdog"
+      ]
+    },
+    {
+      "id": "large-munsterlander",
+      "display_name": "LARGE MUNSTERLANDER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "munsterlander"
+      ],
+      "preferred_tag_slug": "munsterlander",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "largemunsterlander",
+        "munsterlander"
+      ]
+    },
+    {
+      "id": "majorca-mastiff",
+      "display_name": "MAJORCA MASTIFF",
+      "aka_names": [
+        "MAJORCAN BULLDOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "majorcamastiff",
+        "majorcanbulldog"
+      ]
+    },
+    {
+      "id": "majorca-shepherd-dog",
+      "display_name": "MAJORCA SHEPHERD DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "majorcashepherddog"
+      ]
+    },
+    {
+      "id": "manchester-terrier",
+      "display_name": "MANCHESTER TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "manchesterterrier"
+      ]
+    },
+    {
+      "id": "markiesje",
+      "display_name": "MARKIESJE",
+      "aka_names": [
+        "DUTCH TULIP DOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "markiesje",
+        "dutchtulipdog"
+      ]
+    },
+    {
+      "id": "mastiff",
+      "display_name": "MASTIFF",
+      "aka_names": [
+        "ENGLISH MASTIFF"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "mastiff"
+      ],
+      "preferred_tag_slug": "mastiff",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "mastiff",
+        "englishmastiff"
+      ]
+    },
+    {
+      "id": "miniature-american-shepherd",
+      "display_name": "MINIATURE AMERICAN SHEPHERD",
+      "aka_names": [
+        "MINIATURE AUSTRALIAN SHEPHERD"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "miniatureamericanshepherd",
+        "miniatureaustralianshepherd"
+      ]
+    },
+    {
+      "id": "miniature-bull-terrier",
+      "display_name": "MINIATURE BULL TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "miniaturebullterrier"
+      ]
+    },
+    {
+      "id": "miniature-pinscher",
+      "display_name": "MINIATURE PINSCHER",
+      "aka_names": [
+        "MIN PIN"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "miniaturepinscher",
+        "minpin"
+      ]
+    },
+    {
+      "id": "mioritic-shepherd-dog",
+      "display_name": "MIORITIC SHEPHERD DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "mioriticshepherddog"
+      ]
+    },
+    {
+      "id": "montenegrin-mountain-hound",
+      "display_name": "MONTENEGRIN MOUNTAIN HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "montenegrinmountainhound"
+      ]
+    },
+    {
+      "id": "mudi",
+      "display_name": "MUDI",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "mudi"
+      ]
+    },
+    {
+      "id": "labrador-retriever",
+      "display_name": "LABRADOR RETRIEVER",
+      "aka_names": [],
+      "aliases": [
+        "Lab"
+      ],
+      "tag_slugs": [
+        "lab"
+      ],
+      "preferred_tag_slug": "lab",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "labradorretriever",
+        "lab"
+      ]
+    },
+    {
+      "id": "lancashire-heeler",
+      "display_name": "LANCASHIRE HEELER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "lancashireheeler"
+      ]
+    },
+    {
+      "id": "leonberger",
+      "display_name": "LEONBERGER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "leonberger"
+      ],
+      "preferred_tag_slug": "leonberger",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "leonberger"
+      ]
+    },
+    {
+      "id": "lhasa-apso",
+      "display_name": "LHASA APSO",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "lhasaapso"
+      ],
+      "preferred_tag_slug": "lhasaapso",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "lhasaapso"
+      ]
+    },
+    {
+      "id": "maltese",
+      "display_name": "MALTESE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "maltese"
+      ],
+      "preferred_tag_slug": "maltese",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "maltese"
+      ]
+    },
+    {
+      "id": "maremmano-sheepdog",
+      "display_name": "MAREMMANO SHEEPDOG",
+      "aka_names": [
+        "ABRUZZESE SHEEPDOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "maremmanosheepdog",
+        "abruzzesesheepdog"
+      ]
+    },
+    {
+      "id": "miniature-schnauzer",
+      "display_name": "MINIATURE SCHNAUZER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "schnauzer"
+      ],
+      "preferred_tag_slug": "schnauzer",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "miniatureschnauzer",
+        "schnauzer"
+      ]
+    },
+    {
+      "id": "neapolitan-mastiff",
+      "display_name": "NEAPOLITAN MASTIFF",
+      "aka_names": [
+        "ITALIAN MASTIFF"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "neapolitanmastiff",
+        "italianmastiff"
+      ]
+    },
+    {
+      "id": "nederlandse-kooikerhondje",
+      "display_name": "NEDERLANDSE KOOIKERHONDJE",
+      "aka_names": [
+        "DUTCH DECOY DOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "kooikerhondje"
+      ],
+      "preferred_tag_slug": "kooikerhondje",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "nederlandsekooikerhondje",
+        "dutchdecoydog",
+        "kooikerhondje"
+      ]
+    },
+    {
+      "id": "norfolk-terrier",
+      "display_name": "NORFOLK TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "norfolkterrier"
+      ],
+      "preferred_tag_slug": "norfolkterrier",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "norfolkterrier"
+      ]
+    },
+    {
+      "id": "norrbotten-spitz",
+      "display_name": "NORRBOTTEN SPITZ",
+      "aka_names": [
+        "NORDIC SPITZ"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "norrbottenspitz",
+        "nordicspitz"
+      ]
+    },
+    {
+      "id": "norwegian-buhund",
+      "display_name": "NORWEGIAN BUHUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "norwegianbuhund"
+      ]
+    },
+    {
+      "id": "norwegian-elkhound",
+      "display_name": "NORWEGIAN ELKHOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "elkhound"
+      ],
+      "preferred_tag_slug": "elkhound",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "norwegianelkhound",
+        "elkhound"
+      ]
+    },
+    {
+      "id": "norwegian-hound",
+      "display_name": "NORWEGIAN HOUND",
+      "aka_names": [
+        "DUNKER"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "norwegianhound",
+        "dunker"
+      ]
+    },
+    {
+      "id": "norwegian-lundehund",
+      "display_name": "NORWEGIAN LUNDEHUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "norwegianlundehund"
+      ]
+    },
+    {
+      "id": "norwich-terrier",
+      "display_name": "NORWICH TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "norwichterrier"
+      ]
+    },
+    {
+      "id": "nova-scotia-duck-tolling-retriever",
+      "display_name": "NOVA SCOTIA DUCK TOLLING RETRIEVER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "nsdtr"
+      ],
+      "preferred_tag_slug": "nsdtr",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "novascotiaducktollingretriever",
+        "nsdtr"
+      ]
+    },
+    {
+      "id": "old-danish-pointing-dog",
+      "display_name": "OLD DANISH POINTING DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "olddanishpointingdog"
+      ]
+    },
+    {
+      "id": "old-english-sheepdog",
+      "display_name": "OLD ENGLISH SHEEPDOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "oldenglishsheepdog"
+      ],
+      "preferred_tag_slug": "oldenglishsheepdog",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "oldenglishsheepdog"
+      ]
+    },
+    {
+      "id": "newfoundland",
+      "display_name": "NEWFOUNDLAND",
+      "aka_names": [
+        "NEWFIE"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "newfoundland"
+      ],
+      "preferred_tag_slug": "newfoundland",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "newfoundland",
+        "newfie"
+      ]
+    },
+    {
+      "id": "otterhound",
+      "display_name": "OTTERHOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "otterhound"
+      ]
+    },
+    {
+      "id": "papillon",
+      "display_name": "PAPILLON",
+      "aka_names": [
+        "CONTINENTAL TOY SPANIEL"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "papillon"
+      ],
+      "preferred_tag_slug": "papillon",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "papillon",
+        "continentaltoyspaniel"
+      ]
+    },
+    {
+      "id": "peruvian-hairless-dog",
+      "display_name": "PERUVIAN HAIRLESS DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "peruvianhairlessdog"
+      ]
+    },
+    {
+      "id": "petit-basset-griffon-vendeen",
+      "display_name": "PETIT BASSET GRIFFON VENDEEN",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "petitbassetgriffonvendeen"
+      ]
+    },
+    {
+      "id": "petit-bleu-de-gascogne",
+      "display_name": "PETIT BLEU DE GASCOGNE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "petitbleudegascogne"
+      ]
+    },
+    {
+      "id": "phalene",
+      "display_name": "PHALENE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "phalene"
+      ]
+    },
+    {
+      "id": "pharaoh-hound",
+      "display_name": "PHARAOH HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "pharaohhound"
+      ]
+    },
+    {
+      "id": "podengo-portugues",
+      "display_name": "PODENGO PORTUGUÊS",
+      "aka_names": [
+        "PORTUGUESE WARREN HOUND"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "podengoportugues",
+        "portuguesewarrenhound"
+      ]
+    },
+    {
+      "id": "poitevin",
+      "display_name": "POITEVIN",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "poitevin"
+      ]
+    },
+    {
+      "id": "polish-greyhound",
+      "display_name": "POLISH GREYHOUND",
+      "aka_names": [
+        "CHART POLSKI"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "polishgreyhound",
+        "chartpolski"
+      ]
+    },
+    {
+      "id": "polish-hound",
+      "display_name": "POLISH HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "polishhound"
+      ]
+    },
+    {
+      "id": "polish-hunting-dog",
+      "display_name": "POLISH HUNTING DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "polishhuntingdog"
+      ]
+    },
+    {
+      "id": "polish-lowland-sheepdog",
+      "display_name": "POLISH LOWLAND SHEEPDOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "polishlowlandsheepdog"
+      ]
+    },
+    {
+      "id": "pomeranian",
+      "display_name": "POMERANIAN",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "pomeranian"
+      ],
+      "preferred_tag_slug": "pomeranian",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "pomeranian"
+      ]
+    },
+    {
+      "id": "pont-audemer-spaniel",
+      "display_name": "PONT-AUDEMER SPANIEL",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "pontaudemerspaniel"
+      ]
+    },
+    {
+      "id": "poodle",
+      "display_name": "POODLE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "poodle"
+      ],
+      "preferred_tag_slug": "poodle",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "poodle"
+      ]
+    },
+    {
+      "id": "porcelaine",
+      "display_name": "PORCELAINE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "porcelaine"
+      ]
+    },
+    {
+      "id": "portuguese-pointing-dog",
+      "display_name": "PORTUGUESE POINTING DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "portuguesepointingdog"
+      ]
+    },
+    {
+      "id": "portuguese-sheepdog",
+      "display_name": "PORTUGUESE SHEEPDOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "portuguesesheepdog"
+      ]
+    },
+    {
+      "id": "posavatz-hound",
+      "display_name": "POSAVATZ HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "posavatzhound"
+      ]
+    },
+    {
+      "id": "prague-ratter",
+      "display_name": "PRAGUE RATTER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "pragueratter"
+      ]
+    },
+    {
+      "id": "presa-canario",
+      "display_name": "PRESA CANARIO",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "presacanario"
+      ]
+    },
+    {
+      "id": "pudelpointer",
+      "display_name": "PUDELPOINTER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "pudelpointer"
+      ],
+      "preferred_tag_slug": "pudelpointer",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "pudelpointer"
+      ]
+    },
+    {
+      "id": "puli",
+      "display_name": "PULI",
+      "aka_names": [
+        "HUNGARIAN SHEEPDOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "puli",
+        "hungariansheepdog"
+      ]
+    },
+    {
+      "id": "pumi",
+      "display_name": "PUMI",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "pumi"
+      ]
+    },
+    {
+      "id": "pyrenean-mastiff",
+      "display_name": "PYRENEAN MASTIFF",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "pyreneanmastiff"
+      ]
+    },
+    {
+      "id": "parson-russell-terrier",
+      "display_name": "PARSON RUSSELL TERRIER",
+      "aka_names": [
+        "JACK RUSSELL TERRIER"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "jrt"
+      ],
+      "preferred_tag_slug": "jrt",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "parsonrussellterrier",
+        "jackrussellterrier",
+        "jrt"
+      ]
+    },
+    {
+      "id": "pekingese",
+      "display_name": "PEKINGESE",
+      "aka_names": [
+        "CHINESE SPANIEL"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "pekingese"
+      ],
+      "preferred_tag_slug": "pekingese",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "pekingese",
+        "chinesespaniel"
+      ]
+    },
+    {
+      "id": "petit-brabancon",
+      "display_name": "PETIT BRABANÇON",
+      "aka_names": [
+        "BRUSSELS GRIFFON"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "brusselsgriffon"
+      ],
+      "preferred_tag_slug": "brusselsgriffon",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "petitbrabancon",
+        "brusselsgriffon"
+      ]
+    },
+    {
+      "id": "petit-chien-lion",
+      "display_name": "PETIT CHIEN LION",
+      "aka_names": [
+        "LOWCHEN"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "petitchienlion",
+        "lowchen"
+      ]
+    },
+    {
+      "id": "picardy-spaniel",
+      "display_name": "PICARDY SPANIEL",
+      "aka_names": [
+        "EPAGNEUL PICARD"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "picardyspaniel",
+        "epagneulpicard"
+      ]
+    },
+    {
+      "id": "portuguese-water-dog",
+      "display_name": "PORTUGUESE WATER DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "portuguesewaterdog"
+      ]
+    },
+    {
+      "id": "pug",
+      "display_name": "PUG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "pug"
+      ],
+      "preferred_tag_slug": "pug",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "pug"
+      ]
+    },
+    {
+      "id": "pyrenean-sheepdog",
+      "display_name": "PYRENEAN SHEEPDOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "pyreneansheepdog"
+      ]
+    },
+    {
+      "id": "rafeiro-do-alentejo",
+      "display_name": "RAFEIRO DO ALENTEJO",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "rafeirodoalentejo"
+      ]
+    },
+    {
+      "id": "rat-terrier",
+      "display_name": "RAT TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "ratterrier"
+      ]
+    },
+    {
+      "id": "russian-toy",
+      "display_name": "RUSSIAN TOY",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "russiantoy"
+      ]
+    },
+    {
+      "id": "russian-tsventaya-bolonka",
+      "display_name": "RUSSIAN TSVENTAYA BOLONKA",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "russiantsventayabolonka"
+      ]
+    },
+    {
+      "id": "rhodesian-ridgeback",
+      "display_name": "RHODESIAN RIDGEBACK",
+      "aka_names": [
+        "AFRICAN LION DOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "rhodesianridgeback"
+      ],
+      "preferred_tag_slug": "rhodesianridgeback",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "rhodesianridgeback",
+        "africanliondog"
+      ]
+    },
+    {
+      "id": "rottweiler",
+      "display_name": "ROTTWEILER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "rottweiler"
+      ],
+      "preferred_tag_slug": "rottweiler",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "rottweiler"
+      ]
+    },
+    {
+      "id": "russian-black-terrier",
+      "display_name": "RUSSIAN BLACK TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "russianblackterrier"
+      ]
+    },
+    {
+      "id": "russian-european-laika",
+      "display_name": "RUSSIAN-EUROPEAN LAIKA",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "russianeuropeanlaika"
+      ]
+    },
+    {
+      "id": "saarloos-wolfhond",
+      "display_name": "SAARLOOS WOLFHOND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "saarlooswolfhond"
+      ]
+    },
+    {
+      "id": "saint-miguel-cattle-dog",
+      "display_name": "SAINT MIGUEL CATTLE DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "saintmiguelcattledog"
+      ]
+    },
+    {
+      "id": "saluki",
+      "display_name": "SALUKI",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "saluki"
+      ]
+    },
+    {
+      "id": "schillerstovare",
+      "display_name": "SCHILLERSTÖVARE",
+      "aka_names": [
+        "SCHILLER HOUND"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "schillerstovare",
+        "schillerhound"
+      ]
+    },
+    {
+      "id": "schipperke",
+      "display_name": "SCHIPPERKE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "schipperke"
+      ]
+    },
+    {
+      "id": "scottish-deerhound",
+      "display_name": "SCOTTISH DEERHOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "scottishdeerhound"
+      ]
+    },
+    {
+      "id": "segugio-italiano-pelo-raso",
+      "display_name": "SEGUGIO ITALIANO PELO RASO",
+      "aka_names": [
+        "ITALIAN SHORT-HAIRED SEGUGIO"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "segugioitalianopeloraso",
+        "italianshorthairedsegugio"
+      ]
+    },
+    {
+      "id": "segugio-italiano-pelo-forte",
+      "display_name": "SEGUGIO ITALIANO PELO FORTE",
+      "aka_names": [
+        "ITALIAN ROUGH-HAIRED SEGUGIO"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "segugioitalianopeloforte",
+        "italianroughhairedsegugio"
+      ]
+    },
+    {
+      "id": "segugio-maremmano",
+      "display_name": "SEGUGIO MAREMMANO",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "segugiomaremmano"
+      ]
+    },
+    {
+      "id": "serbian-hound",
+      "display_name": "SERBIAN HOUND",
+      "aka_names": [
+        "BALKAN HOUND"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "serbianhound",
+        "balkanhound"
+      ]
+    },
+    {
+      "id": "shikoku",
+      "display_name": "SHIKOKU",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "shikoku"
+      ]
+    },
+    {
+      "id": "skye-terrier",
+      "display_name": "SKYE TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "skyeterrier"
+      ]
+    },
+    {
+      "id": "slovakian-chuvach",
+      "display_name": "SLOVAKIAN CHUVACH",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "slovakianchuvach"
+      ]
+    },
+    {
+      "id": "slovakian-hound",
+      "display_name": "SLOVAKIAN HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "slovakianhound"
+      ]
+    },
+    {
+      "id": "smalandsstovare",
+      "display_name": "SMÅLANDSSTÖVARE",
+      "aka_names": [
+        "SMALAND HOUND"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "smalandsstovare",
+        "smalandhound"
+      ]
+    },
+    {
+      "id": "small-munsterlander",
+      "display_name": "SMALL MÜNSTERLÄNDER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "smallmunsterlander"
+      ]
+    },
+    {
+      "id": "soft-coated-wheaten-terrier",
+      "display_name": "SOFT COATED WHEATEN TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "softcoatedwheatenterrier"
+      ]
+    },
+    {
+      "id": "south-russian-shepherd-dog",
+      "display_name": "SOUTH RUSSIAN SHEPHERD DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "southrussianshepherddog"
+      ]
+    },
+    {
+      "id": "spanish-greyhound",
+      "display_name": "SPANISH GREYHOUND",
+      "aka_names": [
+        "GALGO"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "spanishgreyhound",
+        "galgo"
+      ]
+    },
+    {
+      "id": "spanish-hound",
+      "display_name": "SPANISH HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "spanishhound"
+      ]
+    },
+    {
+      "id": "spanish-mastiff",
+      "display_name": "SPANISH MASTIFF",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "spanishmastiff"
+      ]
+    },
+    {
+      "id": "spanish-water-dog",
+      "display_name": "SPANISH WATER DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "spanishwaterdog"
+      ]
+    },
+    {
+      "id": "stabijhoun",
+      "display_name": "STABIJHOUN",
+      "aka_names": [
+        "FRISTAN POINTER"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "stabijhoun",
+        "fristanpointer"
+      ]
+    },
+    {
+      "id": "styrian-hound",
+      "display_name": "STYRIAN HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "styrianhound"
+      ]
+    },
+    {
+      "id": "sussex-spaniel",
+      "display_name": "SUSSEX SPANIEL",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "sussexspaniel"
+      ]
+    },
+    {
+      "id": "swedish-lapphund",
+      "display_name": "SWEDISH LAPPHUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "swedishlapphund"
+      ]
+    },
+    {
+      "id": "swedish-vallhund",
+      "display_name": "SWEDISH VALLHUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "vallhund"
+      ],
+      "preferred_tag_slug": "vallhund",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "swedishvallhund",
+        "vallhund"
+      ]
+    },
+    {
+      "id": "swiss-hound",
+      "display_name": "SWISS HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "swisshound"
+      ]
+    },
+    {
+      "id": "samoyed",
+      "display_name": "SAMOYED",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "samoyed"
+      ],
+      "preferred_tag_slug": "samoyed",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "samoyed"
+      ]
+    },
+    {
+      "id": "schnauzer-standard",
+      "display_name": "SCHNAUZER - STANDARD",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "schnauzer"
+      ],
+      "preferred_tag_slug": "schnauzer",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "schnauzerstandard",
+        "schnauzer"
+      ]
+    },
+    {
+      "id": "scottish-terrier",
+      "display_name": "SCOTTISH TERRIER",
+      "aka_names": [],
+      "aliases": [
+        "Scottie"
+      ],
+      "tag_slugs": [
+        "scottie"
+      ],
+      "preferred_tag_slug": "scottie",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "scottishterrier",
+        "scottie"
+      ]
+    },
+    {
+      "id": "sealyham-terrier",
+      "display_name": "SEALYHAM TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "sealyhamterrier"
+      ]
+    },
+    {
+      "id": "shar-pei",
+      "display_name": "SHAR PEI",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "sharpei"
+      ],
+      "preferred_tag_slug": "sharpei",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "sharpei"
+      ]
+    },
+    {
+      "id": "shetland-sheepdog",
+      "display_name": "SHETLAND SHEEPDOG",
+      "aka_names": [
+        "SHELTIE"
+      ],
+      "aliases": [
+        "Sheltie"
+      ],
+      "tag_slugs": [
+        "sheltie",
+        "shetlandsheepdog"
+      ],
+      "preferred_tag_slug": "sheltie",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "shetlandsheepdog",
+        "sheltie"
+      ]
+    },
+    {
+      "id": "shiba-inu",
+      "display_name": "SHIBA INU",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "shibainu"
+      ],
+      "preferred_tag_slug": "shibainu",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "shibainu"
+      ]
+    },
+    {
+      "id": "shih-tzu",
+      "display_name": "SHIH TZU",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "shihtzu"
+      ],
+      "preferred_tag_slug": "shihtzu",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "shihtzu"
+      ]
+    },
+    {
+      "id": "siberian-husky",
+      "display_name": "SIBERIAN HUSKY",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "husky"
+      ],
+      "preferred_tag_slug": "husky",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "siberianhusky",
+        "husky"
+      ]
+    },
+    {
+      "id": "sloughi",
+      "display_name": "SLOUGHI",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "sloughi"
+      ]
+    },
+    {
+      "id": "spinone-italiano",
+      "display_name": "SPINONE ITALIANO",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "spinone"
+      ],
+      "preferred_tag_slug": "spinone",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "spinoneitaliano",
+        "spinone"
+      ]
+    },
+    {
+      "id": "st-bernard",
+      "display_name": "ST. BERNARD",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "stbernard"
+      ],
+      "preferred_tag_slug": "stbernard",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "stbernard"
+      ]
+    },
+    {
+      "id": "staffordshire-bull-terrier",
+      "display_name": "STAFFORDSHIRE BULL TERRIER",
+      "aka_names": [
+        "STAFFIE",
+        "STAFFY"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "staffy"
+      ],
+      "preferred_tag_slug": "staffy",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "staffordshirebullterrier",
+        "staffie",
+        "staffy"
+      ]
+    },
+    {
+      "id": "taiwan-dog",
+      "display_name": "TAIWAN DOG",
+      "aka_names": [
+        "FORMOSAN MOUNTAIN DOG"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "taiwandog",
+        "formosanmountaindog"
+      ]
+    },
+    {
+      "id": "tatra-shepherd-dog",
+      "display_name": "TATRA SHEPHERD DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "tatrashepherddog"
+      ]
+    },
+    {
+      "id": "thai-bangkaew-dog",
+      "display_name": "THAI BANGKAEW DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "thaibangkaewdog"
+      ]
+    },
+    {
+      "id": "thai-ridgeback-dog",
+      "display_name": "THAI RIDGEBACK DOG",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "thairidgebackdog"
+      ]
+    },
+    {
+      "id": "tibetan-mastiff",
+      "display_name": "TIBETAN MASTIFF",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "tibetanmastiff"
+      ]
+    },
+    {
+      "id": "tibetan-spaniel",
+      "display_name": "TIBETAN SPANIEL",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "tibetanspaniel"
+      ]
+    },
+    {
+      "id": "tibetan-terrier",
+      "display_name": "TIBETAN TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "tibetanterrier"
+      ]
+    },
+    {
+      "id": "tornjak",
+      "display_name": "TORNJAK",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "tornjak"
+      ]
+    },
+    {
+      "id": "tosa",
+      "display_name": "TOSA",
+      "aka_names": [
+        "JAPANESE MASTIFF"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "tosa",
+        "japanesemastiff"
+      ]
+    },
+    {
+      "id": "transmontano-mastiff",
+      "display_name": "TRANSMONTANO MASTIFF",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "transmontanomastiff"
+      ]
+    },
+    {
+      "id": "tyrolean-hound",
+      "display_name": "TYROLEAN HOUND",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "tyroleanhound"
+      ]
+    },
+    {
+      "id": "valencian-terrier",
+      "display_name": "VALENCIAN TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "valencianterrier"
+      ]
+    },
+    {
+      "id": "volpino-italiano",
+      "display_name": "VOLPINO ITALIANO",
+      "aka_names": [
+        "ITALIAN SPITZ"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "volpinoitaliano",
+        "italianspitz"
+      ]
+    },
+    {
+      "id": "transylvanian-scent-hound",
+      "display_name": "TRANSYLVANIAN SCENT HOUND",
+      "aka_names": [
+        "HUNGARIAN HOUND"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "transylvanianscenthound",
+        "hungarianhound"
+      ]
+    },
+    {
+      "id": "tervuren",
+      "display_name": "TERVUREN",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "tervuren"
+      ]
+    },
+    {
+      "id": "vizsla-wirehaired",
+      "display_name": "VIZSLA WIREHAIRED",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "vizsla"
+      ],
+      "preferred_tag_slug": "vizsla",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "vizslawirehaired",
+        "vizsla"
+      ]
+    },
+    {
+      "id": "vizsla",
+      "display_name": "VIZSLA",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "vizsla"
+      ],
+      "preferred_tag_slug": "vizsla",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "vizsla"
+      ]
+    },
+    {
+      "id": "west-siberian-laika",
+      "display_name": "WEST SIBERIAN LAIKA",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "westsiberianlaika"
+      ]
+    },
+    {
+      "id": "westphalian-dachsbracke",
+      "display_name": "WESTPHALIAN DACHSBRACKE",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "westphaliandachsbracke"
+      ]
+    },
+    {
+      "id": "wire-haired-pointing-griffon",
+      "display_name": "WIRE-HAIRED POINTING GRIFFON",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "wirehairedpointinggriffon"
+      ]
+    },
+    {
+      "id": "wirehaired-slovakian-pointer",
+      "display_name": "WIREHAIRED SLOVAKIAN POINTER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "wirehairedslovakianpointer"
+      ]
+    },
+    {
+      "id": "yakutian-laika",
+      "display_name": "YAKUTIAN LAIKA",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "yakutianlaika"
+      ]
+    },
+    {
+      "id": "weimaraner",
+      "display_name": "WEIMARANER",
+      "aka_names": [
+        "GREY GHOST"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "weimaraner"
+      ],
+      "preferred_tag_slug": "weimaraner",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "weimaraner",
+        "greyghost"
+      ]
+    },
+    {
+      "id": "welsh-corgi-cardigan",
+      "display_name": "WELSH CORGI (CARDIGAN)",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "corgi"
+      ],
+      "preferred_tag_slug": "corgi",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "welshcorgicardigan",
+        "corgi"
+      ]
+    },
+    {
+      "id": "welsh-corgi-pembroke",
+      "display_name": "WELSH CORGI (PEMBROKE)",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "corgi"
+      ],
+      "preferred_tag_slug": "corgi",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "welshcorgipembroke",
+        "corgi"
+      ]
+    },
+    {
+      "id": "welsh-springer-spaniel",
+      "display_name": "WELSH SPRINGER SPANIEL",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "welshspringerspaniel"
+      ]
+    },
+    {
+      "id": "welsh-terrier",
+      "display_name": "WELSH TERRIER",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "welshterrier"
+      ],
+      "preferred_tag_slug": "welshterrier",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "welshterrier"
+      ]
+    },
+    {
+      "id": "west-highland-white-terrier",
+      "display_name": "WEST HIGHLAND WHITE TERRIER",
+      "aka_names": [
+        "WESTIE"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "westie"
+      ],
+      "preferred_tag_slug": "westie",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "westhighlandwhiteterrier",
+        "westie"
+      ]
+    },
+    {
+      "id": "whippet",
+      "display_name": "WHIPPET",
+      "aka_names": [],
+      "aliases": [],
+      "tag_slugs": [
+        "whippet"
+      ],
+      "preferred_tag_slug": "whippet",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "whippet"
+      ]
+    },
+    {
+      "id": "xoloitzcuintle",
+      "display_name": "XOLOITZCUINTLE",
+      "aka_names": [
+        "MEXICAN HAIRLESS DOG"
+      ],
+      "aliases": [
+        "Xolo"
+      ],
+      "tag_slugs": [
+        "xolo"
+      ],
+      "preferred_tag_slug": "xolo",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "xoloitzcuintle",
+        "mexicanhairlessdog",
+        "xolo"
+      ]
+    },
+    {
+      "id": "yorkshire-terrier",
+      "display_name": "YORKSHIRE TERRIER",
+      "aka_names": [
+        "YORKIE"
+      ],
+      "aliases": [],
+      "tag_slugs": [
+        "yorkie"
+      ],
+      "preferred_tag_slug": "yorkie",
+      "shared_content_key": null,
+      "lookup_keys": [
+        "yorkshireterrier",
+        "yorkie"
+      ]
+    },
+    {
+      "id": "yugoslavian-shepherd-dog",
+      "display_name": "YUGOSLAVIAN SHEPHERD DOG",
+      "aka_names": [
+        "SHARPLANINA"
+      ],
+      "aliases": [],
+      "tag_slugs": [],
+      "preferred_tag_slug": null,
+      "shared_content_key": null,
+      "lookup_keys": [
+        "yugoslavianshepherddog",
+        "sharplanina"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "akita-inu": {
+    "aliases": ["Akita"],
+    "tag_slugs": ["akita"],
+    "preferred_tag_slug": "akita",
+    "shared_content_key": "akita"
+  },
+  "american-akita": {
+    "aliases": ["Akita"],
+    "tag_slugs": ["akita"],
+    "preferred_tag_slug": "akita",
+    "shared_content_key": "akita"
+  },
+  "australian-cattle-dog": {
+    "aliases": ["ACD", "Blue Heeler", "Red Heeler"],
+    "tag_slugs": ["acd", "australiancattledog"],
+    "preferred_tag_slug": "acd",
+    "shared_content_key": null
+  },
+  "australian-kelpie": {
+    "aliases": ["Kelpie"],
+    "tag_slugs": ["kelpie", "australiankelpie"],
+    "preferred_tag_slug": "kelpie",
+    "shared_content_key": null
+  },
+  "australian-shepherd": {
+    "aliases": ["Aussie"],
+    "tag_slugs": ["aussie", "australianshepherd"],
+    "preferred_tag_slug": "aussie",
+    "shared_content_key": null
+  },
+  "american-eskimo-dog": {
+    "aliases": ["Eskie"],
+    "tag_slugs": ["americaneskimodog", "eskie"],
+    "preferred_tag_slug": "eskie",
+    "shared_content_key": null
+  },
+  "german-shepherd-dog": {
+    "aliases": ["German Shepherd", "GSD"],
+    "tag_slugs": ["gsd", "germanshepherddog", "germanshepherd"],
+    "preferred_tag_slug": "germanshepherddog",
+    "shared_content_key": null
+  },
+  "shetland-sheepdog": {
+    "aliases": ["Sheltie"],
+    "tag_slugs": ["sheltie", "shetlandsheepdog"],
+    "preferred_tag_slug": "sheltie",
+    "shared_content_key": null
+  },
+  "french-bulldog": {
+    "aliases": ["Frenchie"],
+    "tag_slugs": ["frenchie", "frenchbulldog"],
+    "preferred_tag_slug": "frenchbulldog",
+    "shared_content_key": null
+  },
+  "alaskan-malamute": {
+    "aliases": ["Malamute"],
+    "tag_slugs": ["malamute", "alaskanmalamute"],
+    "preferred_tag_slug": "malamute",
+    "shared_content_key": null
+  },
+  "american-cocker-spaniel": {
+    "aliases": ["Cocker Spaniel"],
+    "tag_slugs": ["cockerspaniel", "americancockerspaniel"],
+    "preferred_tag_slug": "cockerspaniel",
+    "shared_content_key": null
+  },
+  "american-water-spaniel": {
+    "aliases": ["AWS"],
+    "tag_slugs": ["americanwaterspaniel", "aws"],
+    "preferred_tag_slug": "aws",
+    "shared_content_key": null
+  },
+  "american-staffordshire-terrier": {
+    "aliases": ["AmStaff"],
+    "tag_slugs": [],
+    "preferred_tag_slug": null,
+    "shared_content_key": null
+  },
+  "labrador-retriever": {
+    "aliases": ["Lab"],
+    "tag_slugs": ["lab"],
+    "preferred_tag_slug": "lab",
+    "shared_content_key": null
+  },
+  "scottish-terrier": {
+    "aliases": ["Scottie"],
+    "tag_slugs": ["scottie"],
+    "preferred_tag_slug": "scottie",
+    "shared_content_key": null
+  },
+  "xoloitzcuintle": {
+    "aliases": ["Xolo"],
+    "tag_slugs": ["xolo"],
+    "preferred_tag_slug": "xolo",
+    "shared_content_key": null
+  }
+}

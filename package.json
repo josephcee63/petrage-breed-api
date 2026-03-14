@@ -1,0 +1,31 @@
+{
+  "name": "dog-breed-api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Normalization pipeline for Ninja Tables dog breed exports.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "build:index": "tsx scripts/build-breed-index.ts",
+    "dev:server": "tsx watch src/server/start.ts",
+    "start": "node dist/src/server/start.js",
+    "test": "vitest run",
+    "normalize": "tsx scripts/normalize-breeds.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.6.0",
+    "@types/supertest": "^7.2.0",
+    "supertest": "^7.2.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}
