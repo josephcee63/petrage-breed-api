@@ -1,6 +1,10 @@
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 
-import { getBreedContent } from "../src/api/getBreedContent.js";
+import { breedContentCache, getBreedContent } from "../src/api/getBreedContent.js";
+import { wordPressCategoriesCache } from "../src/lib/fetchWordPressCategories.js";
+import { wordPressPostsByCategoriesCache } from "../src/lib/fetchWordPressPostsByCategories.js";
+import { wordPressPostsByTagsCache } from "../src/lib/fetchWordPressPostsByTags.js";
+import { wordPressTagsCache } from "../src/lib/fetchWordPressTags.js";
 import { loadBreedData } from "../src/lib/loadBreedData.js";
 
 function createJsonResponse(payload: unknown, status = 200): Response {
@@ -28,6 +32,14 @@ function createMockFetch(routeMap: Record<string, unknown>): typeof fetch {
 }
 
 describe("getBreedContent", () => {
+  beforeEach(() => {
+    breedContentCache.clear();
+    wordPressTagsCache.clear();
+    wordPressCategoriesCache.clear();
+    wordPressPostsByTagsCache.clear();
+    wordPressPostsByCategoriesCache.clear();
+  });
+
   it("returns null for an unknown breed", async () => {
     const breedData = await loadBreedData();
 
@@ -409,5 +421,38 @@ describe("getBreedContent", () => {
 
     expect(result?.breed.id).toBe("american-eskimo-dog");
     expect(result?.content_query.tag_slugs_queried).toEqual(["eskie", "americaneskimodog"]);
+  });
+
+  it("reuses a cached breed content result for repeated requests", async () => {
+    const breedData = await loadBreedData();
+    const firstFetch = createMockFetch({
+      "/wp-json/wp/v2/tags?slug=acd%2Caustraliancattledog&per_page=2&_fields=id%2Cname%2Cslug": [
+        { id: 11, name: "ACD", slug: "acd" },
+        { id: 12, name: "Australian Cattle Dog", slug: "australiancattledog" },
+      ],
+      "/wp-json/wp/v2/categories?slug=dog-breed-facts&per_page=1&_fields=id%2Cname%2Cslug": [],
+      "/wp-json/wp/v2/posts?tags=11&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [],
+      "/wp-json/wp/v2/posts?tags=12&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
+        {
+          id: 101,
+          date: "2025-02-01T00:00:00",
+          slug: "blue-heeler-facts",
+          link: "https://petrage.net/blue-heeler-facts/",
+          title: { rendered: "Blue Heeler Facts" },
+          excerpt: { rendered: "<p>Breed facts.</p>" },
+        },
+      ],
+    });
+
+    const firstResult = await getBreedContent("acd", {
+      breedData,
+      fetchImplementation: firstFetch,
+    });
+    const secondResult = await getBreedContent("acd", {
+      breedData,
+      fetchImplementation: createMockFetch({}),
+    });
+
+    expect(firstResult).toEqual(secondResult);
   });
 });

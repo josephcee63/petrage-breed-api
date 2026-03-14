@@ -1,8 +1,14 @@
+import { SimpleCache } from "./simpleCache.js";
+
 import type { WordPressTag } from "./types.js";
 
 export interface FetchWordPressTagsOptions {
   fetchImplementation?: typeof fetch;
 }
+
+const TAG_LOOKUP_TTL_MS = 10 * 60 * 1000;
+
+export const wordPressTagsCache = new SimpleCache<WordPressTag[]>();
 
 export async function fetchWordPressTags(
   baseUrl: string,
@@ -19,44 +25,47 @@ export async function fetchWordPressTags(
   requestUrl.searchParams.set("per_page", String(Math.min(100, uniqueTagSlugs.length)));
   requestUrl.searchParams.set("_fields", "id,name,slug");
 
-  const fetchImplementation = options?.fetchImplementation ?? globalThis.fetch;
-  const response = await fetchImplementation(requestUrl, {
-    headers: {
-      Accept: "application/json",
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`Failed to fetch WordPress tags: ${response.status} ${response.statusText}`);
-  }
-
-  const payload = (await response.json()) as Array<{
-    id?: number;
-    name?: string;
-    slug?: string;
-  }>;
-
-  const tagsBySlug = new Map<string, WordPressTag>();
-  for (const item of payload) {
-    if (typeof item.id !== "number" || typeof item.name !== "string" || typeof item.slug !== "string") {
-      continue;
-    }
-
-    const normalizedSlug = item.slug.trim().toLowerCase();
-    if (!normalizedSlug || tagsBySlug.has(normalizedSlug)) {
-      continue;
-    }
-
-    tagsBySlug.set(normalizedSlug, {
-      id: item.id,
-      name: item.name.trim(),
-      slug: normalizedSlug,
+  const cacheKey = buildTagsCacheKey(normalizeBaseUrl(baseUrl), uniqueTagSlugs);
+  return wordPressTagsCache.getOrSet(cacheKey, TAG_LOOKUP_TTL_MS, async () => {
+    const fetchImplementation = options?.fetchImplementation ?? globalThis.fetch;
+    const response = await fetchImplementation(requestUrl, {
+      headers: {
+        Accept: "application/json",
+      },
     });
-  }
 
-  return uniqueTagSlugs.flatMap((slug) => {
-    const matchedTag = tagsBySlug.get(slug);
-    return matchedTag ? [matchedTag] : [];
+    if (!response.ok) {
+      throw new Error(`Failed to fetch WordPress tags: ${response.status} ${response.statusText}`);
+    }
+
+    const payload = (await response.json()) as Array<{
+      id?: number;
+      name?: string;
+      slug?: string;
+    }>;
+
+    const tagsBySlug = new Map<string, WordPressTag>();
+    for (const item of payload) {
+      if (typeof item.id !== "number" || typeof item.name !== "string" || typeof item.slug !== "string") {
+        continue;
+      }
+
+      const normalizedSlug = item.slug.trim().toLowerCase();
+      if (!normalizedSlug || tagsBySlug.has(normalizedSlug)) {
+        continue;
+      }
+
+      tagsBySlug.set(normalizedSlug, {
+        id: item.id,
+        name: item.name.trim(),
+        slug: normalizedSlug,
+      });
+    }
+
+    return uniqueTagSlugs.flatMap((slug) => {
+      const matchedTag = tagsBySlug.get(slug);
+      return matchedTag ? [matchedTag] : [];
+    });
   });
 }
 
@@ -80,4 +89,8 @@ function dedupeTagSlugs(tagSlugs: string[]): string[] {
 function normalizeBaseUrl(baseUrl: string): string {
   const trimmed = baseUrl.trim().replace(/\/+$/, "");
   return trimmed || "https://petrage.net";
+}
+
+function buildTagsCacheKey(baseUrl: string, tagSlugs: string[]): string {
+  return `wp:tags:${baseUrl}:${tagSlugs.join(",")}`;
 }

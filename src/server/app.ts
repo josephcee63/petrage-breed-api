@@ -6,6 +6,7 @@ import { createCardRouter } from "./routes/card.js";
 import { createCompareRouter } from "./routes/compare.js";
 import { createContentRouter } from "./routes/content.js";
 import { createHealthRouter } from "./routes/health.js";
+import { createRootRouter } from "./routes/root.js";
 
 import type { LoadedBreedData } from "../lib/types.js";
 
@@ -23,6 +24,7 @@ export function createApp(dependencies?: AppDependencies) {
 
   app.use(express.json());
 
+  app.use(createRootRouter());
   app.use(createHealthRouter());
   app.use(
     createContentRouter({

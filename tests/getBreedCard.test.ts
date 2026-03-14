@@ -1,6 +1,11 @@
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 
-import { getBreedCard } from "../src/api/getBreedCard.js";
+import { breedCardCache, getBreedCard } from "../src/api/getBreedCard.js";
+import { breedContentCache } from "../src/api/getBreedContent.js";
+import { wordPressCategoriesCache } from "../src/lib/fetchWordPressCategories.js";
+import { wordPressPostsByCategoriesCache } from "../src/lib/fetchWordPressPostsByCategories.js";
+import { wordPressPostsByTagsCache } from "../src/lib/fetchWordPressPostsByTags.js";
+import { wordPressTagsCache } from "../src/lib/fetchWordPressTags.js";
 import { loadBreedData } from "../src/lib/loadBreedData.js";
 
 function createJsonResponse(payload: unknown, status = 200): Response {
@@ -28,6 +33,15 @@ function createMockFetch(routeMap: Record<string, unknown>): typeof fetch {
 }
 
 describe("getBreedCard", () => {
+  beforeEach(() => {
+    breedCardCache.clear();
+    breedContentCache.clear();
+    wordPressTagsCache.clear();
+    wordPressCategoriesCache.clear();
+    wordPressPostsByTagsCache.clear();
+    wordPressPostsByCategoriesCache.clear();
+  });
+
   it("returns null for an unresolved breed", async () => {
     const breedData = await loadBreedData();
 
@@ -153,5 +167,37 @@ describe("getBreedCard", () => {
     expect(result?.featured.fun_extras.map((item) => item.title)).toEqual([
       "Battle of the BIG Dogs-Dobie-Dogue-Rotty-Cane Corso",
     ]);
+  });
+
+  it("reuses a cached breed card result for repeated requests", async () => {
+    const breedData = await loadBreedData();
+    const firstResult = await getBreedCard("acd", {
+      breedData,
+      fetchImplementation: createMockFetch({
+        "/wp-json/wp/v2/tags?slug=acd%2Caustraliancattledog&per_page=2&_fields=id%2Cname%2Cslug": [
+          { id: 11, name: "ACD", slug: "acd" },
+          { id: 12, name: "Australian Cattle Dog", slug: "australiancattledog" },
+        ],
+        "/wp-json/wp/v2/categories?slug=dog-breed-facts&per_page=1&_fields=id%2Cname%2Cslug": [],
+        "/wp-json/wp/v2/posts?tags=11&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [],
+        "/wp-json/wp/v2/posts?tags=12&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
+          {
+            id: 101,
+            date: "2025-02-01T00:00:00",
+            slug: "blue-heeler-health-issues",
+            link: "https://petrage.net/blue-heeler-health-issues/",
+            title: { rendered: "Blue Heeler Health Issues" },
+            excerpt: { rendered: "<p>Important health concerns.</p>" },
+          },
+        ],
+      }),
+    });
+
+    const secondResult = await getBreedCard("acd", {
+      breedData,
+      fetchImplementation: createMockFetch({}),
+    });
+
+    expect(secondResult).toEqual(firstResult);
   });
 });

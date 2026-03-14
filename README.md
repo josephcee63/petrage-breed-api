@@ -365,6 +365,22 @@ For a step-by-step guide, see [docs/deployment/bunny-magic-containers.md](/c:/Us
 
 The default WordPress base URL is `https://petrage.net`.
 
+### Root Route And Caching
+
+The API now includes a friendly root route at `GET /` that returns a small JSON index of the available endpoints.
+
+The WordPress-backed parts of the API also use a lightweight in-memory cache:
+
+- tag and category lookups are cached briefly
+- posts-by-tag and posts-by-category lookups are cached briefly
+- `getBreedContent()` and `getBreedCard()` reuse recent results for short periods
+
+This cache is intentionally best-effort:
+
+- it resets whenever the container restarts
+- it uses short TTLs so WordPress content naturally refreshes
+- it does not replace correctness or persistence, it only reduces repeated remote lookups
+
 ### Endpoints
 
 - `GET /health`

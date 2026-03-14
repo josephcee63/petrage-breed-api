@@ -1,3 +1,4 @@
+import { SimpleCache } from "./simpleCache.js";
 import { stripHtml } from "./stripHtml.js";
 
 import type { WordPressCategory, WordPressPostSummary } from "./types.js";
@@ -20,6 +21,10 @@ interface WordPressPostPayload {
   };
 }
 
+const CATEGORY_POSTS_TTL_MS = 5 * 60 * 1000;
+
+export const wordPressPostsByCategoriesCache = new SimpleCache<WordPressPostSummary[]>();
+
 export async function fetchWordPressPostsByCategories(
   baseUrl: string,
   categories: WordPressCategory[],
@@ -32,32 +37,35 @@ export async function fetchWordPressPostsByCategories(
   const fetchImplementation = options?.fetchImplementation ?? globalThis.fetch;
   const perPage = options?.perPage ?? 20;
   const normalizedBaseUrl = normalizeBaseUrl(baseUrl);
+  const cacheKey = buildPostsByCategoriesCacheKey(normalizedBaseUrl, categories, perPage);
 
-  const responses = await Promise.all(
-    categories.map(async (category) => {
-      const requestUrl = new URL("/wp-json/wp/v2/posts", normalizedBaseUrl);
-      requestUrl.searchParams.set("categories", String(category.id));
-      requestUrl.searchParams.set("per_page", String(perPage));
-      requestUrl.searchParams.set("_fields", "id,date,slug,link,title,excerpt");
+  return wordPressPostsByCategoriesCache.getOrSet(cacheKey, CATEGORY_POSTS_TTL_MS, async () => {
+    const responses = await Promise.all(
+      categories.map(async (category) => {
+        const requestUrl = new URL("/wp-json/wp/v2/posts", normalizedBaseUrl);
+        requestUrl.searchParams.set("categories", String(category.id));
+        requestUrl.searchParams.set("per_page", String(perPage));
+        requestUrl.searchParams.set("_fields", "id,date,slug,link,title,excerpt");
 
-      const response = await fetchImplementation(requestUrl, {
-        headers: {
-          Accept: "application/json",
-        },
-      });
+        const response = await fetchImplementation(requestUrl, {
+          headers: {
+            Accept: "application/json",
+          },
+        });
 
-      if (!response.ok) {
-        throw new Error(
-          `Failed to fetch WordPress posts for category ${category.slug}: ${response.status} ${response.statusText}`,
-        );
-      }
+        if (!response.ok) {
+          throw new Error(
+            `Failed to fetch WordPress posts for category ${category.slug}: ${response.status} ${response.statusText}`,
+          );
+        }
 
-      const payload = (await response.json()) as WordPressPostPayload[];
-      return payload.flatMap((post) => mapWordPressPost(post, category.slug));
-    }),
-  );
+        const payload = (await response.json()) as WordPressPostPayload[];
+        return payload.flatMap((post) => mapWordPressPost(post, category.slug));
+      }),
+    );
 
-  return responses.flat();
+    return responses.flat();
+  });
 }
 
 function mapWordPressPost(post: WordPressPostPayload, matchedCategory: string): WordPressPostSummary[] {
@@ -87,4 +95,12 @@ function mapWordPressPost(post: WordPressPostPayload, matchedCategory: string): 
 function normalizeBaseUrl(baseUrl: string): string {
   const trimmed = baseUrl.trim().replace(/\/+$/, "");
   return trimmed || "https://petrage.net";
+}
+
+function buildPostsByCategoriesCacheKey(
+  baseUrl: string,
+  categories: WordPressCategory[],
+  perPage: number,
+): string {
+  return `wp:posts:categories:${baseUrl}:${categories.map((category) => category.id).join(",")}:per_page=${perPage}`;
 }

@@ -1,3 +1,4 @@
+import { SimpleCache } from "./simpleCache.js";
 import { stripHtml } from "./stripHtml.js";
 
 import type { WordPressPostSummary, WordPressTag } from "./types.js";
@@ -20,6 +21,10 @@ interface WordPressPostPayload {
   };
 }
 
+const TAG_POSTS_TTL_MS = 5 * 60 * 1000;
+
+export const wordPressPostsByTagsCache = new SimpleCache<WordPressPostSummary[]>();
+
 export async function fetchWordPressPostsByTags(
   baseUrl: string,
   tags: WordPressTag[],
@@ -32,32 +37,35 @@ export async function fetchWordPressPostsByTags(
   const fetchImplementation = options?.fetchImplementation ?? globalThis.fetch;
   const perPage = options?.perPage ?? 20;
   const normalizedBaseUrl = normalizeBaseUrl(baseUrl);
+  const cacheKey = buildPostsByTagsCacheKey(normalizedBaseUrl, tags, perPage);
 
-  const responses = await Promise.all(
-    tags.map(async (tag) => {
-      const requestUrl = new URL("/wp-json/wp/v2/posts", normalizedBaseUrl);
-      requestUrl.searchParams.set("tags", String(tag.id));
-      requestUrl.searchParams.set("per_page", String(perPage));
-      requestUrl.searchParams.set("_fields", "id,date,slug,link,title,excerpt");
+  return wordPressPostsByTagsCache.getOrSet(cacheKey, TAG_POSTS_TTL_MS, async () => {
+    const responses = await Promise.all(
+      tags.map(async (tag) => {
+        const requestUrl = new URL("/wp-json/wp/v2/posts", normalizedBaseUrl);
+        requestUrl.searchParams.set("tags", String(tag.id));
+        requestUrl.searchParams.set("per_page", String(perPage));
+        requestUrl.searchParams.set("_fields", "id,date,slug,link,title,excerpt");
 
-      const response = await fetchImplementation(requestUrl, {
-        headers: {
-          Accept: "application/json",
-        },
-      });
+        const response = await fetchImplementation(requestUrl, {
+          headers: {
+            Accept: "application/json",
+          },
+        });
 
-      if (!response.ok) {
-        throw new Error(
-          `Failed to fetch WordPress posts for tag ${tag.slug}: ${response.status} ${response.statusText}`,
-        );
-      }
+        if (!response.ok) {
+          throw new Error(
+            `Failed to fetch WordPress posts for tag ${tag.slug}: ${response.status} ${response.statusText}`,
+          );
+        }
 
-      const payload = (await response.json()) as WordPressPostPayload[];
-      return payload.flatMap((post) => mapWordPressPost(post, tag.slug));
-    }),
-  );
+        const payload = (await response.json()) as WordPressPostPayload[];
+        return payload.flatMap((post) => mapWordPressPost(post, tag.slug));
+      }),
+    );
 
-  return responses.flat();
+    return responses.flat();
+  });
 }
 
 function mapWordPressPost(post: WordPressPostPayload, matchedTag: string): WordPressPostSummary[] {
@@ -87,4 +95,8 @@ function mapWordPressPost(post: WordPressPostPayload, matchedTag: string): WordP
 function normalizeBaseUrl(baseUrl: string): string {
   const trimmed = baseUrl.trim().replace(/\/+$/, "");
   return trimmed || "https://petrage.net";
+}
+
+function buildPostsByTagsCacheKey(baseUrl: string, tags: WordPressTag[], perPage: number): string {
+  return `wp:posts:tags:${baseUrl}:${tags.map((tag) => tag.id).join(",")}:per_page=${perPage}`;
 }

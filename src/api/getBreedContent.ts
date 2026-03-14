@@ -10,11 +10,15 @@ import { groupBreedContent } from "../lib/groupBreedContent.js";
 import { getNormalizedBreedById, loadBreedData } from "../lib/loadBreedData.js";
 import { rankBreedContent } from "../lib/rankBreedContent.js";
 import { resolveBreed } from "../lib/resolveBreed.js";
+import { SimpleCache } from "../lib/simpleCache.js";
 
 import type { BreedContentResult, LoadedBreedData } from "../lib/types.js";
 
 const DEFAULT_BASE_URL = "https://petrage.net";
 const DEFAULT_CATEGORY_SLUGS = ["dog-breed-facts"];
+const BREED_CONTENT_CACHE_TTL_MS = 2 * 60 * 1000;
+
+export const breedContentCache = new SimpleCache<BreedContentResult>();
 
 export interface GetBreedContentOptions {
   baseUrl?: string;
@@ -35,57 +39,61 @@ export async function getBreedContent(
     return null;
   }
 
-  const normalizedBreed = getNormalizedBreedById(breedData.normalizedBreeds, resolvedBreed.id);
-  if (!normalizedBreed) {
-    throw new Error(`Resolved breed ${resolvedBreed.id} is missing from normalized breed data.`);
-  }
-
   const baseUrl = normalizeBaseUrl(options?.baseUrl);
-  const tagSlugsQueried = getContentQueryTags(resolvedBreed);
   const categorySlugsQueried = dedupeSlugs(options?.categorySlugs ?? DEFAULT_CATEGORY_SLUGS);
-  const matchedTags = await fetchWordPressTags(baseUrl, tagSlugsQueried, buildTagFetchOptions(options));
-  const matchedCategories = await fetchOptionalCategories(baseUrl, categorySlugsQueried, options);
+  const cacheKey = buildBreedContentCacheKey(baseUrl, resolvedBreed.id, options?.perPage, categorySlugsQueried);
 
-  const tagPosts =
-    matchedTags.length > 0
-      ? await fetchWordPressPostsByTags(baseUrl, matchedTags, {
-          ...buildPostFetchOptions(options),
-        })
-      : [];
-  const categoryPosts =
-    matchedCategories.length > 0
-      ? await fetchOptionalCategoryPosts(baseUrl, matchedCategories, options)
-      : [];
+  return breedContentCache.getOrSet(cacheKey, BREED_CONTENT_CACHE_TTL_MS, async () => {
+    const normalizedBreed = getNormalizedBreedById(breedData.normalizedBreeds, resolvedBreed.id);
+    if (!normalizedBreed) {
+      throw new Error(`Resolved breed ${resolvedBreed.id} is missing from normalized breed data.`);
+    }
 
-  const posts = dedupePosts([...tagPosts, ...categoryPosts]);
-  const canonicalSignals = getCanonicalBreedSignals(normalizedBreed, resolvedBreed);
-  const relevantPosts = filterBreedRelevantPosts(posts, canonicalSignals);
-  const rankedPosts = rankBreedContent(relevantPosts, canonicalSignals);
-  const groupedContent = groupBreedContent(rankedPosts);
+    const tagSlugsQueried = getContentQueryTags(resolvedBreed);
+    const matchedTags = await fetchWordPressTags(baseUrl, tagSlugsQueried, buildTagFetchOptions(options));
+    const matchedCategories = await fetchOptionalCategories(baseUrl, categorySlugsQueried, options);
 
-  return {
-    resolved_input: input,
-    breed: {
-      id: normalizedBreed.id,
-      display_name: resolvedBreed.display_name,
-      aka_names: resolvedBreed.aka_names,
-      aliases: resolvedBreed.aliases,
-      tag_slugs: resolvedBreed.tag_slugs,
-      preferred_tag_slug: resolvedBreed.preferred_tag_slug,
-      shared_content_key: resolvedBreed.shared_content_key,
-    },
-    content_query: {
-      base_url: baseUrl,
-      tag_slugs_queried: tagSlugsQueried,
-      matched_tag_ids: matchedTags.map((tag) => tag.id),
-      matched_tag_slugs: matchedTags.map((tag) => tag.slug),
-      category_slugs_queried: categorySlugsQueried,
-      matched_category_ids: matchedCategories.map((category) => category.id),
-      matched_category_slugs: matchedCategories.map((category) => category.slug),
-    },
-    content: groupedContent,
-    posts: rankedPosts.map((rankedPost) => rankedPost.post),
-  };
+    const tagPosts =
+      matchedTags.length > 0
+        ? await fetchWordPressPostsByTags(baseUrl, matchedTags, {
+            ...buildPostFetchOptions(options),
+          })
+        : [];
+    const categoryPosts =
+      matchedCategories.length > 0
+        ? await fetchOptionalCategoryPosts(baseUrl, matchedCategories, options)
+        : [];
+
+    const posts = dedupePosts([...tagPosts, ...categoryPosts]);
+    const canonicalSignals = getCanonicalBreedSignals(normalizedBreed, resolvedBreed);
+    const relevantPosts = filterBreedRelevantPosts(posts, canonicalSignals);
+    const rankedPosts = rankBreedContent(relevantPosts, canonicalSignals);
+    const groupedContent = groupBreedContent(rankedPosts);
+
+    return {
+      resolved_input: input,
+      breed: {
+        id: normalizedBreed.id,
+        display_name: resolvedBreed.display_name,
+        aka_names: resolvedBreed.aka_names,
+        aliases: resolvedBreed.aliases,
+        tag_slugs: resolvedBreed.tag_slugs,
+        preferred_tag_slug: resolvedBreed.preferred_tag_slug,
+        shared_content_key: resolvedBreed.shared_content_key,
+      },
+      content_query: {
+        base_url: baseUrl,
+        tag_slugs_queried: tagSlugsQueried,
+        matched_tag_ids: matchedTags.map((tag) => tag.id),
+        matched_tag_slugs: matchedTags.map((tag) => tag.slug),
+        category_slugs_queried: categorySlugsQueried,
+        matched_category_ids: matchedCategories.map((category) => category.id),
+        matched_category_slugs: matchedCategories.map((category) => category.slug),
+      },
+      content: groupedContent,
+      posts: rankedPosts.map((rankedPost) => rankedPost.post),
+    };
+  });
 }
 
 function normalizeBaseUrl(baseUrl: string | undefined): string {
@@ -152,4 +160,13 @@ function dedupeSlugs(values: string[]): string[] {
   }
 
   return unique;
+}
+
+function buildBreedContentCacheKey(
+  baseUrl: string,
+  breedId: string,
+  perPage: number | undefined,
+  categorySlugs: string[],
+): string {
+  return `breed-content:${baseUrl}:${breedId}:per_page=${perPage ?? 20}:categories=${categorySlugs.join(",")}`;
 }

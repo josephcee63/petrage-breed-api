@@ -1,6 +1,12 @@
 import request from "supertest";
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 
+import { breedCardCache } from "../src/api/getBreedCard.js";
+import { breedContentCache } from "../src/api/getBreedContent.js";
+import { wordPressCategoriesCache } from "../src/lib/fetchWordPressCategories.js";
+import { wordPressPostsByCategoriesCache } from "../src/lib/fetchWordPressPostsByCategories.js";
+import { wordPressPostsByTagsCache } from "../src/lib/fetchWordPressPostsByTags.js";
+import { wordPressTagsCache } from "../src/lib/fetchWordPressTags.js";
 import { loadBreedData } from "../src/lib/loadBreedData.js";
 import { createApp } from "../src/server/app.js";
 
@@ -29,6 +35,33 @@ function createMockFetch(routeMap: Record<string, unknown>): typeof fetch {
 }
 
 describe("server", () => {
+  beforeEach(() => {
+    breedCardCache.clear();
+    breedContentCache.clear();
+    wordPressTagsCache.clear();
+    wordPressCategoriesCache.clear();
+    wordPressPostsByTagsCache.clear();
+    wordPressPostsByCategoriesCache.clear();
+  });
+
+  it("GET / returns 200 and the API index", async () => {
+    const app = createApp();
+    const response = await request(app).get("/");
+
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual({
+      ok: true,
+      service: "dog-breed-api",
+      endpoints: [
+        "/health",
+        "/breed/:input",
+        "/breed/:input/content",
+        "/breed/:input/card",
+        "/compare/:left/:right",
+      ],
+    });
+  });
+
   it("GET /health returns 200 and ok", async () => {
     const app = createApp();
     const response = await request(app).get("/health");
