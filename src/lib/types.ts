@@ -155,6 +155,8 @@ export interface BreedContentBuckets {
     reasons: string[];
   };
   direct_matches: WordPressPostSummary[];
+  gallery: WordPressPostSummary[];
+  quizzes: WordPressPostSummary[];
   related: WordPressPostSummary[];
   supplemental: WordPressPostSummary[];
 }

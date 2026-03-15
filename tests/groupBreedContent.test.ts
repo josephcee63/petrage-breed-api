@@ -50,6 +50,8 @@ describe("groupBreedContent", () => {
     expect(grouped.canonical.post?.id).toBe(1);
     expect(grouped.canonical.score).toBe(90);
     expect(grouped.direct_matches.map((post) => post.id)).toEqual([2]);
+    expect(grouped.gallery).toEqual([]);
+    expect(grouped.quizzes).toEqual([]);
     expect(grouped.related).toEqual([]);
     expect(grouped.supplemental).toEqual([]);
   });
@@ -70,6 +72,8 @@ describe("groupBreedContent", () => {
 
     expect(grouped.canonical.post).toBeNull();
     expect(grouped.direct_matches.map((post) => post.id)).toEqual([1, 2]);
+    expect(grouped.gallery).toEqual([]);
+    expect(grouped.quizzes).toEqual([]);
     expect(grouped.related).toEqual([]);
     expect(grouped.supplemental).toEqual([]);
   });
@@ -88,6 +92,8 @@ describe("groupBreedContent", () => {
 
     expect(grouped.canonical.post).toBeNull();
     expect(grouped.direct_matches.map((post) => post.id)).toEqual([1, 2]);
+    expect(grouped.gallery).toEqual([]);
+    expect(grouped.quizzes).toEqual([]);
     expect(grouped.related).toEqual([]);
     expect(grouped.supplemental.map((post) => post.id)).toEqual([3, 4]);
   });

@@ -38,6 +38,8 @@ export function groupBreedContent(rankedPosts: RankedWordPressPost[]): BreedCont
   return {
     canonical,
     direct_matches: remainingPosts.filter(isDirectMatch).map((rankedPost) => rankedPost.post),
+    gallery: [],
+    quizzes: [],
     related: [],
     supplemental: remainingPosts.filter(isSupplementalMatch).map((rankedPost) => rankedPost.post),
   };

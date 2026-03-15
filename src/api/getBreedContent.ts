@@ -17,6 +17,7 @@ import { resolveBreed } from "../lib/resolveBreed.js";
 import { SimpleCache } from "../lib/simpleCache.js";
 
 import type {
+  BreedContentType,
   BreedContentResult,
   CanonicalBreedSignals,
   LoadedBreedData,
@@ -27,6 +28,7 @@ import type {
 
 const DEFAULT_BASE_URL = "https://petrage.net";
 const DEFAULT_CATEGORY_SLUGS = ["dog-breed-facts", "blog"];
+const DETERMINISTIC_BUCKET_CATEGORY_SLUGS = ["user-gallery", "quiz"];
 const BREED_CONTENT_CACHE_TTL_MS = 2 * 60 * 1000;
 
 export const breedContentCache = new SimpleCache<BreedContentResult>();
@@ -64,6 +66,11 @@ export async function getBreedContent(
     const canonicalContentTagSlug = getCanonicalContentTagSlug(resolvedBreed);
     const matchedTags = await fetchWordPressTags(baseUrl, tagSlugsQueried, buildTagFetchOptions(options));
     const matchedCategories = await fetchOptionalCategories(baseUrl, categorySlugsQueried, options);
+    const deterministicBucketCategories = await fetchOptionalCategories(
+      baseUrl,
+      DETERMINISTIC_BUCKET_CATEGORY_SLUGS,
+      options,
+    );
 
     const tagPosts =
       matchedTags.length > 0
@@ -83,6 +90,22 @@ export async function getBreedContent(
       canonicalContentTagSlug,
       options,
     );
+    const galleryPosts = await fetchOptionalDeterministicBucketPosts(
+      baseUrl,
+      matchedTags,
+      deterministicBucketCategories,
+      canonicalContentTagSlug,
+      "user-gallery",
+      options,
+    );
+    const quizPosts = await fetchOptionalDeterministicBucketPosts(
+      baseUrl,
+      matchedTags,
+      deterministicBucketCategories,
+      canonicalContentTagSlug,
+      "quiz",
+      options,
+    );
 
     const posts = dedupePosts([...tagPosts, ...categoryPosts]);
     const canonicalSignals = getCanonicalBreedSignals(normalizedBreed, resolvedBreed);
@@ -95,6 +118,8 @@ export async function getBreedContent(
       canonicalContentTagSlug,
       groupedContent.canonical.post?.id ?? null,
     );
+    const galleryContent = selectDeterministicBucketPosts(galleryPosts, "gallery", 1);
+    const quizzesContent = selectDeterministicBucketPosts(quizPosts, "quiz", 3);
 
     return {
       resolved_input: input,
@@ -118,6 +143,8 @@ export async function getBreedContent(
       },
       content: {
         ...groupedContent,
+        gallery: galleryContent,
+        quizzes: quizzesContent,
         related: relatedContent,
       },
       posts: rankedPosts.map((rankedPost) => rankedPost.post),
@@ -202,6 +229,31 @@ async function fetchOptionalRelatedPosts(
   }
 }
 
+async function fetchOptionalDeterministicBucketPosts(
+  baseUrl: string,
+  matchedTags: Awaited<ReturnType<typeof fetchWordPressTags>>,
+  matchedCategories: Awaited<ReturnType<typeof fetchOptionalCategories>>,
+  canonicalTagSlug: string | null,
+  categorySlug: string,
+  options: GetBreedContentOptions | undefined,
+) {
+  if (!canonicalTagSlug) {
+    return [];
+  }
+
+  const canonicalTag = findTagBySlug(matchedTags, canonicalTagSlug);
+  const matchedCategory = findCategoryBySlug(matchedCategories, categorySlug);
+  if (!canonicalTag || !matchedCategory) {
+    return [];
+  }
+
+  try {
+    return await fetchWordPressPostsByTagAndCategory(baseUrl, canonicalTag, matchedCategory, buildPostFetchOptions(options));
+  } catch {
+    return [];
+  }
+}
+
 function selectRelatedPosts(
   posts: WordPressPostSummary[],
   signals: CanonicalBreedSignals,
@@ -219,6 +271,20 @@ function selectRelatedPosts(
     .filter((post) => !isCanonicalGuidePost(post, signals, canonicalPostId))
     .sort(compareRelatedPosts)
     .slice(0, 5);
+}
+
+function selectDeterministicBucketPosts(
+  posts: WordPressPostSummary[],
+  contentType: BreedContentType,
+  limit: number,
+): WordPressPostSummary[] {
+  return posts
+    .map((post) => ({
+      ...post,
+      content_type: contentType,
+    }))
+    .sort(compareRelatedPosts)
+    .slice(0, limit);
 }
 
 function isCanonicalGuidePost(

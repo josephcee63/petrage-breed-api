@@ -64,6 +64,10 @@ describe("getBreedContent", () => {
         { id: 31, name: "Dog Breed Facts", slug: "dog-breed-facts" },
         { id: 32, name: "Blog", slug: "blog" },
       ],
+      "/wp-json/wp/v2/categories?slug=user-gallery%2Cquiz&per_page=2&_fields=id%2Cname%2Cslug": [
+        { id: 33, name: "User Gallery", slug: "user-gallery" },
+        { id: 34, name: "Quiz", slug: "quiz" },
+      ],
       "/wp-json/wp/v2/posts?tags=11&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
           id: 101,
@@ -224,6 +228,60 @@ describe("getBreedContent", () => {
           tags: [12],
         },
       ],
+      "/wp-json/wp/v2/posts?tags=12&categories=33&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
+        {
+          id: 111,
+          date: "2025-02-07T00:00:00",
+          slug: "australian-cattle-dog-user-gallery",
+          link: "https://petrage.net/australian-cattle-dog-user-gallery/",
+          title: { rendered: "Australian Cattle Dog User Gallery" },
+          excerpt: { rendered: "<p>Owner-submitted Blue Heeler photos.</p>" },
+          categories: [33],
+          tags: [12],
+        },
+      ],
+      "/wp-json/wp/v2/posts?tags=12&categories=34&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
+        {
+          id: 112,
+          date: "2025-02-07T01:00:00",
+          slug: "australian-cattle-dog-quiz-1",
+          link: "https://petrage.net/australian-cattle-dog-quiz-1/",
+          title: { rendered: "Australian Cattle Dog Quiz 1" },
+          excerpt: { rendered: "<p>Test your breed knowledge.</p>" },
+          categories: [34],
+          tags: [12],
+        },
+        {
+          id: 113,
+          date: "2025-02-07T02:00:00",
+          slug: "australian-cattle-dog-quiz-2",
+          link: "https://petrage.net/australian-cattle-dog-quiz-2/",
+          title: { rendered: "Australian Cattle Dog Quiz 2" },
+          excerpt: { rendered: "<p>More Blue Heeler trivia.</p>" },
+          categories: [34],
+          tags: [12],
+        },
+        {
+          id: 114,
+          date: "2025-02-07T03:00:00",
+          slug: "australian-cattle-dog-quiz-3",
+          link: "https://petrage.net/australian-cattle-dog-quiz-3/",
+          title: { rendered: "Australian Cattle Dog Quiz 3" },
+          excerpt: { rendered: "<p>One more challenge for owners.</p>" },
+          categories: [34],
+          tags: [12],
+        },
+        {
+          id: 115,
+          date: "2025-02-07T04:00:00",
+          slug: "australian-cattle-dog-quiz-4",
+          link: "https://petrage.net/australian-cattle-dog-quiz-4/",
+          title: { rendered: "Australian Cattle Dog Quiz 4" },
+          excerpt: { rendered: "<p>Should be trimmed by the bucket limit.</p>" },
+          categories: [34],
+          tags: [12],
+        },
+      ],
     });
 
     const result = await getBreedContent("acd", {
@@ -239,6 +297,8 @@ describe("getBreedContent", () => {
     expect(result?.content_query.matched_category_ids).toEqual([31, 32]);
     expect(result?.content.canonical.post?.id).toBe(103);
     expect(result?.content.direct_matches.map((post) => post.id)).toEqual([101, 107]);
+    expect(result?.content.gallery.map((post) => post.id)).toEqual([111]);
+    expect(result?.content.quizzes.map((post) => post.id)).toEqual([115, 114, 113]);
     expect(result?.content.related.map((post) => post.id)).toEqual([109, 108]);
     expect(result?.content.supplemental.map((post) => post.id)).toEqual([106]);
     expect(result?.posts.map((post) => post.id)).toEqual([103, 101, 110, 107, 109, 108, 102, 106]);
@@ -355,6 +415,8 @@ describe("getBreedContent", () => {
     expect(result?.content_query.matched_category_slugs).toEqual([]);
     expect(result?.content.canonical.post).toBeNull();
     expect(result?.content.direct_matches).toEqual([]);
+    expect(result?.content.gallery).toEqual([]);
+    expect(result?.content.quizzes).toEqual([]);
     expect(result?.content.related).toEqual([]);
     expect(result?.content.supplemental).toEqual([]);
     expect(result?.posts).toEqual([]);
@@ -370,6 +432,7 @@ describe("getBreedContent", () => {
         { id: 31, name: "Dog Breed Facts", slug: "dog-breed-facts" },
         { id: 32, name: "Blog", slug: "blog" },
       ],
+      "/wp-json/wp/v2/categories?slug=user-gallery%2Cquiz&per_page=2&_fields=id%2Cname%2Cslug": [],
       "/wp-json/wp/v2/posts?tags=41&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
           id: 201,
@@ -453,6 +516,8 @@ describe("getBreedContent", () => {
     expect(result?.content_query.matched_category_ids).toEqual([31, 32]);
     expect(result?.content.canonical.post?.id).toBe(203);
     expect(result?.content.direct_matches.map((post) => post.id)).toEqual([201]);
+    expect(result?.content.gallery).toEqual([]);
+    expect(result?.content.quizzes).toEqual([]);
     expect(result?.content.related.map((post) => post.id)).toEqual([202]);
     expect(result?.content.supplemental).toEqual([]);
     expect(result?.posts.map((post) => post.id)).toEqual([203, 201, 202]);
@@ -468,6 +533,10 @@ describe("getBreedContent", () => {
       "/wp-json/wp/v2/categories?slug=dog-breed-facts%2Cblog&per_page=2&_fields=id%2Cname%2Cslug": [
         { id: 31, name: "Dog Breed Facts", slug: "dog-breed-facts" },
         { id: 32, name: "Blog", slug: "blog" },
+      ],
+      "/wp-json/wp/v2/categories?slug=user-gallery%2Cquiz&per_page=2&_fields=id%2Cname%2Cslug": [
+        { id: 33, name: "User Gallery", slug: "user-gallery" },
+        { id: 34, name: "Quiz", slug: "quiz" },
       ],
       "/wp-json/wp/v2/posts?tags=61&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
@@ -538,6 +607,30 @@ describe("getBreedContent", () => {
           tags: [61],
         },
       ],
+      "/wp-json/wp/v2/posts?tags=61&categories=33&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
+        {
+          id: 407,
+          date: "2025-04-07T00:00:00",
+          slug: "labrador-retriever-user-gallery",
+          link: "https://petrage.net/labrador-retriever-user-gallery/",
+          title: { rendered: "Labrador Retriever User Gallery" },
+          excerpt: { rendered: "<p>Canonical gallery entry.</p>" },
+          categories: [33],
+          tags: [61],
+        },
+      ],
+      "/wp-json/wp/v2/posts?tags=61&categories=34&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
+        {
+          id: 408,
+          date: "2025-04-08T00:00:00",
+          slug: "labrador-retriever-dog-breed-quiz",
+          link: "https://petrage.net/labrador-retriever-dog-breed-quiz/",
+          title: { rendered: "Labrador Retriever Dog Breed Quiz" },
+          excerpt: { rendered: "<p>Canonical quiz entry.</p>" },
+          categories: [34],
+          tags: [61],
+        },
+      ],
     });
 
     const result = await getBreedContent("labrador retriever", {
@@ -550,6 +643,8 @@ describe("getBreedContent", () => {
     expect(result?.content_query.tag_slugs_queried).toEqual(["labradorretriever", "lab"]);
     expect(result?.content.canonical.post?.id).toBe(404);
     expect(result?.content.direct_matches.map((post) => post.id)).toEqual([401]);
+    expect(result?.content.gallery.map((post) => post.id)).toEqual([407]);
+    expect(result?.content.quizzes.map((post) => post.id)).toEqual([408]);
     expect(result?.content.related.map((post) => post.id)).toEqual([406, 405]);
     expect(result?.posts.map((post) => post.id)).toEqual([404, 401, 402, 403]);
   });
@@ -633,6 +728,8 @@ describe("getBreedContent", () => {
     expect(result?.breed.id).toBe("dobermann-pinscher");
     expect(result?.content.canonical.post).toBeNull();
     expect(result?.content.direct_matches.map((post) => post.id)).toEqual([301, 303, 302]);
+    expect(result?.content.gallery).toEqual([]);
+    expect(result?.content.quizzes).toEqual([]);
     expect(result?.content.related).toEqual([]);
     expect(result?.content.supplemental.map((post) => post.id)).toEqual([305]);
     expect(result?.posts.map((post) => post.id)).toEqual([301, 303, 302, 306, 304, 305]);

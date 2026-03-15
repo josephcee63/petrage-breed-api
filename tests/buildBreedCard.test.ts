@@ -100,6 +100,8 @@ function createBreedContent(overrides?: Partial<BreedContentResult>): BreedConte
         createPost(4, "Australian Cattle Dog User Gallery", "gallery"),
         createPost(5, "Australian Cattle Dog Owner Quiz", "quiz"),
       ],
+      gallery: [createPost(4, "Australian Cattle Dog User Gallery", "gallery")],
+      quizzes: [createPost(5, "Australian Cattle Dog Owner Quiz", "quiz")],
       related: [
         createPost(6, "Best Herding Dog Breeds", "list"),
         createPost(7, "Australian Cattle Dog Survey", "survey"),
@@ -247,6 +249,8 @@ describe("buildBreedCard", () => {
         content: {
           canonical: { post: null, score: null, reasons: [] },
           direct_matches: [],
+          gallery: [],
+          quizzes: [],
           related: [],
           supplemental: [],
         },
