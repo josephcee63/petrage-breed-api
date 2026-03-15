@@ -73,6 +73,16 @@ describe("getBreedContent", () => {
           categories: [],
           tags: [11, 12],
         },
+        {
+          id: 110,
+          date: "2025-02-06T01:00:00",
+          slug: "best-blue-heeler-ranch-dogs",
+          link: "https://petrage.net/best-blue-heeler-ranch-dogs/",
+          title: { rendered: "Best Blue Heeler Ranch Dogs" },
+          excerpt: { rendered: "<p>Blue Heeler working stories from active farms.</p>" },
+          categories: [32],
+          tags: [11],
+        },
       ],
       "/wp-json/wp/v2/posts?tags=12&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
@@ -207,7 +217,7 @@ describe("getBreedContent", () => {
     expect(result?.content.direct_matches.map((post) => post.id)).toEqual([101, 107]);
     expect(result?.content.related.map((post) => post.id)).toEqual([109, 108]);
     expect(result?.content.supplemental.map((post) => post.id)).toEqual([106]);
-    expect(result?.posts.map((post) => post.id)).toEqual([103, 101, 107, 109, 108, 102, 106]);
+    expect(result?.posts.map((post) => post.id)).toEqual([103, 101, 110, 107, 109, 108, 102, 106]);
     expect(result?.posts).toEqual([
       {
         id: 103,
@@ -230,6 +240,17 @@ describe("getBreedContent", () => {
         matched_tags: ["acd", "australiancattledog"],
         matched_categories: [],
         content_type: "facts",
+      },
+      {
+        id: 110,
+        date: "2025-02-06T01:00:00",
+        slug: "best-blue-heeler-ranch-dogs",
+        link: "https://petrage.net/best-blue-heeler-ranch-dogs/",
+        title: "Best Blue Heeler Ranch Dogs",
+        excerpt: "Blue Heeler working stories from active farms.",
+        matched_tags: ["acd"],
+        matched_categories: ["blog"],
+        content_type: "list",
       },
       {
         id: 107,

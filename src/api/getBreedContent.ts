@@ -69,7 +69,9 @@ export async function getBreedContent(
     const canonicalSignals = getCanonicalBreedSignals(normalizedBreed, resolvedBreed);
     const relevantPosts = filterBreedRelevantPosts(posts, canonicalSignals);
     const rankedPosts = rankBreedContent(relevantPosts, canonicalSignals);
-    const groupedContent = groupBreedContent(rankedPosts);
+    const groupedContent = groupBreedContent(rankedPosts, {
+      relatedTagSlug: tagSlugsQueried[0] ?? null,
+    });
 
     return {
       resolved_input: input,

@@ -129,4 +129,25 @@ describe("groupBreedContent", () => {
 
     expect(grouped.related.map((post) => post.id)).toEqual([7, 6, 5, 4, 3]);
   });
+
+  it("uses only the canonical related tag slug for article-style related resources", () => {
+    const grouped = groupBreedContent(
+      [
+        createRankedPost(1, "Canonical Guide", 90, "facts", ["article_url_exact_match"]),
+        createRankedPost(2, "Canonical Blog Post", 45, "list", [], {
+          matched_tags: ["labradorretriever"],
+          matched_categories: ["blog"],
+          date: "2025-01-03T00:00:00Z",
+        }),
+        createRankedPost(3, "Alias Blog Post", 50, "list", [], {
+          matched_tags: ["lab"],
+          matched_categories: ["blog"],
+          date: "2025-01-04T00:00:00Z",
+        }),
+      ],
+      { relatedTagSlug: "labradorretriever" },
+    );
+
+    expect(grouped.related.map((post) => post.id)).toEqual([2]);
+  });
 });

@@ -22,7 +22,14 @@ const HIGH_CONFIDENCE_RELATED_TO_DIRECT = new Set<RankedWordPressPost["content_t
   "survey",
 ]);
 
-export function groupBreedContent(rankedPosts: RankedWordPressPost[]): BreedContentBuckets {
+export interface GroupBreedContentOptions {
+  relatedTagSlug?: string | null;
+}
+
+export function groupBreedContent(
+  rankedPosts: RankedWordPressPost[],
+  options?: GroupBreedContentOptions,
+): BreedContentBuckets {
   const [topPost] = rankedPosts;
   const canonical =
     topPost && topPost.score >= CANONICAL_THRESHOLD && isCanonicalMatch(topPost)
@@ -46,7 +53,7 @@ export function groupBreedContent(rankedPosts: RankedWordPressPost[]): BreedCont
     canonical,
     direct_matches: remainingPosts.filter(isDirectMatch).map((rankedPost) => rankedPost.post),
     related: remainingPosts
-      .filter(isRelatedMatch)
+      .filter((rankedPost) => isRelatedMatch(rankedPost, options))
       .sort(compareRelatedPosts)
       .slice(0, MAX_RELATED_POSTS)
       .map((rankedPost) => rankedPost.post),
@@ -71,12 +78,24 @@ function isSupplementalMatch(rankedPost: RankedWordPressPost): boolean {
   return SUPPLEMENTAL_CONTENT_TYPES.includes(rankedPost.content_type) && !isDirectMatch(rankedPost);
 }
 
-function isRelatedMatch(rankedPost: RankedWordPressPost): boolean {
+function isRelatedMatch(
+  rankedPost: RankedWordPressPost,
+  options: GroupBreedContentOptions | undefined,
+): boolean {
   return (
+    matchesRelatedTag(rankedPost, options?.relatedTagSlug) &&
     rankedPost.post.matched_tags.length > 0 &&
     rankedPost.post.matched_categories.includes("blog") &&
     RELATED_RESOURCE_CONTENT_TYPES.includes(rankedPost.content_type)
   );
+}
+
+function matchesRelatedTag(rankedPost: RankedWordPressPost, relatedTagSlug: string | null | undefined): boolean {
+  if (!relatedTagSlug) {
+    return true;
+  }
+
+  return rankedPost.post.matched_tags.includes(relatedTagSlug);
 }
 
 function compareRelatedPosts(left: RankedWordPressPost, right: RankedWordPressPost): number {
