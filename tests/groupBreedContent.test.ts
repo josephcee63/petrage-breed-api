@@ -59,7 +59,7 @@ describe("groupBreedContent", () => {
 
     expect(grouped.canonical.post).toBeNull();
     expect(grouped.direct_matches.map((post) => post.id)).toEqual([1, 2]);
-    expect(grouped.related.map((post) => post.id)).toEqual([4, 3]);
+    expect(grouped.related.map((post) => post.id)).toEqual([4]);
     expect(grouped.supplemental).toEqual([]);
   });
 
@@ -72,9 +72,23 @@ describe("groupBreedContent", () => {
       createRankedPost(5, "Working Dog Quiz", 41, "quiz"),
     ]);
 
-    expect(grouped.canonical.post?.id).toBe(1);
-    expect(grouped.direct_matches.map((post) => post.id)).toEqual([2]);
-    expect(grouped.related.map((post) => post.id)).toEqual([5]);
+    expect(grouped.canonical.post).toBeNull();
+    expect(grouped.direct_matches.map((post) => post.id)).toEqual([1, 2]);
+    expect(grouped.related).toEqual([]);
     expect(grouped.supplemental.map((post) => post.id)).toEqual([3, 4]);
+  });
+
+  it("caps related article-style results at five posts", () => {
+    const grouped = groupBreedContent([
+      createRankedPost(1, "Canonical", 100, "facts"),
+      createRankedPost(2, "Related 1", 40, "list"),
+      createRankedPost(3, "Related 2", 39, "list"),
+      createRankedPost(4, "Related 3", 38, "survey"),
+      createRankedPost(5, "Related 4", 37, "list"),
+      createRankedPost(6, "Related 5", 36, "list"),
+      createRankedPost(7, "Related 6", 35, "list"),
+    ]);
+
+    expect(grouped.related.map((post) => post.id)).toEqual([2, 3, 4, 5, 6]);
   });
 });

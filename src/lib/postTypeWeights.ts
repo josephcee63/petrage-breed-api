@@ -25,4 +25,15 @@ export const DIRECT_MATCH_CONTENT_TYPES: BreedContentType[] = [
   "gallery",
 ];
 
+export const RELATED_RESOURCE_CONTENT_TYPES: BreedContentType[] = [
+  "facts",
+  "health",
+  "care",
+  "behavior",
+  "training",
+  "survey",
+  "comparison",
+  "list",
+];
+
 export const SUPPLEMENTAL_CONTENT_TYPES: BreedContentType[] = ["video", "meme", "misc"];

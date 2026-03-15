@@ -51,7 +51,7 @@ describe("getBreedContent", () => {
     ).resolves.toBeNull();
   });
 
-  it("resolves acd and ranks galleries and strong list content above quizzes", async () => {
+  it("resolves acd and keeps related resources limited to article-style posts", async () => {
     const breedData = await loadBreedData();
     const mockFetch = createMockFetch({
       "/wp-json/wp/v2/tags?slug=acd%2Caustraliancattledog&per_page=2&_fields=id%2Cname%2Cslug": [
@@ -162,9 +162,9 @@ describe("getBreedContent", () => {
     expect(result?.content_query.matched_category_ids).toEqual([31]);
     expect(result?.content.canonical.post?.id).toBe(103);
     expect(result?.content.direct_matches.map((post) => post.id)).toEqual([101, 107]);
-    expect(result?.content.related.map((post) => post.id)).toEqual([109, 108, 102]);
+    expect(result?.content.related.map((post) => post.id)).toEqual([109, 108]);
     expect(result?.content.supplemental.map((post) => post.id)).toEqual([106]);
-    expect(result?.posts.map((post) => post.id)).toEqual([103, 101, 107, 109, 108, 102, 106]);
+    expect(result?.posts.map((post) => post.id)).toEqual([103, 101, 107, 102, 109, 108, 106]);
     expect(result?.posts).toEqual([
       {
         id: 103,
@@ -200,6 +200,17 @@ describe("getBreedContent", () => {
         content_type: "gallery",
       },
       {
+        id: 102,
+        date: "2025-02-02T00:00:00",
+        slug: "blue-heeler-owner-quiz",
+        link: "https://petrage.net/blue-heeler-owner-quiz/",
+        title: "Blue Heeler Owner Quiz",
+        excerpt: "Test your breed knowledge.",
+        matched_tags: ["australiancattledog"],
+        matched_categories: [],
+        content_type: "quiz",
+      },
+      {
         id: 109,
         date: "2025-02-05T01:00:00",
         slug: "best-herding-dog-breeds",
@@ -220,17 +231,6 @@ describe("getBreedContent", () => {
         matched_tags: ["australiancattledog"],
         matched_categories: [],
         content_type: "list",
-      },
-      {
-        id: 102,
-        date: "2025-02-02T00:00:00",
-        slug: "blue-heeler-owner-quiz",
-        link: "https://petrage.net/blue-heeler-owner-quiz/",
-        title: "Blue Heeler Owner Quiz",
-        excerpt: "Test your breed knowledge.",
-        matched_tags: ["australiancattledog"],
-        matched_categories: [],
-        content_type: "quiz",
       },
       {
         id: 106,
@@ -402,10 +402,11 @@ describe("getBreedContent", () => {
     });
 
     expect(result?.breed.id).toBe("dobermann-pinscher");
-    expect(result?.content.direct_matches.map((post) => post.id)).toEqual([302, 301, 303]);
-    expect(result?.content.related.map((post) => post.id)).toEqual([306, 304]);
+    expect(result?.content.canonical.post).toBeNull();
+    expect(result?.content.direct_matches.map((post) => post.id)).toEqual([301, 303, 302]);
+    expect(result?.content.related).toEqual([]);
     expect(result?.content.supplemental.map((post) => post.id)).toEqual([305]);
-    expect(result?.posts.map((post) => post.id)).toEqual([302, 301, 303, 306, 304, 305]);
+    expect(result?.posts.map((post) => post.id)).toEqual([301, 303, 302, 306, 304, 305]);
     expect(result?.posts.find((post) => post.id === 306)?.content_type).toBe("quiz");
   });
 

@@ -1,4 +1,5 @@
 import { classifyBreedPost } from "./classifyBreedPost.js";
+import { getBreedPostMatchSignals } from "./getBreedPostMatchSignals.js";
 import { normalizeLookupKey } from "./normalizeLookupKey.js";
 import { POST_TYPE_WEIGHTS } from "./postTypeWeights.js";
 
@@ -45,52 +46,65 @@ function scorePost(
 ): { score: number; reasons: string[] } {
   let score = 0;
   const reasons: string[] = [];
-  const normalizedTitle = normalizeLookupKey(post.title);
-  const normalizedSlug = normalizeLookupKey(post.slug);
   const normalizedExcerpt = normalizeLookupKey(post.excerpt);
-  const normalizedDisplayName = normalizeLookupKey(signals.display_name);
-  const normalizedAliases = signals.aliases.map((alias) => normalizeLookupKey(alias)).filter(Boolean);
+  const matchSignals = getBreedPostMatchSignals(post, signals);
 
-  if (signals.article_url && normalizeUrl(post.link) === normalizeUrl(signals.article_url)) {
+  if (matchSignals.articleUrlExactMatch) {
     score += 100;
     reasons.push("article_url_exact_match");
   }
 
-  if (normalizedDisplayName && normalizedTitle.includes(normalizedDisplayName)) {
+  if (matchSignals.displayNameInTitle) {
     score += 50;
     reasons.push("display_name_in_title");
   }
 
-  if (normalizedDisplayName && normalizedExcerpt.includes(normalizedDisplayName)) {
+  if (matchSignals.displayNameInExcerpt) {
     score += 20;
     reasons.push("display_name_in_excerpt");
   }
 
-  if (
-    normalizedDisplayName &&
-    normalizedTitle.includes(normalizedDisplayName) &&
-    post.matched_categories.length > 0
-  ) {
+  if (matchSignals.displayNameInSlug) {
+    score += 20;
+    reasons.push("display_name_in_slug");
+  }
+
+  if (matchSignals.displayNameInTitle && post.matched_categories.length > 0) {
     score += 15;
     reasons.push("display_name_in_breed_category");
   }
 
-  const aliasMatch = normalizedAliases.find((alias) => normalizedTitle.includes(alias));
-  if (aliasMatch) {
+  if (matchSignals.aliasInTitle) {
     score += 35;
     reasons.push("alias_in_title");
   }
 
-  const aliasExcerptMatch = normalizedAliases.find((alias) => normalizedExcerpt.includes(alias));
-  if (aliasExcerptMatch) {
+  if (matchSignals.aliasInExcerpt) {
     score += 14;
     reasons.push("alias_in_excerpt");
   }
 
-  if (
-    signals.preferred_tag_slug &&
-    post.matched_tags.some((tag) => tag.toLowerCase() === signals.preferred_tag_slug?.toLowerCase())
-  ) {
+  if (matchSignals.aliasInSlug) {
+    score += 16;
+    reasons.push("alias_in_slug");
+  }
+
+  if (matchSignals.breedConceptInTitle) {
+    score += 24;
+    reasons.push("breed_concept_in_title");
+  }
+
+  if (matchSignals.breedConceptInExcerpt) {
+    score += 10;
+    reasons.push("breed_concept_in_excerpt");
+  }
+
+  if (matchSignals.breedConceptInSlug) {
+    score += 12;
+    reasons.push("breed_concept_in_slug");
+  }
+
+  if (matchSignals.preferredTagMatch) {
     score += 25;
     reasons.push("preferred_tag_match");
   }
@@ -105,15 +119,6 @@ function scorePost(
     reasons.push("matched_breed_category");
   }
 
-  if (
-    normalizedDisplayName &&
-    (normalizedSlug.includes(normalizedDisplayName) ||
-      normalizedAliases.some((alias) => normalizedSlug.includes(alias)))
-  ) {
-    score += 5;
-    reasons.push("breed_like_slug");
-  }
-
   const postTypeWeight = POST_TYPE_WEIGHTS[contentType];
   if (postTypeWeight !== 0) {
     score += postTypeWeight;
@@ -122,19 +127,32 @@ function scorePost(
 
   if (
     contentType === "list" &&
-    (post.matched_tags.length > 0 ||
-      (normalizedDisplayName && normalizedExcerpt.includes(normalizedDisplayName)) ||
-      normalizedAliases.some((alias) => normalizedExcerpt.includes(alias)))
+    (matchSignals.matchedBreedTag || matchSignals.excerptMatch)
   ) {
     score += 14;
     reasons.push("supporting_list_content");
   }
 
-  return { score, reasons };
-}
+  if (matchSignals.excerptMatch && !matchSignals.titleOrSlugMatch) {
+    score -= 8;
+    reasons.push("excerpt_only_relevance");
+  }
 
-function normalizeUrl(value: string): string {
-  return value.trim().replace(/\/+$/, "").toLowerCase();
+  if (
+    ["list", "survey", "comparison"].includes(contentType) &&
+    !matchSignals.titleOrSlugMatch &&
+    matchSignals.excerptMatch
+  ) {
+    score -= 18;
+    reasons.push("generic_multi_breed_format");
+  }
+
+  if (matchSignals.tagOnlyMatch) {
+    score -= 35;
+    reasons.push("incidental_tag_only_match");
+  }
+
+  return { score, reasons };
 }
 
 function toTimestamp(value: string): number {

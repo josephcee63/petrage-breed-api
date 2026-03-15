@@ -159,6 +159,23 @@ describe("rankBreedContent", () => {
     expect(ranked[1]?.content_type).toBe("quiz");
   });
 
+  it("penalizes incidental tag-only matches", () => {
+    const ranked = rankBreedContent(
+      [
+        createPost({ id: 1, title: "Working Dog Post", matched_tags: ["acd"] }),
+        createPost({
+          id: 2,
+          title: "Blue Heeler Training Tips",
+          matched_tags: ["acd"],
+        }),
+      ],
+      { ...baseSignals, article_url: null },
+    );
+
+    expect(ranked[0]?.post.id).toBe(2);
+    expect(ranked[1]?.reasons).toContain("incidental_tag_only_match");
+  });
+
   it("battle-of engagement posts do not outrank stronger related informational content", () => {
     const ranked = rankBreedContent(
       [
@@ -184,5 +201,18 @@ describe("rankBreedContent", () => {
 
     expect(ranked[0]?.post.id).toBe(1);
     expect(ranked[0]?.content_type).toBe("facts");
+  });
+
+  it("recognizes short preferred-tag concepts when they appear as whole words in the title", () => {
+    const ranked = rankBreedContent(
+      [
+        createPost({ id: 1, title: "ACD Care Guide", matched_tags: ["acd"] }),
+        createPost({ id: 2, title: "Generic Dog Care Guide", matched_tags: ["acd"] }),
+      ],
+      { ...baseSignals, article_url: null },
+    );
+
+    expect(ranked[0]?.post.id).toBe(1);
+    expect(ranked[0]?.reasons).toContain("breed_concept_in_title");
   });
 });

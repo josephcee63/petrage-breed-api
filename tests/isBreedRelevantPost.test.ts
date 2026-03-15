@@ -72,10 +72,22 @@ describe("isBreedRelevantPost", () => {
     ).toBe(true);
   });
 
-  it("returns true when the breed name appears in the excerpt", () => {
+  it("returns true when the breed name appears in the excerpt and the query metadata also matches", () => {
     expect(
       isBreedRelevantPost(
-        createPost({ excerpt: "The Australian Cattle Dog is a strong herding breed." }),
+        createPost({
+          excerpt: "The Australian Cattle Dog is a strong herding breed.",
+          matched_tags: ["acd"],
+        }),
+        { ...baseSignals, article_url: null },
+      ),
+    ).toBe(true);
+  });
+
+  it("returns true when a short breed shorthand appears as a whole word in the title", () => {
+    expect(
+      isBreedRelevantPost(
+        createPost({ title: "ACD Care Guide" }),
         { ...baseSignals, article_url: null },
       ),
     ).toBe(true);
@@ -102,6 +114,19 @@ describe("isBreedRelevantPost", () => {
           title: "A practical guide to dog care",
           slug: "a-practical-guide-to-dog-care",
           excerpt: "General dog advice.",
+        }),
+        { ...baseSignals, article_url: null },
+      ),
+    ).toBe(false);
+  });
+
+  it("returns false for tag-only incidental matches", () => {
+    expect(
+      isBreedRelevantPost(
+        createPost({
+          title: "Working Dog Post",
+          excerpt: "General dog roundup.",
+          matched_tags: ["acd"],
         }),
         { ...baseSignals, article_url: null },
       ),

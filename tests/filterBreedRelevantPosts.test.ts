@@ -27,12 +27,28 @@ const baseSignals: CanonicalBreedSignals = {
 };
 
 describe("filterBreedRelevantPosts", () => {
-  it("always retains tag-matched posts", () => {
+  it("drops tag-only posts with no breed wording in the content", () => {
     const filtered = filterBreedRelevantPosts(
       [
         createPost({
           id: 1,
           title: "Working Dog Post",
+          matched_tags: ["acd"],
+        }),
+      ],
+      baseSignals,
+    );
+
+    expect(filtered).toEqual([]);
+  });
+
+  it("retains excerpt-supported posts when the breed query metadata also matches", () => {
+    const filtered = filterBreedRelevantPosts(
+      [
+        createPost({
+          id: 1,
+          title: "Working Dog Post",
+          excerpt: "The Australian Cattle Dog excels at herding livestock.",
           matched_tags: ["acd"],
         }),
       ],
