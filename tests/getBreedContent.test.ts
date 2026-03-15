@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { breedContentCache, getBreedContent } from "../src/api/getBreedContent.js";
 import { wordPressCategoriesCache } from "../src/lib/fetchWordPressCategories.js";
 import { wordPressPostsByCategoriesCache } from "../src/lib/fetchWordPressPostsByCategories.js";
+import { wordPressPostsByTagAndCategoryCache } from "../src/lib/fetchWordPressPostsByTagAndCategory.js";
 import { wordPressPostsByTagsCache } from "../src/lib/fetchWordPressPostsByTags.js";
 import { wordPressTagsCache } from "../src/lib/fetchWordPressTags.js";
 import { loadBreedData } from "../src/lib/loadBreedData.js";
@@ -38,6 +39,7 @@ describe("getBreedContent", () => {
     wordPressCategoriesCache.clear();
     wordPressPostsByTagsCache.clear();
     wordPressPostsByCategoriesCache.clear();
+    wordPressPostsByTagAndCategoryCache.clear();
   });
 
   it("returns null for an unknown breed", async () => {
@@ -179,6 +181,28 @@ describe("getBreedContent", () => {
         },
       ],
       "/wp-json/wp/v2/posts?categories=32&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
+        {
+          id: 108,
+          date: "2025-02-05T00:00:00",
+          slug: "dog-breeds-from-australia",
+          link: "https://petrage.net/dog-breeds-from-australia/",
+          title: { rendered: "Dog Breeds from Australia" },
+          excerpt: { rendered: "<p>Includes the Australian Cattle Dog and other working breeds.</p>" },
+          categories: [32],
+          tags: [12],
+        },
+        {
+          id: 109,
+          date: "2025-02-05T01:00:00",
+          slug: "best-herding-dog-breeds",
+          link: "https://petrage.net/best-herding-dog-breeds/",
+          title: { rendered: "Best Herding Dog Breeds" },
+          excerpt: { rendered: "<p>Australian Cattle Dog stands out among top herders.</p>" },
+          categories: [32],
+          tags: [12],
+        },
+      ],
+      "/wp-json/wp/v2/posts?tags=12&categories=32&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
           id: 108,
           date: "2025-02-05T00:00:00",
@@ -402,6 +426,18 @@ describe("getBreedContent", () => {
           tags: [41],
         },
       ],
+      "/wp-json/wp/v2/posts?tags=41&categories=32&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
+        {
+          id: 202,
+          date: "2025-03-02T00:00:00",
+          slug: "dog-breeds-from-japan",
+          link: "https://petrage.net/dog-breeds-from-japan/",
+          title: { rendered: "Dog Breeds from Japan" },
+          excerpt: { rendered: "<p>Japanese breeds including the Akita.</p>" },
+          categories: [32],
+          tags: [41],
+        },
+      ],
     });
 
     const result = await getBreedContent("akita", {
@@ -420,6 +456,102 @@ describe("getBreedContent", () => {
     expect(result?.content.related.map((post) => post.id)).toEqual([202]);
     expect(result?.content.supplemental).toEqual([]);
     expect(result?.posts.map((post) => post.id)).toEqual([203, 201, 202]);
+  });
+
+  it("uses the direct blog plus canonical-tag query for related resources even when the broad pool is noisy", async () => {
+    const breedData = await loadBreedData();
+    const mockFetch = createMockFetch({
+      "/wp-json/wp/v2/tags?slug=labradorretriever%2Clab&per_page=2&_fields=id%2Cname%2Cslug": [
+        { id: 61, name: "Labrador Retriever", slug: "labradorretriever" },
+        { id: 62, name: "Lab", slug: "lab" },
+      ],
+      "/wp-json/wp/v2/categories?slug=dog-breed-facts%2Cblog&per_page=2&_fields=id%2Cname%2Cslug": [
+        { id: 31, name: "Dog Breed Facts", slug: "dog-breed-facts" },
+        { id: 32, name: "Blog", slug: "blog" },
+      ],
+      "/wp-json/wp/v2/posts?tags=61&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
+        {
+          id: 401,
+          date: "2025-04-01T00:00:00",
+          slug: "labrador-retriever-user-gallery",
+          link: "https://petrage.net/labrador-retriever-user-gallery/",
+          title: { rendered: "Labrador Retriever User Gallery" },
+          excerpt: { rendered: "<p>User-submitted Lab photos.</p>" },
+          categories: [],
+          tags: [61],
+        },
+        {
+          id: 402,
+          date: "2025-04-02T00:00:00",
+          slug: "labrador-retriever-dog-breed-quiz",
+          link: "https://petrage.net/labrador-retriever-dog-breed-quiz/",
+          title: { rendered: "Labrador Retriever Dog Breed Quiz" },
+          excerpt: { rendered: "<p>How much do you know about Labs?</p>" },
+          categories: [],
+          tags: [61],
+        },
+      ],
+      "/wp-json/wp/v2/posts?tags=62&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
+        {
+          id: 403,
+          date: "2025-04-03T00:00:00",
+          slug: "funny-lab-video-roundup",
+          link: "https://petrage.net/funny-lab-video-roundup/",
+          title: { rendered: "Funny Lab Video Roundup" },
+          excerpt: { rendered: "<p>Playful Lab moments.</p>" },
+          categories: [],
+          tags: [62],
+        },
+      ],
+      "/wp-json/wp/v2/posts?categories=31&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
+        {
+          id: 404,
+          date: "2025-04-04T00:00:00",
+          slug: "13-interesting-facts-about-labrador-retrievers",
+          link: "https://petrage.net/13-interesting-facts-about-labrador-retrievers/",
+          title: { rendered: "13 Interesting Facts about Labrador Retrievers" },
+          excerpt: { rendered: "<p>Breed guide and history.</p>" },
+          categories: [31],
+          tags: [],
+        },
+      ],
+      "/wp-json/wp/v2/posts?categories=32&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [],
+      "/wp-json/wp/v2/posts?tags=61&categories=32&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
+        {
+          id: 405,
+          date: "2025-04-05T00:00:00",
+          slug: "best-family-activities-for-labrador-retrievers",
+          link: "https://petrage.net/best-family-activities-for-labrador-retrievers/",
+          title: { rendered: "Best Family Activities for Labrador Retrievers" },
+          excerpt: { rendered: "<p>Fun ideas for active Labrador homes.</p>" },
+          categories: [32],
+          tags: [61],
+        },
+        {
+          id: 406,
+          date: "2025-04-06T00:00:00",
+          slug: "labrador-retriever-shedding-guide",
+          link: "https://petrage.net/labrador-retriever-shedding-guide/",
+          title: { rendered: "Labrador Retriever Shedding Guide" },
+          excerpt: { rendered: "<p>What Labrador owners should expect.</p>" },
+          categories: [32],
+          tags: [61],
+        },
+      ],
+    });
+
+    const result = await getBreedContent("labrador retriever", {
+      breedData,
+      fetchImplementation: mockFetch,
+    });
+
+    expect(result).not.toBeNull();
+    expect(result?.breed.id).toBe("labrador-retriever");
+    expect(result?.content_query.tag_slugs_queried).toEqual(["labradorretriever", "lab"]);
+    expect(result?.content.canonical.post?.id).toBe(404);
+    expect(result?.content.direct_matches.map((post) => post.id)).toEqual([401]);
+    expect(result?.content.related.map((post) => post.id)).toEqual([406, 405]);
+    expect(result?.posts.map((post) => post.id)).toEqual([404, 401, 402, 403]);
   });
 
   it("resolves doberman and keeps battle-of posts below owner-useful health/care and gallery content", async () => {

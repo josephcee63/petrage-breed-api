@@ -50,7 +50,7 @@ describe("groupBreedContent", () => {
     expect(grouped.canonical.post?.id).toBe(1);
     expect(grouped.canonical.score).toBe(90);
     expect(grouped.direct_matches.map((post) => post.id)).toEqual([2]);
-    expect(grouped.related.map((post) => post.id)).toEqual([3]);
+    expect(grouped.related).toEqual([]);
     expect(grouped.supplemental).toEqual([]);
   });
 
@@ -70,7 +70,7 @@ describe("groupBreedContent", () => {
 
     expect(grouped.canonical.post).toBeNull();
     expect(grouped.direct_matches.map((post) => post.id)).toEqual([1, 2]);
-    expect(grouped.related.map((post) => post.id)).toEqual([4]);
+    expect(grouped.related).toEqual([]);
     expect(grouped.supplemental).toEqual([]);
   });
 
@@ -90,64 +90,5 @@ describe("groupBreedContent", () => {
     expect(grouped.direct_matches.map((post) => post.id)).toEqual([1, 2]);
     expect(grouped.related).toEqual([]);
     expect(grouped.supplemental.map((post) => post.id)).toEqual([3, 4]);
-  });
-
-  it("caps related article-style results at five posts", () => {
-    const grouped = groupBreedContent([
-      createRankedPost(1, "Canonical", 100, "facts"),
-      createRankedPost(2, "Related 1", 40, "list", [], {
-        matched_tags: ["breed"],
-        matched_categories: ["blog"],
-        date: "2025-01-02T00:00:00Z",
-      }),
-      createRankedPost(3, "Related 2", 39, "list", [], {
-        matched_tags: ["breed"],
-        matched_categories: ["blog"],
-        date: "2025-01-03T00:00:00Z",
-      }),
-      createRankedPost(4, "Related 3", 38, "survey", [], {
-        matched_tags: ["breed"],
-        matched_categories: ["blog"],
-        date: "2025-01-04T00:00:00Z",
-      }),
-      createRankedPost(5, "Related 4", 37, "list", [], {
-        matched_tags: ["breed"],
-        matched_categories: ["blog"],
-        date: "2025-01-05T00:00:00Z",
-      }),
-      createRankedPost(6, "Related 5", 36, "list", [], {
-        matched_tags: ["breed"],
-        matched_categories: ["blog"],
-        date: "2025-01-06T00:00:00Z",
-      }),
-      createRankedPost(7, "Related 6", 35, "list", [], {
-        matched_tags: ["breed"],
-        matched_categories: ["blog"],
-        date: "2025-01-07T00:00:00Z",
-      }),
-    ]);
-
-    expect(grouped.related.map((post) => post.id)).toEqual([7, 6, 5, 4, 3]);
-  });
-
-  it("uses only the canonical related tag slug for article-style related resources", () => {
-    const grouped = groupBreedContent(
-      [
-        createRankedPost(1, "Canonical Guide", 90, "facts", ["article_url_exact_match"]),
-        createRankedPost(2, "Canonical Blog Post", 45, "list", [], {
-          matched_tags: ["labradorretriever"],
-          matched_categories: ["blog"],
-          date: "2025-01-03T00:00:00Z",
-        }),
-        createRankedPost(3, "Alias Blog Post", 50, "list", [], {
-          matched_tags: ["lab"],
-          matched_categories: ["blog"],
-          date: "2025-01-04T00:00:00Z",
-        }),
-      ],
-      { relatedTagSlug: "labradorretriever" },
-    );
-
-    expect(grouped.related.map((post) => post.id)).toEqual([2]);
   });
 });

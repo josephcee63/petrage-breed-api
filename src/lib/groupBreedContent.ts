@@ -1,15 +1,10 @@
-import {
-  DIRECT_MATCH_CONTENT_TYPES,
-  RELATED_RESOURCE_CONTENT_TYPES,
-  SUPPLEMENTAL_CONTENT_TYPES,
-} from "./postTypeWeights.js";
+import { DIRECT_MATCH_CONTENT_TYPES, SUPPLEMENTAL_CONTENT_TYPES } from "./postTypeWeights.js";
 
 import type { BreedContentBuckets, RankedWordPressPost } from "./types.js";
 
 const CANONICAL_THRESHOLD = 80;
 const DIRECT_MATCH_THRESHOLD = 35;
 const HIGH_CONFIDENCE_THRESHOLD = 65;
-const MAX_RELATED_POSTS = 5;
 const CANONICAL_REASONS = new Set([
   "article_url_exact_match",
   "display_name_in_title",
@@ -18,18 +13,9 @@ const CANONICAL_REASONS = new Set([
   "alias_in_title",
   "alias_in_slug",
 ]);
-const HIGH_CONFIDENCE_RELATED_TO_DIRECT = new Set<RankedWordPressPost["content_type"]>([
-  "survey",
-]);
+const HIGH_CONFIDENCE_RELATED_TO_DIRECT = new Set<RankedWordPressPost["content_type"]>(["survey"]);
 
-export interface GroupBreedContentOptions {
-  relatedTagSlug?: string | null;
-}
-
-export function groupBreedContent(
-  rankedPosts: RankedWordPressPost[],
-  options?: GroupBreedContentOptions,
-): BreedContentBuckets {
+export function groupBreedContent(rankedPosts: RankedWordPressPost[]): BreedContentBuckets {
   const [topPost] = rankedPosts;
   const canonical =
     topPost && topPost.score >= CANONICAL_THRESHOLD && isCanonicalMatch(topPost)
@@ -52,11 +38,7 @@ export function groupBreedContent(
   return {
     canonical,
     direct_matches: remainingPosts.filter(isDirectMatch).map((rankedPost) => rankedPost.post),
-    related: remainingPosts
-      .filter((rankedPost) => isRelatedMatch(rankedPost, options))
-      .sort(compareRelatedPosts)
-      .slice(0, MAX_RELATED_POSTS)
-      .map((rankedPost) => rankedPost.post),
+    related: [],
     supplemental: remainingPosts.filter(isSupplementalMatch).map((rankedPost) => rankedPost.post),
   };
 }
@@ -76,40 +58,4 @@ function isCanonicalMatch(rankedPost: RankedWordPressPost): boolean {
 
 function isSupplementalMatch(rankedPost: RankedWordPressPost): boolean {
   return SUPPLEMENTAL_CONTENT_TYPES.includes(rankedPost.content_type) && !isDirectMatch(rankedPost);
-}
-
-function isRelatedMatch(
-  rankedPost: RankedWordPressPost,
-  options: GroupBreedContentOptions | undefined,
-): boolean {
-  return (
-    matchesRelatedTag(rankedPost, options?.relatedTagSlug) &&
-    rankedPost.post.matched_tags.length > 0 &&
-    rankedPost.post.matched_categories.includes("blog") &&
-    RELATED_RESOURCE_CONTENT_TYPES.includes(rankedPost.content_type)
-  );
-}
-
-function matchesRelatedTag(rankedPost: RankedWordPressPost, relatedTagSlug: string | null | undefined): boolean {
-  if (!relatedTagSlug) {
-    return true;
-  }
-
-  return rankedPost.post.matched_tags.includes(relatedTagSlug);
-}
-
-function compareRelatedPosts(left: RankedWordPressPost, right: RankedWordPressPost): number {
-  const rightTimestamp = toTimestamp(right.post.date);
-  const leftTimestamp = toTimestamp(left.post.date);
-
-  if (rightTimestamp !== leftTimestamp) {
-    return rightTimestamp - leftTimestamp;
-  }
-
-  return right.post.id - left.post.id;
-}
-
-function toTimestamp(value: string): number {
-  const parsed = Date.parse(value);
-  return Number.isNaN(parsed) ? 0 : parsed;
 }

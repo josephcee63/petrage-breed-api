@@ -1,6 +1,8 @@
+import { classifyBreedPost } from "../lib/classifyBreedPost.js";
 import { dedupePosts } from "../lib/dedupePosts.js";
 import { fetchWordPressCategories } from "../lib/fetchWordPressCategories.js";
 import { fetchWordPressPostsByCategories } from "../lib/fetchWordPressPostsByCategories.js";
+import { fetchWordPressPostsByTagAndCategory } from "../lib/fetchWordPressPostsByTagAndCategory.js";
 import { fetchWordPressPostsByTags } from "../lib/fetchWordPressPostsByTags.js";
 import { fetchWordPressTags } from "../lib/fetchWordPressTags.js";
 import { filterBreedRelevantPosts } from "../lib/filterBreedRelevantPosts.js";
@@ -8,11 +10,19 @@ import { getCanonicalBreedSignals } from "../lib/getCanonicalBreedSignals.js";
 import { getContentQueryTags } from "../lib/getContentQueryTags.js";
 import { groupBreedContent } from "../lib/groupBreedContent.js";
 import { getNormalizedBreedById, loadBreedData } from "../lib/loadBreedData.js";
+import { RELATED_RESOURCE_CONTENT_TYPES } from "../lib/postTypeWeights.js";
 import { rankBreedContent } from "../lib/rankBreedContent.js";
 import { resolveBreed } from "../lib/resolveBreed.js";
 import { SimpleCache } from "../lib/simpleCache.js";
 
-import type { BreedContentResult, LoadedBreedData } from "../lib/types.js";
+import type {
+  BreedContentResult,
+  CanonicalBreedSignals,
+  LoadedBreedData,
+  WordPressCategory,
+  WordPressPostSummary,
+  WordPressTag,
+} from "../lib/types.js";
 
 const DEFAULT_BASE_URL = "https://petrage.net";
 const DEFAULT_CATEGORY_SLUGS = ["dog-breed-facts", "blog"];
@@ -64,14 +74,25 @@ export async function getBreedContent(
       matchedCategories.length > 0
         ? await fetchOptionalCategoryPosts(baseUrl, matchedCategories, matchedTags, options)
         : [];
+    const relatedPosts = await fetchOptionalRelatedPosts(
+      baseUrl,
+      matchedTags,
+      matchedCategories,
+      tagSlugsQueried[0] ?? null,
+      options,
+    );
 
     const posts = dedupePosts([...tagPosts, ...categoryPosts]);
     const canonicalSignals = getCanonicalBreedSignals(normalizedBreed, resolvedBreed);
     const relevantPosts = filterBreedRelevantPosts(posts, canonicalSignals);
     const rankedPosts = rankBreedContent(relevantPosts, canonicalSignals);
-    const groupedContent = groupBreedContent(rankedPosts, {
-      relatedTagSlug: tagSlugsQueried[0] ?? null,
-    });
+    const groupedContent = groupBreedContent(rankedPosts);
+    const relatedContent = selectRelatedPosts(
+      relatedPosts,
+      canonicalSignals,
+      tagSlugsQueried[0] ?? null,
+      groupedContent.canonical.post?.id ?? null,
+    );
 
     return {
       resolved_input: input,
@@ -93,7 +114,10 @@ export async function getBreedContent(
         matched_category_ids: matchedCategories.map((category) => category.id),
         matched_category_slugs: matchedCategories.map((category) => category.slug),
       },
-      content: groupedContent,
+      content: {
+        ...groupedContent,
+        related: relatedContent,
+      },
       posts: rankedPosts.map((rankedPost) => rankedPost.post),
     };
   });
@@ -150,6 +174,92 @@ async function fetchOptionalCategoryPosts(
   } catch {
     return [];
   }
+}
+
+async function fetchOptionalRelatedPosts(
+  baseUrl: string,
+  matchedTags: Awaited<ReturnType<typeof fetchWordPressTags>>,
+  matchedCategories: Awaited<ReturnType<typeof fetchOptionalCategories>>,
+  canonicalTagSlug: string | null,
+  options: GetBreedContentOptions | undefined,
+) {
+  if (!canonicalTagSlug) {
+    return [];
+  }
+
+  const canonicalTag = findTagBySlug(matchedTags, canonicalTagSlug);
+  const blogCategory = findCategoryBySlug(matchedCategories, "blog");
+  if (!canonicalTag || !blogCategory) {
+    return [];
+  }
+
+  try {
+    return await fetchWordPressPostsByTagAndCategory(baseUrl, canonicalTag, blogCategory, buildPostFetchOptions(options));
+  } catch {
+    return [];
+  }
+}
+
+function selectRelatedPosts(
+  posts: WordPressPostSummary[],
+  signals: CanonicalBreedSignals,
+  canonicalTagSlug: string | null,
+  canonicalPostId: number | null,
+): WordPressPostSummary[] {
+  return posts
+    .map((post) => ({
+      ...post,
+      content_type: classifyBreedPost(post),
+    }))
+    .filter((post) => RELATED_RESOURCE_CONTENT_TYPES.includes(post.content_type))
+    .filter((post) => (canonicalTagSlug ? post.matched_tags.includes(canonicalTagSlug) : false))
+    .filter((post) => post.matched_categories.includes("blog"))
+    .filter((post) => !isCanonicalGuidePost(post, signals, canonicalPostId))
+    .sort(compareRelatedPosts)
+    .slice(0, 5);
+}
+
+function isCanonicalGuidePost(
+  post: WordPressPostSummary,
+  signals: CanonicalBreedSignals,
+  canonicalPostId: number | null,
+): boolean {
+  if (canonicalPostId !== null && post.id === canonicalPostId) {
+    return true;
+  }
+
+  if (!signals.article_url) {
+    return false;
+  }
+
+  return normalizeUrl(post.link) === normalizeUrl(signals.article_url);
+}
+
+function compareRelatedPosts(left: WordPressPostSummary, right: WordPressPostSummary): number {
+  const rightTimestamp = toTimestamp(right.date);
+  const leftTimestamp = toTimestamp(left.date);
+  if (rightTimestamp !== leftTimestamp) {
+    return rightTimestamp - leftTimestamp;
+  }
+
+  return right.id - left.id;
+}
+
+function toTimestamp(value: string): number {
+  const parsed = Date.parse(value);
+  return Number.isNaN(parsed) ? 0 : parsed;
+}
+
+function findTagBySlug(tags: WordPressTag[], slug: string): WordPressTag | null {
+  return tags.find((tag) => tag.slug === slug) ?? null;
+}
+
+function findCategoryBySlug(categories: WordPressCategory[], slug: string): WordPressCategory | null {
+  return categories.find((category) => category.slug === slug) ?? null;
+}
+
+function normalizeUrl(value: string): string {
+  return value.trim().replace(/\/+$/, "").toLowerCase();
 }
 
 function dedupeSlugs(values: string[]): string[] {
