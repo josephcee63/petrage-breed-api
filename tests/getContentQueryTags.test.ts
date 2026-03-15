@@ -59,4 +59,39 @@ describe("getContentQueryTags", () => {
 
     expect(getContentQueryTags(breed)).toEqual(["labradorretriever", "lab"]);
   });
+
+  it("keeps the canonical content tag first for standardized breed slugs", () => {
+    expect(
+      getContentQueryTags(
+        createBreed({
+          id: "golden-retriever",
+          display_name: "GOLDEN RETRIEVER",
+          preferred_tag_slug: "goldenretriever",
+          tag_slugs: ["goldenretriever"],
+        }),
+      ),
+    ).toEqual(["goldenretriever"]);
+
+    expect(
+      getContentQueryTags(
+        createBreed({
+          id: "rhodesian-ridgeback",
+          display_name: "RHODESIAN RIDGEBACK",
+          preferred_tag_slug: "rhodesianridgeback",
+          tag_slugs: ["rhodesianridgeback"],
+        }),
+      ),
+    ).toEqual(["rhodesianridgeback"]);
+
+    expect(
+      getContentQueryTags(
+        createBreed({
+          id: "french-bulldog",
+          display_name: "FRENCH BULLDOG",
+          preferred_tag_slug: "frenchbulldog",
+          tag_slugs: ["frenchie", "frenchbulldog"],
+        }),
+      ),
+    ).toEqual(["frenchbulldog", "frenchie"]);
+  });
 });

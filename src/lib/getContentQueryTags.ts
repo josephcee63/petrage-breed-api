@@ -1,9 +1,10 @@
-import { normalizeLookupKey } from "./normalizeLookupKey.js";
+import { getCanonicalContentTagSlug } from "./getCanonicalContentTagSlug.js";
 
 import type { BreedIndexBreed } from "./types.js";
 
 export function getContentQueryTags(breed: BreedIndexBreed): string[] {
-  const orderedValues = [breed.preferred_tag_slug, ...breed.tag_slugs];
+  const canonicalTagSlug = getCanonicalContentTagSlug(breed);
+  const orderedValues = [canonicalTagSlug, breed.preferred_tag_slug, ...breed.tag_slugs];
   const seen = new Set<string>();
   const unique: string[] = [];
 
@@ -17,32 +18,9 @@ export function getContentQueryTags(breed: BreedIndexBreed): string[] {
     unique.push(normalized);
   }
 
-  const canonicalBreedKeys = getCanonicalBreedKeys(breed);
-
-  return unique
-    .map((slug, index) => ({
-      slug,
-      index,
-      priority: canonicalBreedKeys.has(slug) ? 1 : 0,
-    }))
-    .sort((left, right) => {
-      if (right.priority !== left.priority) {
-        return right.priority - left.priority;
-      }
-
-      return left.index - right.index;
-    })
-    .map((entry) => entry.slug);
+  return unique;
 }
 
 function normalizeTagSlug(value: string | null | undefined): string {
   return value?.trim().toLowerCase() ?? "";
-}
-
-function getCanonicalBreedKeys(breed: BreedIndexBreed): Set<string> {
-  return new Set(
-    [breed.id, breed.display_name, ...breed.aka_names]
-      .map((value) => normalizeLookupKey(value))
-      .filter(Boolean),
-  );
 }

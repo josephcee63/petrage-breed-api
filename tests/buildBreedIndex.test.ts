@@ -61,4 +61,19 @@ describe("buildBreedIndex", () => {
     expect(labrador?.tag_slugs).toEqual(expect.arrayContaining(["labradorretriever", "lab"]));
     expect(labrador?.preferred_tag_slug).toBe("labradorretriever");
   });
+
+  it("stores standardized canonical content tags for common breed blog resources", () => {
+    const { normalizedBreeds, manualMappings } = loadTestData();
+    const breedIndex = buildBreedIndex(normalizedBreeds, manualMappings);
+
+    expect(breedIndex.breeds.find((breed) => breed.id === "golden-retriever")?.preferred_tag_slug).toBe(
+      "goldenretriever",
+    );
+    expect(breedIndex.breeds.find((breed) => breed.id === "rhodesian-ridgeback")?.preferred_tag_slug).toBe(
+      "rhodesianridgeback",
+    );
+    expect(breedIndex.breeds.find((breed) => breed.id === "french-bulldog")?.preferred_tag_slug).toBe(
+      "frenchbulldog",
+    );
+  });
 });

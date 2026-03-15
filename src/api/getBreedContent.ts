@@ -6,6 +6,7 @@ import { fetchWordPressPostsByTagAndCategory } from "../lib/fetchWordPressPostsB
 import { fetchWordPressPostsByTags } from "../lib/fetchWordPressPostsByTags.js";
 import { fetchWordPressTags } from "../lib/fetchWordPressTags.js";
 import { filterBreedRelevantPosts } from "../lib/filterBreedRelevantPosts.js";
+import { getCanonicalContentTagSlug } from "../lib/getCanonicalContentTagSlug.js";
 import { getCanonicalBreedSignals } from "../lib/getCanonicalBreedSignals.js";
 import { getContentQueryTags } from "../lib/getContentQueryTags.js";
 import { groupBreedContent } from "../lib/groupBreedContent.js";
@@ -60,6 +61,7 @@ export async function getBreedContent(
     }
 
     const tagSlugsQueried = getContentQueryTags(resolvedBreed);
+    const canonicalContentTagSlug = getCanonicalContentTagSlug(resolvedBreed);
     const matchedTags = await fetchWordPressTags(baseUrl, tagSlugsQueried, buildTagFetchOptions(options));
     const matchedCategories = await fetchOptionalCategories(baseUrl, categorySlugsQueried, options);
 
@@ -78,7 +80,7 @@ export async function getBreedContent(
       baseUrl,
       matchedTags,
       matchedCategories,
-      tagSlugsQueried[0] ?? null,
+      canonicalContentTagSlug,
       options,
     );
 
@@ -90,7 +92,7 @@ export async function getBreedContent(
     const relatedContent = selectRelatedPosts(
       relatedPosts,
       canonicalSignals,
-      tagSlugsQueried[0] ?? null,
+      canonicalContentTagSlug,
       groupedContent.canonical.post?.id ?? null,
     );
 
