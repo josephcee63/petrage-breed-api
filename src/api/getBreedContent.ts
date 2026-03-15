@@ -57,11 +57,12 @@ export async function getBreedContent(
       matchedTags.length > 0
         ? await fetchWordPressPostsByTags(baseUrl, matchedTags, {
             ...buildPostFetchOptions(options),
+            matchedCategories,
           })
         : [];
     const categoryPosts =
       matchedCategories.length > 0
-        ? await fetchOptionalCategoryPosts(baseUrl, matchedCategories, options)
+        ? await fetchOptionalCategoryPosts(baseUrl, matchedCategories, matchedTags, options)
         : [];
 
     const posts = dedupePosts([...tagPosts, ...categoryPosts]);
@@ -136,10 +137,14 @@ async function fetchOptionalCategories(
 async function fetchOptionalCategoryPosts(
   baseUrl: string,
   matchedCategories: Awaited<ReturnType<typeof fetchOptionalCategories>>,
+  matchedTags: Awaited<ReturnType<typeof fetchWordPressTags>>,
   options: GetBreedContentOptions | undefined,
 ) {
   try {
-    return await fetchWordPressPostsByCategories(baseUrl, matchedCategories, buildPostFetchOptions(options));
+    return await fetchWordPressPostsByCategories(baseUrl, matchedCategories, {
+      ...buildPostFetchOptions(options),
+      matchedTags,
+    });
   } catch {
     return [];
   }

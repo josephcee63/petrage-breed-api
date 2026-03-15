@@ -1,11 +1,12 @@
 import { SimpleCache } from "./simpleCache.js";
 import { stripHtml } from "./stripHtml.js";
 
-import type { WordPressCategory, WordPressPostSummary } from "./types.js";
+import type { WordPressCategory, WordPressPostSummary, WordPressTag } from "./types.js";
 
 export interface FetchWordPressPostsByCategoriesOptions {
   fetchImplementation?: typeof fetch;
   perPage?: number;
+  matchedTags?: WordPressTag[];
 }
 
 interface WordPressPostPayload {
@@ -19,6 +20,8 @@ interface WordPressPostPayload {
   excerpt?: {
     rendered?: string;
   };
+  categories?: number[];
+  tags?: number[];
 }
 
 const CATEGORY_POSTS_TTL_MS = 5 * 60 * 1000;
@@ -36,16 +39,19 @@ export async function fetchWordPressPostsByCategories(
 
   const fetchImplementation = options?.fetchImplementation ?? globalThis.fetch;
   const perPage = options?.perPage ?? 20;
+  const matchedTags = options?.matchedTags ?? [];
   const normalizedBaseUrl = normalizeBaseUrl(baseUrl);
-  const cacheKey = buildPostsByCategoriesCacheKey(normalizedBaseUrl, categories, perPage);
+  const cacheKey = buildPostsByCategoriesCacheKey(normalizedBaseUrl, categories, matchedTags, perPage);
 
   return wordPressPostsByCategoriesCache.getOrSet(cacheKey, CATEGORY_POSTS_TTL_MS, async () => {
+    const categorySlugById = new Map(categories.map((category) => [category.id, category.slug]));
+    const tagSlugById = new Map(matchedTags.map((tag) => [tag.id, tag.slug]));
     const responses = await Promise.all(
       categories.map(async (category) => {
         const requestUrl = new URL("/wp-json/wp/v2/posts", normalizedBaseUrl);
         requestUrl.searchParams.set("categories", String(category.id));
         requestUrl.searchParams.set("per_page", String(perPage));
-        requestUrl.searchParams.set("_fields", "id,date,slug,link,title,excerpt");
+        requestUrl.searchParams.set("_fields", "id,date,slug,link,title,excerpt,categories,tags");
 
         const response = await fetchImplementation(requestUrl, {
           headers: {
@@ -60,7 +66,9 @@ export async function fetchWordPressPostsByCategories(
         }
 
         const payload = (await response.json()) as WordPressPostPayload[];
-        return payload.flatMap((post) => mapWordPressPost(post, category.slug));
+        return payload.flatMap((post) =>
+          mapWordPressPost(post, category.slug, categorySlugById, tagSlugById),
+        );
       }),
     );
 
@@ -68,7 +76,12 @@ export async function fetchWordPressPostsByCategories(
   });
 }
 
-function mapWordPressPost(post: WordPressPostPayload, matchedCategory: string): WordPressPostSummary[] {
+function mapWordPressPost(
+  post: WordPressPostPayload,
+  matchedCategory: string,
+  categorySlugById: Map<number, string>,
+  tagSlugById: Map<number, string>,
+): WordPressPostSummary[] {
   if (
     typeof post.id !== "number" ||
     typeof post.date !== "string" ||
@@ -86,8 +99,8 @@ function mapWordPressPost(post: WordPressPostPayload, matchedCategory: string): 
       link: post.link,
       title: stripHtml(post.title?.rendered),
       excerpt: stripHtml(post.excerpt?.rendered),
-      matched_tags: [],
-      matched_categories: [matchedCategory],
+      matched_tags: resolveMatchedSlugs(post.tags, tagSlugById),
+      matched_categories: resolveMatchedSlugs(post.categories, categorySlugById, matchedCategory),
     },
   ];
 }
@@ -100,7 +113,27 @@ function normalizeBaseUrl(baseUrl: string): string {
 function buildPostsByCategoriesCacheKey(
   baseUrl: string,
   categories: WordPressCategory[],
+  matchedTags: WordPressTag[],
   perPage: number,
 ): string {
-  return `wp:posts:categories:${baseUrl}:${categories.map((category) => category.id).join(",")}:per_page=${perPage}`;
+  return `wp:posts:categories:${baseUrl}:categories=${categories
+    .map((category) => category.id)
+    .join(",")}:tags=${matchedTags.map((tag) => tag.id).join(",")}:per_page=${perPage}`;
+}
+
+function resolveMatchedSlugs(
+  ids: number[] | undefined,
+  slugById: Map<number, string>,
+  fallbackSlug?: string,
+): string[] {
+  const matches = (ids ?? []).flatMap((id) => {
+    const slug = slugById.get(id);
+    return slug ? [slug] : [];
+  });
+
+  if (matches.length > 0) {
+    return matches;
+  }
+
+  return fallbackSlug ? [fallbackSlug] : [];
 }

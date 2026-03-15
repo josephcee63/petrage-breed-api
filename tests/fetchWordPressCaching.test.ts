@@ -68,16 +68,21 @@ describe("WordPress fetch caching", () => {
           link: "https://petrage.net/blue-heeler-facts/",
           title: { rendered: "Blue Heeler Facts" },
           excerpt: { rendered: "<p>Breed facts.</p>" },
+          categories: [32],
+          tags: [11],
         },
       ]),
     ) as typeof fetch;
 
     const tags = [{ id: 11, name: "ACD", slug: "acd" }];
+    const matchedCategories = [{ id: 32, name: "Blog", slug: "blog" }];
     const first = await fetchWordPressPostsByTags("https://petrage.net", tags, {
       fetchImplementation,
+      matchedCategories,
     });
     const second = await fetchWordPressPostsByTags("https://petrage.net", tags, {
       fetchImplementation,
+      matchedCategories,
     });
 
     expect(first).toEqual([
@@ -89,7 +94,7 @@ describe("WordPress fetch caching", () => {
         title: "Blue Heeler Facts",
         excerpt: "Breed facts.",
         matched_tags: ["acd"],
-        matched_categories: [],
+        matched_categories: ["blog"],
       },
     ]);
     expect(second).toEqual(first);
@@ -106,16 +111,21 @@ describe("WordPress fetch caching", () => {
           link: "https://petrage.net/akita-breed-facts/",
           title: { rendered: "Akita Breed Facts" },
           excerpt: { rendered: "<p>Akita overview.</p>" },
+          categories: [31],
+          tags: [41],
         },
       ]),
     ) as typeof fetch;
 
     const categories = [{ id: 31, name: "Dog Breed Facts", slug: "dog-breed-facts" }];
+    const matchedTags = [{ id: 41, name: "Akita", slug: "akita" }];
     const first = await fetchWordPressPostsByCategories("https://petrage.net", categories, {
       fetchImplementation,
+      matchedTags,
     });
     const second = await fetchWordPressPostsByCategories("https://petrage.net", categories, {
       fetchImplementation,
+      matchedTags,
     });
 
     expect(first).toEqual([
@@ -126,7 +136,7 @@ describe("WordPress fetch caching", () => {
         link: "https://petrage.net/akita-breed-facts/",
         title: "Akita Breed Facts",
         excerpt: "Akita overview.",
-        matched_tags: [],
+        matched_tags: ["akita"],
         matched_categories: ["dog-breed-facts"],
       },
     ]);

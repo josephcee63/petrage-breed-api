@@ -62,7 +62,7 @@ describe("getBreedContent", () => {
         { id: 31, name: "Dog Breed Facts", slug: "dog-breed-facts" },
         { id: 32, name: "Blog", slug: "blog" },
       ],
-      "/wp-json/wp/v2/posts?tags=11&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
+      "/wp-json/wp/v2/posts?tags=11&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
           id: 101,
           date: "2025-02-01T00:00:00",
@@ -70,9 +70,11 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/blue-heeler-facts/",
           title: { rendered: "<h1>Blue Heeler Facts</h1>" },
           excerpt: { rendered: "<p>Smart <strong>working</strong> dogs.</p>" },
+          categories: [],
+          tags: [11, 12],
         },
       ],
-      "/wp-json/wp/v2/posts?tags=12&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
+      "/wp-json/wp/v2/posts?tags=12&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
           id: 101,
           date: "2025-02-01T00:00:00",
@@ -80,6 +82,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/blue-heeler-facts/",
           title: { rendered: "<h1>Blue Heeler Facts</h1>" },
           excerpt: { rendered: "<p>Smart <strong>working</strong> dogs.</p>" },
+          categories: [],
+          tags: [11, 12],
         },
         {
           id: 102,
@@ -88,6 +92,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/blue-heeler-owner-quiz/",
           title: { rendered: "Blue <em>Heeler</em> Owner Quiz" },
           excerpt: { rendered: "<p>Test your breed knowledge.</p>" },
+          categories: [],
+          tags: [12],
         },
         {
           id: 107,
@@ -96,6 +102,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/blue-heeler-user-gallery/",
           title: { rendered: "Blue Heeler User Gallery" },
           excerpt: { rendered: "<p>Photo gallery from owners.</p>" },
+          categories: [],
+          tags: [12],
         },
         {
           id: 108,
@@ -104,6 +112,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/dog-breeds-from-australia/",
           title: { rendered: "Dog Breeds from Australia" },
           excerpt: { rendered: "<p>Includes the Australian Cattle Dog and other working breeds.</p>" },
+          categories: [32],
+          tags: [12],
         },
         {
           id: 109,
@@ -112,6 +122,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/best-herding-dog-breeds/",
           title: { rendered: "Best Herding Dog Breeds" },
           excerpt: { rendered: "<p>Australian Cattle Dog stands out among top herders.</p>" },
+          categories: [32],
+          tags: [12],
         },
         {
           id: 106,
@@ -120,9 +132,11 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/blue-heeler-puppies-playing-video/",
           title: { rendered: "Blue Heeler Puppies Playing Video" },
           excerpt: { rendered: "<p>Watch them play in the yard.</p>" },
+          categories: [],
+          tags: [12],
         },
       ],
-      "/wp-json/wp/v2/posts?categories=31&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
+      "/wp-json/wp/v2/posts?categories=31&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
           id: 103,
           date: "2025-02-03T00:00:00",
@@ -130,6 +144,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/australian-cattle-dog-facts/",
           title: { rendered: "Australian Cattle Dog Facts" },
           excerpt: { rendered: "<p>Breed facts and history.</p>" },
+          categories: [31],
+          tags: [],
         },
         {
           id: 104,
@@ -138,6 +154,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/beagle-breed-facts/",
           title: { rendered: "Beagle Breed Facts" },
           excerpt: { rendered: "<p>Friendly scent hound overview.</p>" },
+          categories: [31],
+          tags: [],
         },
         {
           id: 105,
@@ -146,9 +164,11 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/french-bulldog-breed-facts/",
           title: { rendered: "French Bulldog Breed Facts" },
           excerpt: { rendered: "<p>Companion breed overview.</p>" },
+          categories: [31],
+          tags: [],
         },
       ],
-      "/wp-json/wp/v2/posts?categories=32&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
+      "/wp-json/wp/v2/posts?categories=32&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
           id: 108,
           date: "2025-02-05T00:00:00",
@@ -156,6 +176,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/dog-breeds-from-australia/",
           title: { rendered: "Dog Breeds from Australia" },
           excerpt: { rendered: "<p>Includes the Australian Cattle Dog and other working breeds.</p>" },
+          categories: [32],
+          tags: [12],
         },
         {
           id: 109,
@@ -164,6 +186,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/best-herding-dog-breeds/",
           title: { rendered: "Best Herding Dog Breeds" },
           excerpt: { rendered: "<p>Australian Cattle Dog stands out among top herders.</p>" },
+          categories: [32],
+          tags: [12],
         },
       ],
     });
@@ -272,7 +296,7 @@ describe("getBreedContent", () => {
         { id: 21, name: "Aussie", slug: "aussie" },
       ],
       "/wp-json/wp/v2/categories?slug=dog-breed-facts%2Cblog&per_page=2&_fields=id%2Cname%2Cslug": [],
-      "/wp-json/wp/v2/posts?tags=21&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [],
+      "/wp-json/wp/v2/posts?tags=21&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [],
     });
 
     const result = await getBreedContent("aussie", {
@@ -301,7 +325,7 @@ describe("getBreedContent", () => {
         { id: 31, name: "Dog Breed Facts", slug: "dog-breed-facts" },
         { id: 32, name: "Blog", slug: "blog" },
       ],
-      "/wp-json/wp/v2/posts?tags=41&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
+      "/wp-json/wp/v2/posts?tags=41&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
           id: 201,
           date: "2025-03-01T00:00:00",
@@ -309,6 +333,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/akita-facts/",
           title: { rendered: "Akita Facts" },
           excerpt: { rendered: "<p>Akita breed guide.</p>" },
+          categories: [],
+          tags: [41],
         },
         {
           id: 202,
@@ -317,9 +343,11 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/dog-breeds-from-japan/",
           title: { rendered: "Dog Breeds from Japan" },
           excerpt: { rendered: "<p>Japanese breeds including the Akita.</p>" },
+          categories: [32],
+          tags: [41],
         },
       ],
-      "/wp-json/wp/v2/posts?categories=31&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
+      "/wp-json/wp/v2/posts?categories=31&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
           id: 203,
           date: "2025-03-03T00:00:00",
@@ -327,6 +355,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/11-interesting-facts-about-akitas/",
           title: { rendered: "Akita Inu Breed Facts" },
           excerpt: { rendered: "<p>Strong and loyal guardian.</p>" },
+          categories: [31],
+          tags: [],
         },
         {
           id: 204,
@@ -335,9 +365,11 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/beagle-breed-facts/",
           title: { rendered: "Beagle Breed Facts" },
           excerpt: { rendered: "<p>Beagle overview.</p>" },
+          categories: [31],
+          tags: [],
         },
       ],
-      "/wp-json/wp/v2/posts?categories=32&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
+      "/wp-json/wp/v2/posts?categories=32&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
           id: 202,
           date: "2025-03-02T00:00:00",
@@ -345,6 +377,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/dog-breeds-from-japan/",
           title: { rendered: "Dog Breeds from Japan" },
           excerpt: { rendered: "<p>Japanese breeds including the Akita.</p>" },
+          categories: [32],
+          tags: [41],
         },
       ],
     });
@@ -374,7 +408,7 @@ describe("getBreedContent", () => {
         { id: 51, name: "Doberman", slug: "doberman" },
       ],
       "/wp-json/wp/v2/categories?slug=dog-breed-facts%2Cblog&per_page=2&_fields=id%2Cname%2Cslug": [],
-      "/wp-json/wp/v2/posts?tags=51&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
+      "/wp-json/wp/v2/posts?tags=51&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
           id: 301,
           date: "2025-04-01T00:00:00",
@@ -382,6 +416,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/doberman-health-issues-and-medication-sensitivity/",
           title: { rendered: "Doberman Medication Sensitivity and Health Issues" },
           excerpt: { rendered: "<p>Important medical guidance for Doberman owners.</p>" },
+          categories: [],
+          tags: [51],
         },
         {
           id: 302,
@@ -390,6 +426,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/doberman-hypothyroidism-treatment-guide/",
           title: { rendered: "Doberman Hypothyroidism Treatment Guide" },
           excerpt: { rendered: "<p>What every owner should know about care and treatment.</p>" },
+          categories: [],
+          tags: [51],
         },
         {
           id: 303,
@@ -398,6 +436,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/doberman-user-gallery/",
           title: { rendered: "Doberman User Gallery" },
           excerpt: { rendered: "<p>Owner-submitted Doberman photos.</p>" },
+          categories: [],
+          tags: [51],
         },
         {
           id: 304,
@@ -406,6 +446,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/doberman-owner-quiz/",
           title: { rendered: "Doberman Owner Quiz" },
           excerpt: { rendered: "<p>Test your Doberman knowledge.</p>" },
+          categories: [],
+          tags: [51],
         },
         {
           id: 306,
@@ -414,6 +456,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/battle-of-the-big-dogs-dobie-dogue-rotty-cane-corso/",
           title: { rendered: "Battle of the BIG Dogs-Dobie-Dogue-Rotty-Cane Corso" },
           excerpt: { rendered: "<p>Which big dog wins this showdown?</p>" },
+          categories: [],
+          tags: [51],
         },
         {
           id: 305,
@@ -422,6 +466,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/doberman-meme-roundup/",
           title: { rendered: "Doberman Meme Roundup" },
           excerpt: { rendered: "<p>Funny Doberman moments.</p>" },
+          categories: [],
+          tags: [51],
         },
       ],
     });
@@ -462,8 +508,8 @@ describe("getBreedContent", () => {
         { id: 12, name: "Australian Cattle Dog", slug: "australiancattledog" },
       ],
       "/wp-json/wp/v2/categories?slug=dog-breed-facts%2Cblog&per_page=2&_fields=id%2Cname%2Cslug": [],
-      "/wp-json/wp/v2/posts?tags=11&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [],
-      "/wp-json/wp/v2/posts?tags=12&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
+      "/wp-json/wp/v2/posts?tags=11&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [],
+      "/wp-json/wp/v2/posts?tags=12&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccategories%2Ctags": [
         {
           id: 101,
           date: "2025-02-01T00:00:00",
@@ -471,6 +517,8 @@ describe("getBreedContent", () => {
           link: "https://petrage.net/blue-heeler-facts/",
           title: { rendered: "Blue Heeler Facts" },
           excerpt: { rendered: "<p>Breed facts.</p>" },
+          categories: [],
+          tags: [12],
         },
       ],
     });
