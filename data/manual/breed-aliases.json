@@ -79,8 +79,8 @@
   },
   "labrador-retriever": {
     "aliases": ["Lab"],
-    "tag_slugs": ["lab"],
-    "preferred_tag_slug": "lab",
+    "tag_slugs": ["labradorretriever", "lab"],
+    "preferred_tag_slug": "labradorretriever",
     "shared_content_key": null
   },
   "scottish-terrier": {

@@ -31,17 +31,32 @@ describe("getContentQueryTags", () => {
     const breed = createBreed({
       preferred_tag_slug: "acd",
       tag_slugs: ["acd", "australiancattledog", "workingdogs"],
+      display_name: "AUSTRALIAN CATTLE DOG",
+      id: "australian-cattle-dog",
     });
 
-    expect(getContentQueryTags(breed)).toEqual(["acd", "australiancattledog", "workingdogs"]);
+    expect(getContentQueryTags(breed)).toEqual(["australiancattledog", "acd", "workingdogs"]);
   });
 
   it("removes duplicates and ignores blanks", () => {
     const breed = createBreed({
       preferred_tag_slug: "  aussie ",
       tag_slugs: ["", "aussie", " australianshepherd ", "AUSSIE"],
+      display_name: "AUSTRALIAN SHEPHERD",
+      id: "australian-shepherd",
     });
 
-    expect(getContentQueryTags(breed)).toEqual(["aussie", "australianshepherd"]);
+    expect(getContentQueryTags(breed)).toEqual(["australianshepherd", "aussie"]);
+  });
+
+  it("prefers the full breed-specific slug over a short alias tag", () => {
+    const breed = createBreed({
+      id: "labrador-retriever",
+      display_name: "LABRADOR RETRIEVER",
+      preferred_tag_slug: "lab",
+      tag_slugs: ["lab", "labradorretriever"],
+    });
+
+    expect(getContentQueryTags(breed)).toEqual(["labradorretriever", "lab"]);
   });
 });

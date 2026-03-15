@@ -51,4 +51,14 @@ describe("buildBreedIndex", () => {
       shared_content_key: "akita",
     });
   });
+
+  it("prefers the full Labrador Retriever content tag over the short alias tag", () => {
+    const { normalizedBreeds, manualMappings } = loadTestData();
+    const breedIndex = buildBreedIndex(normalizedBreeds, manualMappings);
+    const labrador = breedIndex.breeds.find((breed) => breed.id === "labrador-retriever");
+
+    expect(labrador).toBeDefined();
+    expect(labrador?.tag_slugs).toEqual(expect.arrayContaining(["labradorretriever", "lab"]));
+    expect(labrador?.preferred_tag_slug).toBe("labradorretriever");
+  });
 });

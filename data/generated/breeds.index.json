@@ -3195,9 +3195,10 @@
         "Lab"
       ],
       "tag_slugs": [
+        "labradorretriever",
         "lab"
       ],
-      "preferred_tag_slug": "lab",
+      "preferred_tag_slug": "labradorretriever",
       "shared_content_key": null,
       "lookup_keys": [
         "labradorretriever",

@@ -54,7 +54,7 @@ describe("getBreedContent", () => {
   it("resolves acd and keeps related resources limited to article-style posts", async () => {
     const breedData = await loadBreedData();
     const mockFetch = createMockFetch({
-      "/wp-json/wp/v2/tags?slug=acd%2Caustraliancattledog&per_page=2&_fields=id%2Cname%2Cslug": [
+      "/wp-json/wp/v2/tags?slug=australiancattledog%2Cacd&per_page=2&_fields=id%2Cname%2Cslug": [
         { id: 11, name: "ACD", slug: "acd" },
         { id: 12, name: "Australian Cattle Dog", slug: "australiancattledog" },
       ],
@@ -199,8 +199,8 @@ describe("getBreedContent", () => {
 
     expect(result).not.toBeNull();
     expect(result?.breed.id).toBe("australian-cattle-dog");
-    expect(result?.content_query.tag_slugs_queried).toEqual(["acd", "australiancattledog"]);
-    expect(result?.content_query.matched_tag_ids).toEqual([11, 12]);
+    expect(result?.content_query.tag_slugs_queried).toEqual(["australiancattledog", "acd"]);
+    expect(result?.content_query.matched_tag_ids).toEqual([12, 11]);
     expect(result?.content_query.category_slugs_queried).toEqual(["dog-breed-facts", "blog"]);
     expect(result?.content_query.matched_category_ids).toEqual([31, 32]);
     expect(result?.content.canonical.post?.id).toBe(103);
@@ -292,7 +292,7 @@ describe("getBreedContent", () => {
   it("resolves aussie and handles no matching posts gracefully", async () => {
     const breedData = await loadBreedData();
     const mockFetch = createMockFetch({
-      "/wp-json/wp/v2/tags?slug=aussie%2Caustralianshepherd&per_page=2&_fields=id%2Cname%2Cslug": [
+      "/wp-json/wp/v2/tags?slug=australianshepherd%2Caussie&per_page=2&_fields=id%2Cname%2Cslug": [
         { id: 21, name: "Aussie", slug: "aussie" },
       ],
       "/wp-json/wp/v2/categories?slug=dog-breed-facts%2Cblog&per_page=2&_fields=id%2Cname%2Cslug": [],
@@ -305,7 +305,7 @@ describe("getBreedContent", () => {
     });
 
     expect(result?.breed.id).toBe("australian-shepherd");
-    expect(result?.content_query.tag_slugs_queried).toEqual(["aussie", "australianshepherd"]);
+    expect(result?.content_query.tag_slugs_queried).toEqual(["australianshepherd", "aussie"]);
     expect(result?.content_query.matched_tag_slugs).toEqual(["aussie"]);
     expect(result?.content_query.matched_category_slugs).toEqual([]);
     expect(result?.content.canonical.post).toBeNull();
@@ -488,7 +488,7 @@ describe("getBreedContent", () => {
 
   it("supports loading breed data from generated files when not injected", async () => {
     const mockFetch = createMockFetch({
-      "/wp-json/wp/v2/tags?slug=eskie%2Camericaneskimodog&per_page=2&_fields=id%2Cname%2Cslug": [],
+      "/wp-json/wp/v2/tags?slug=americaneskimodog%2Ceskie&per_page=2&_fields=id%2Cname%2Cslug": [],
       "/wp-json/wp/v2/categories?slug=dog-breed-facts%2Cblog&per_page=2&_fields=id%2Cname%2Cslug": [],
     });
 
@@ -497,13 +497,13 @@ describe("getBreedContent", () => {
     });
 
     expect(result?.breed.id).toBe("american-eskimo-dog");
-    expect(result?.content_query.tag_slugs_queried).toEqual(["eskie", "americaneskimodog"]);
+    expect(result?.content_query.tag_slugs_queried).toEqual(["americaneskimodog", "eskie"]);
   });
 
   it("reuses a cached breed content result for repeated requests", async () => {
     const breedData = await loadBreedData();
     const firstFetch = createMockFetch({
-      "/wp-json/wp/v2/tags?slug=acd%2Caustraliancattledog&per_page=2&_fields=id%2Cname%2Cslug": [
+      "/wp-json/wp/v2/tags?slug=australiancattledog%2Cacd&per_page=2&_fields=id%2Cname%2Cslug": [
         { id: 11, name: "ACD", slug: "acd" },
         { id: 12, name: "Australian Cattle Dog", slug: "australiancattledog" },
       ],
