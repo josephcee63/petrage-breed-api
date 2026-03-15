@@ -56,7 +56,6 @@ export function createApp(dependencies?: AppDependencies) {
 
   app.use(express.json());
   app.use(cors(corsOptions));
-  app.options("*", cors(corsOptions));
 
   app.use(createRootRouter());
   app.use(createHealthRouter());
