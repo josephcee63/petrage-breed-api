@@ -58,8 +58,9 @@ describe("getBreedContent", () => {
         { id: 11, name: "ACD", slug: "acd" },
         { id: 12, name: "Australian Cattle Dog", slug: "australiancattledog" },
       ],
-      "/wp-json/wp/v2/categories?slug=dog-breed-facts&per_page=1&_fields=id%2Cname%2Cslug": [
+      "/wp-json/wp/v2/categories?slug=dog-breed-facts%2Cblog&per_page=2&_fields=id%2Cname%2Cslug": [
         { id: 31, name: "Dog Breed Facts", slug: "dog-breed-facts" },
+        { id: 32, name: "Blog", slug: "blog" },
       ],
       "/wp-json/wp/v2/posts?tags=11&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
         {
@@ -147,6 +148,24 @@ describe("getBreedContent", () => {
           excerpt: { rendered: "<p>Companion breed overview.</p>" },
         },
       ],
+      "/wp-json/wp/v2/posts?categories=32&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
+        {
+          id: 108,
+          date: "2025-02-05T00:00:00",
+          slug: "dog-breeds-from-australia",
+          link: "https://petrage.net/dog-breeds-from-australia/",
+          title: { rendered: "Dog Breeds from Australia" },
+          excerpt: { rendered: "<p>Includes the Australian Cattle Dog and other working breeds.</p>" },
+        },
+        {
+          id: 109,
+          date: "2025-02-05T01:00:00",
+          slug: "best-herding-dog-breeds",
+          link: "https://petrage.net/best-herding-dog-breeds/",
+          title: { rendered: "Best Herding Dog Breeds" },
+          excerpt: { rendered: "<p>Australian Cattle Dog stands out among top herders.</p>" },
+        },
+      ],
     });
 
     const result = await getBreedContent("acd", {
@@ -158,13 +177,13 @@ describe("getBreedContent", () => {
     expect(result?.breed.id).toBe("australian-cattle-dog");
     expect(result?.content_query.tag_slugs_queried).toEqual(["acd", "australiancattledog"]);
     expect(result?.content_query.matched_tag_ids).toEqual([11, 12]);
-    expect(result?.content_query.category_slugs_queried).toEqual(["dog-breed-facts"]);
-    expect(result?.content_query.matched_category_ids).toEqual([31]);
+    expect(result?.content_query.category_slugs_queried).toEqual(["dog-breed-facts", "blog"]);
+    expect(result?.content_query.matched_category_ids).toEqual([31, 32]);
     expect(result?.content.canonical.post?.id).toBe(103);
     expect(result?.content.direct_matches.map((post) => post.id)).toEqual([101, 107]);
     expect(result?.content.related.map((post) => post.id)).toEqual([109, 108]);
     expect(result?.content.supplemental.map((post) => post.id)).toEqual([106]);
-    expect(result?.posts.map((post) => post.id)).toEqual([103, 101, 107, 102, 109, 108, 106]);
+    expect(result?.posts.map((post) => post.id)).toEqual([103, 101, 107, 109, 108, 102, 106]);
     expect(result?.posts).toEqual([
       {
         id: 103,
@@ -200,17 +219,6 @@ describe("getBreedContent", () => {
         content_type: "gallery",
       },
       {
-        id: 102,
-        date: "2025-02-02T00:00:00",
-        slug: "blue-heeler-owner-quiz",
-        link: "https://petrage.net/blue-heeler-owner-quiz/",
-        title: "Blue Heeler Owner Quiz",
-        excerpt: "Test your breed knowledge.",
-        matched_tags: ["australiancattledog"],
-        matched_categories: [],
-        content_type: "quiz",
-      },
-      {
         id: 109,
         date: "2025-02-05T01:00:00",
         slug: "best-herding-dog-breeds",
@@ -218,7 +226,7 @@ describe("getBreedContent", () => {
         title: "Best Herding Dog Breeds",
         excerpt: "Australian Cattle Dog stands out among top herders.",
         matched_tags: ["australiancattledog"],
-        matched_categories: [],
+        matched_categories: ["blog"],
         content_type: "list",
       },
       {
@@ -229,8 +237,19 @@ describe("getBreedContent", () => {
         title: "Dog Breeds from Australia",
         excerpt: "Includes the Australian Cattle Dog and other working breeds.",
         matched_tags: ["australiancattledog"],
-        matched_categories: [],
+        matched_categories: ["blog"],
         content_type: "list",
+      },
+      {
+        id: 102,
+        date: "2025-02-02T00:00:00",
+        slug: "blue-heeler-owner-quiz",
+        link: "https://petrage.net/blue-heeler-owner-quiz/",
+        title: "Blue Heeler Owner Quiz",
+        excerpt: "Test your breed knowledge.",
+        matched_tags: ["australiancattledog"],
+        matched_categories: [],
+        content_type: "quiz",
       },
       {
         id: 106,
@@ -252,7 +271,7 @@ describe("getBreedContent", () => {
       "/wp-json/wp/v2/tags?slug=aussie%2Caustralianshepherd&per_page=2&_fields=id%2Cname%2Cslug": [
         { id: 21, name: "Aussie", slug: "aussie" },
       ],
-      "/wp-json/wp/v2/categories?slug=dog-breed-facts&per_page=1&_fields=id%2Cname%2Cslug": [],
+      "/wp-json/wp/v2/categories?slug=dog-breed-facts%2Cblog&per_page=2&_fields=id%2Cname%2Cslug": [],
       "/wp-json/wp/v2/posts?tags=21&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [],
     });
 
@@ -278,8 +297,9 @@ describe("getBreedContent", () => {
       "/wp-json/wp/v2/tags?slug=akita&per_page=1&_fields=id%2Cname%2Cslug": [
         { id: 41, name: "Akita", slug: "akita" },
       ],
-      "/wp-json/wp/v2/categories?slug=dog-breed-facts&per_page=1&_fields=id%2Cname%2Cslug": [
+      "/wp-json/wp/v2/categories?slug=dog-breed-facts%2Cblog&per_page=2&_fields=id%2Cname%2Cslug": [
         { id: 31, name: "Dog Breed Facts", slug: "dog-breed-facts" },
+        { id: 32, name: "Blog", slug: "blog" },
       ],
       "/wp-json/wp/v2/posts?tags=41&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
         {
@@ -317,6 +337,16 @@ describe("getBreedContent", () => {
           excerpt: { rendered: "<p>Beagle overview.</p>" },
         },
       ],
+      "/wp-json/wp/v2/posts?categories=32&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
+        {
+          id: 202,
+          date: "2025-03-02T00:00:00",
+          slug: "dog-breeds-from-japan",
+          link: "https://petrage.net/dog-breeds-from-japan/",
+          title: { rendered: "Dog Breeds from Japan" },
+          excerpt: { rendered: "<p>Japanese breeds including the Akita.</p>" },
+        },
+      ],
     });
 
     const result = await getBreedContent("akita", {
@@ -328,8 +358,8 @@ describe("getBreedContent", () => {
     expect(result?.breed.shared_content_key).toBe("akita");
     expect(result?.content_query.tag_slugs_queried).toEqual(["akita"]);
     expect(result?.content_query.matched_tag_ids).toEqual([41]);
-    expect(result?.content_query.category_slugs_queried).toEqual(["dog-breed-facts"]);
-    expect(result?.content_query.matched_category_ids).toEqual([31]);
+    expect(result?.content_query.category_slugs_queried).toEqual(["dog-breed-facts", "blog"]);
+    expect(result?.content_query.matched_category_ids).toEqual([31, 32]);
     expect(result?.content.canonical.post?.id).toBe(203);
     expect(result?.content.direct_matches.map((post) => post.id)).toEqual([201]);
     expect(result?.content.related.map((post) => post.id)).toEqual([202]);
@@ -343,7 +373,7 @@ describe("getBreedContent", () => {
       "/wp-json/wp/v2/tags?slug=doberman&per_page=1&_fields=id%2Cname%2Cslug": [
         { id: 51, name: "Doberman", slug: "doberman" },
       ],
-      "/wp-json/wp/v2/categories?slug=dog-breed-facts&per_page=1&_fields=id%2Cname%2Cslug": [],
+      "/wp-json/wp/v2/categories?slug=dog-breed-facts%2Cblog&per_page=2&_fields=id%2Cname%2Cslug": [],
       "/wp-json/wp/v2/posts?tags=51&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
         {
           id: 301,
@@ -413,7 +443,7 @@ describe("getBreedContent", () => {
   it("supports loading breed data from generated files when not injected", async () => {
     const mockFetch = createMockFetch({
       "/wp-json/wp/v2/tags?slug=eskie%2Camericaneskimodog&per_page=2&_fields=id%2Cname%2Cslug": [],
-      "/wp-json/wp/v2/categories?slug=dog-breed-facts&per_page=1&_fields=id%2Cname%2Cslug": [],
+      "/wp-json/wp/v2/categories?slug=dog-breed-facts%2Cblog&per_page=2&_fields=id%2Cname%2Cslug": [],
     });
 
     const result = await getBreedContent("eskie", {
@@ -431,7 +461,7 @@ describe("getBreedContent", () => {
         { id: 11, name: "ACD", slug: "acd" },
         { id: 12, name: "Australian Cattle Dog", slug: "australiancattledog" },
       ],
-      "/wp-json/wp/v2/categories?slug=dog-breed-facts&per_page=1&_fields=id%2Cname%2Cslug": [],
+      "/wp-json/wp/v2/categories?slug=dog-breed-facts%2Cblog&per_page=2&_fields=id%2Cname%2Cslug": [],
       "/wp-json/wp/v2/posts?tags=11&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [],
       "/wp-json/wp/v2/posts?tags=12&per_page=20&_fields=id%2Cdate%2Cslug%2Clink%2Ctitle%2Cexcerpt": [
         {

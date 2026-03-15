@@ -45,7 +45,11 @@ export function groupBreedContent(rankedPosts: RankedWordPressPost[]): BreedCont
   return {
     canonical,
     direct_matches: remainingPosts.filter(isDirectMatch).map((rankedPost) => rankedPost.post),
-    related: remainingPosts.filter(isRelatedMatch).slice(0, MAX_RELATED_POSTS).map((rankedPost) => rankedPost.post),
+    related: remainingPosts
+      .filter(isRelatedMatch)
+      .sort(compareRelatedPosts)
+      .slice(0, MAX_RELATED_POSTS)
+      .map((rankedPost) => rankedPost.post),
     supplemental: remainingPosts.filter(isSupplementalMatch).map((rankedPost) => rankedPost.post),
   };
 }
@@ -69,8 +73,24 @@ function isSupplementalMatch(rankedPost: RankedWordPressPost): boolean {
 
 function isRelatedMatch(rankedPost: RankedWordPressPost): boolean {
   return (
-    !isDirectMatch(rankedPost) &&
-    !isSupplementalMatch(rankedPost) &&
+    rankedPost.post.matched_tags.length > 0 &&
+    rankedPost.post.matched_categories.includes("blog") &&
     RELATED_RESOURCE_CONTENT_TYPES.includes(rankedPost.content_type)
   );
+}
+
+function compareRelatedPosts(left: RankedWordPressPost, right: RankedWordPressPost): number {
+  const rightTimestamp = toTimestamp(right.post.date);
+  const leftTimestamp = toTimestamp(left.post.date);
+
+  if (rightTimestamp !== leftTimestamp) {
+    return rightTimestamp - leftTimestamp;
+  }
+
+  return right.post.id - left.post.id;
+}
+
+function toTimestamp(value: string): number {
+  const parsed = Date.parse(value);
+  return Number.isNaN(parsed) ? 0 : parsed;
 }

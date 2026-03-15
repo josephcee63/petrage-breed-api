@@ -15,7 +15,7 @@ import { SimpleCache } from "../lib/simpleCache.js";
 import type { BreedContentResult, LoadedBreedData } from "../lib/types.js";
 
 const DEFAULT_BASE_URL = "https://petrage.net";
-const DEFAULT_CATEGORY_SLUGS = ["dog-breed-facts"];
+const DEFAULT_CATEGORY_SLUGS = ["dog-breed-facts", "blog"];
 const BREED_CONTENT_CACHE_TTL_MS = 2 * 60 * 1000;
 
 export const breedContentCache = new SimpleCache<BreedContentResult>();
