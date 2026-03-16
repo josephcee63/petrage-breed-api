@@ -35,10 +35,35 @@ describe("cache headers", () => {
     expect(response.headers["cache-control"]).toBe("public, max-age=300, s-maxage=86400");
   });
 
+  it("HEAD /breeds success includes the breeds cache header", async () => {
+    const app = createApp({
+      breedData: {
+        normalizedBreeds: [createNormalizedBreed({ display_name: "AFFENPINSCHER" })],
+        breedIndex: {
+          breeds: [],
+        },
+      },
+    });
+
+    const response = await request(app).head("/breeds");
+
+    expect(response.status).toBe(200);
+    expect(response.headers["cache-control"]).toBe("public, max-age=300, s-maxage=86400");
+  });
+
   it("GET /compare success includes the compare cache header", async () => {
     const app = createApp({ breedData });
 
     const response = await request(app).get("/compare/labrador-retriever/poodle");
+
+    expect(response.status).toBe(200);
+    expect(response.headers["cache-control"]).toBe("public, max-age=300, s-maxage=3600");
+  });
+
+  it("HEAD /compare success includes the compare cache header", async () => {
+    const app = createApp({ breedData });
+
+    const response = await request(app).head("/compare/labrador-retriever/poodle");
 
     expect(response.status).toBe(200);
     expect(response.headers["cache-control"]).toBe("public, max-age=300, s-maxage=3600");

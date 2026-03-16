@@ -1,7 +1,10 @@
 import { Router } from "express";
 
 import { compareBreeds } from "../../api/compareBreeds.js";
-import { setCompareCacheHeaders } from "../http/cacheHeaders.js";
+import {
+  enforceCompareCacheHeadersOnSuccess,
+  setCompareCacheHeaders,
+} from "../http/cacheHeaders.js";
 import { compareRateLimiter } from "../middleware/rateLimit.js";
 import { asyncHandler, badRequest, notFound } from "../errors.js";
 
@@ -33,6 +36,7 @@ export function createCompareRouter(dependencies?: CompareRouteDependencies): Ro
   router.get(
     "/compare/:left/:right",
     compareRateLimiter,
+    enforceCompareCacheHeadersOnSuccess,
     asyncHandler(async (request, response) => {
       const left = getSingleParam(request.params.left, "Both breeds are required");
       const right = getSingleParam(request.params.right, "Both breeds are required");
