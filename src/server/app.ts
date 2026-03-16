@@ -1,6 +1,7 @@
 import cors, { type CorsOptions } from "cors";
 import express from "express";
 
+import { createBreedsRouter } from "./routes/breeds.js";
 import { errorHandler } from "./errors.js";
 import { createBreedRouter } from "./routes/breed.js";
 import { createCardRouter } from "./routes/card.js";
@@ -59,6 +60,7 @@ export function createApp(dependencies?: AppDependencies) {
 
   app.use(createRootRouter());
   app.use(createHealthRouter());
+  app.use(createBreedsRouter(sharedBreedData));
   app.use(
     createContentRouter({
       wordPressBaseUrl: normalizeWordPressBaseUrl(dependencies?.wordPressBaseUrl),

@@ -2,6 +2,7 @@ import request from "supertest";
 import { beforeEach, describe, expect, it } from "vitest";
 
 import { breedCardCache } from "../src/api/getBreedCard.js";
+import { breedListCache } from "../src/api/getBreedList.js";
 import { breedContentCache } from "../src/api/getBreedContent.js";
 import { wordPressCategoriesCache } from "../src/lib/fetchWordPressCategories.js";
 import { wordPressPostsByCategoriesCache } from "../src/lib/fetchWordPressPostsByCategories.js";
@@ -9,6 +10,8 @@ import { wordPressPostsByTagsCache } from "../src/lib/fetchWordPressPostsByTags.
 import { wordPressTagsCache } from "../src/lib/fetchWordPressTags.js";
 import { loadBreedData } from "../src/lib/loadBreedData.js";
 import { createApp } from "../src/server/app.js";
+
+import type { NormalizedBreed } from "../src/lib/types.js";
 
 function createJsonResponse(payload: unknown, status = 200): Response {
   return new Response(JSON.stringify(payload), {
@@ -37,6 +40,7 @@ function createMockFetch(routeMap: Record<string, unknown>): typeof fetch {
 describe("server", () => {
   beforeEach(() => {
     breedCardCache.clear();
+    breedListCache.clear();
     breedContentCache.clear();
     wordPressTagsCache.clear();
     wordPressCategoriesCache.clear();
@@ -54,6 +58,7 @@ describe("server", () => {
       service: "dog-breed-api",
       endpoints: [
         "/health",
+        "/breeds",
         "/breed/:input",
         "/breed/:input/content",
         "/breed/:input/card",
@@ -68,6 +73,28 @@ describe("server", () => {
 
     expect(response.status).toBe(200);
     expect(response.body).toEqual({ ok: true });
+  });
+
+  it("GET /breeds returns sorted, deduplicated breed names", async () => {
+    const app = createApp({
+      breedData: {
+        normalizedBreeds: [
+          createNormalizedBreed({ id: "golden-retriever", display_name: " GOLDEN RETRIEVER " }),
+          createNormalizedBreed({ id: "affenpinscher", display_name: "AFFENPINSCHER" }),
+          createNormalizedBreed({ id: "golden-retriever-duplicate", display_name: "golden retriever" }),
+          createNormalizedBreed({ id: "empty-breed", display_name: "   " }),
+        ],
+        breedIndex: {
+          breeds: [],
+        },
+      },
+    });
+    const response = await request(app).get("/breeds");
+
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual(["Affenpinscher", "Golden Retriever"]);
+    expect(Array.isArray(response.body)).toBe(true);
+    expect(response.body.every((value: unknown) => typeof value === "string")).toBe(true);
   });
 
   it("GET /breed/acd returns 200 and the correct breed id", async () => {
@@ -276,3 +303,42 @@ describe("server", () => {
     expect(response.body).toEqual({ error: "Route not found" });
   });
 });
+
+function createNormalizedBreed(overrides: Partial<NormalizedBreed>): NormalizedBreed {
+  return {
+    id: overrides.id ?? "test-breed",
+    display_name: overrides.display_name ?? "TEST BREED",
+    aka_names: overrides.aka_names ?? [],
+    alpha: overrides.alpha ?? "T",
+    traits: overrides.traits ?? {
+      temperament: null,
+      purpose: null,
+      good_with_families: null,
+      owner_type: null,
+      intelligence: null,
+      exercise_needs: null,
+    },
+    stats: overrides.stats ?? {
+      female_height: null,
+      male_height: null,
+      female_weight: null,
+      male_weight: null,
+      life_span: null,
+      litter_size: null,
+      shedding: [],
+      origin: [],
+      size: [],
+      hair_length: [],
+    },
+    media: overrides.media ?? {
+      image_url: null,
+      article_url: null,
+      tag_url: null,
+    },
+    description_text: overrides.description_text ?? null,
+    source: overrides.source ?? {
+      table_row_id: null,
+      raw_breed_field: null,
+    },
+  };
+}
