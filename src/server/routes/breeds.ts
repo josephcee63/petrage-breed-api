@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import { getBreedList } from "../../api/getBreedList.js";
+import { setBreedsCacheHeaders } from "../http/cacheHeaders.js";
 import { breedListRateLimiter } from "../middleware/rateLimit.js";
 import { asyncHandler } from "../errors.js";
 
@@ -21,6 +22,7 @@ export function createBreedsRouter(dependencies?: BreedsRouteDependencies): Rout
         dependencies?.breedData ? { breedData: dependencies.breedData } : {},
       );
 
+      setBreedsCacheHeaders(response);
       response.json(breeds);
     }),
   );

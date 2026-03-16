@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import { compareBreeds } from "../../api/compareBreeds.js";
+import { setCompareCacheHeaders } from "../http/cacheHeaders.js";
 import { compareRateLimiter } from "../middleware/rateLimit.js";
 import { asyncHandler, badRequest, notFound } from "../errors.js";
 
@@ -45,6 +46,7 @@ export function createCompareRouter(dependencies?: CompareRouteDependencies): Ro
         throw notFound("One or both breeds not found");
       }
 
+      setCompareCacheHeaders(response);
       response.json(comparison);
     }),
   );

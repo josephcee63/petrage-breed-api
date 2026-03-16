@@ -394,6 +394,13 @@ This cache is intentionally best-effort:
 - it uses short TTLs so WordPress content naturally refreshes
 - it does not replace correctness or persistence, it only reduces repeated remote lookups
 
+Bunny can also cache selected API responses when the Pull Zone is configured to respect origin `Cache-Control` headers:
+
+- `GET /breeds` sends `Cache-Control: public, max-age=300, s-maxage=86400`
+- `GET /compare/:left/:right` sends `Cache-Control: public, max-age=300, s-maxage=3600`
+
+Here, `max-age` applies to browsers and other private caches, while `s-maxage` applies to shared caches such as Bunny CDN.
+
 ### Endpoints
 
 - `GET /health`
