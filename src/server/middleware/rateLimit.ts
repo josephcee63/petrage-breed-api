@@ -1,48 +1,26 @@
 import rateLimit from "express-rate-limit";
 
+import { rateLimitConfig, type RateLimitPolicyConfig } from "../../config/rateLimit.js";
+
 import type { Request, Response } from "express";
-
-export interface RateLimitPolicy {
-  windowMs: number;
-  max: number;
-}
-
-export const RATE_LIMIT_POLICIES = {
-  compare: {
-    windowMs: 60 * 1000,
-    max: 20,
-  },
-  breedContent: {
-    windowMs: 60 * 1000,
-    max: 40,
-  },
-  breedList: {
-    windowMs: 60 * 1000,
-    max: 60,
-  },
-  apiSafety: {
-    windowMs: 60 * 1000,
-    max: 120,
-  },
-} satisfies Record<string, RateLimitPolicy>;
 
 const RATE_LIMIT_RESPONSE = {
   error: "Too many requests",
   message: "Please wait a moment and try again.",
 } as const;
 
-export const compareRateLimiter = createRateLimiter("compareRateLimiter", RATE_LIMIT_POLICIES.compare);
+export const compareRateLimiter = createRateLimiter("compareRateLimiter", rateLimitConfig.compare);
 export const breedContentRateLimiter = createRateLimiter(
   "breedContentRateLimiter",
-  RATE_LIMIT_POLICIES.breedContent,
+  rateLimitConfig.breedContent,
 );
 export const breedListRateLimiter = createRateLimiter(
   "breedListRateLimiter",
-  RATE_LIMIT_POLICIES.breedList,
+  rateLimitConfig.breeds,
 );
-export const apiSafetyLimiter = createRateLimiter("apiSafetyLimiter", RATE_LIMIT_POLICIES.apiSafety);
+export const apiSafetyLimiter = createRateLimiter("apiSafetyLimiter", rateLimitConfig.apiSafety);
 
-function createRateLimiter(limiterName: string, policy: RateLimitPolicy) {
+function createRateLimiter(limiterName: string, policy: RateLimitPolicyConfig) {
   return rateLimit({
     windowMs: policy.windowMs,
     max: policy.max,

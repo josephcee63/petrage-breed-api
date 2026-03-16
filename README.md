@@ -323,6 +323,7 @@ Recommended runtime values:
 
 - `PORT=3000`
 - `WORDPRESS_BASE_URL=https://petrage.net`
+- rate-limit env vars only if you need to override the defaults
 
 Recommended deployment flow:
 
@@ -362,8 +363,20 @@ For a step-by-step guide, see [docs/deployment/bunny-magic-containers.md](/c:/Us
 - default port: `3000`
 - `PORT`: override the local server port
 - `WORDPRESS_BASE_URL`: override the WordPress base URL used by `/breed/:input/content`
+- `COMPARE_RATE_LIMIT_WINDOW_MS`: compare limiter window in milliseconds, default `60000`
+- `COMPARE_RATE_LIMIT_MAX`: compare limiter max requests per window, default `20`
+- `BREED_CONTENT_RATE_LIMIT_WINDOW_MS`: breed content limiter window in milliseconds, default `60000`
+- `BREED_CONTENT_RATE_LIMIT_MAX`: breed content limiter max requests per window, default `40`
+- `BREEDS_RATE_LIMIT_WINDOW_MS`: breed list limiter window in milliseconds, default `60000`
+- `BREEDS_RATE_LIMIT_MAX`: breed list limiter max requests per window, default `60`
+- `API_SAFETY_RATE_LIMIT_WINDOW_MS`: safety limiter window in milliseconds, default `60000`
+- `API_SAFETY_RATE_LIMIT_MAX`: safety limiter max requests per window, default `120`
 
 The default WordPress base URL is `https://petrage.net`.
+
+Rate-limit values are parsed as positive integers. Missing, empty, zero, negative, or otherwise invalid values fall back safely to the defaults above instead of crashing the app.
+
+The current rate limiting is in-memory and local to a single app instance. If this API is later scaled across multiple instances, the next step would be moving the limiter store to a shared backend.
 
 ### Root Route And Caching
 

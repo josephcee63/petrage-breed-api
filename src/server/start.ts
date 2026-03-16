@@ -1,4 +1,5 @@
 import { createApp } from "./app.js";
+import { rateLimitConfig } from "../config/rateLimit.js";
 
 const DEFAULT_HOST = "0.0.0.0";
 const DEFAULT_PORT = 3000;
@@ -25,6 +26,12 @@ app.listen(port, DEFAULT_HOST, () => {
   console.log(`Listening on ${DEFAULT_HOST}:${port}`);
   console.log(`WordPress base URL: ${wordPressBaseUrl}`);
   console.log(`Allowed origins: ${allowedOrigins.join(", ")}`);
+  console.log(
+    `Rate limits: compare ${rateLimitConfig.compare.max} per ${rateLimitConfig.compare.windowMs}ms, ` +
+      `breed content ${rateLimitConfig.breedContent.max} per ${rateLimitConfig.breedContent.windowMs}ms, ` +
+      `breeds ${rateLimitConfig.breeds.max} per ${rateLimitConfig.breeds.windowMs}ms, ` +
+      `api safety ${rateLimitConfig.apiSafety.max} per ${rateLimitConfig.apiSafety.windowMs}ms`,
+  );
 });
 
 function parsePort(portValue: string | undefined): number {
