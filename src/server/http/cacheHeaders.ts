@@ -3,13 +3,18 @@ import type { RequestHandler, Response } from "express";
 const BREEDS_CACHE_CONTROL = "public, max-age=300, s-maxage=86400";
 const COMPARE_CACHE_CONTROL = "public, max-age=300, s-maxage=3600";
 const NO_STORE_CACHE_CONTROL = "no-store";
+const DEBUG_BUILD_HEADER_VALUE = "cache-pr-debug-1";
 
 export function setBreedsCacheHeaders(response: Response): void {
   response.set("Cache-Control", BREEDS_CACHE_CONTROL);
+  response.set("X-Debug-Cache-Policy", "breeds-success");
+  response.set("X-Debug-Build", DEBUG_BUILD_HEADER_VALUE);
 }
 
 export function setCompareCacheHeaders(response: Response): void {
   response.set("Cache-Control", COMPARE_CACHE_CONTROL);
+  response.set("X-Debug-Cache-Policy", "compare-success");
+  response.set("X-Debug-Build", DEBUG_BUILD_HEADER_VALUE);
 }
 
 export function setNoStoreHeaders(response: Response): void {
