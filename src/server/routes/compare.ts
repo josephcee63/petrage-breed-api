@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import { compareBreeds } from "../../api/compareBreeds.js";
+import { compareRateLimiter } from "../middleware/rateLimit.js";
 import { asyncHandler, badRequest, notFound } from "../errors.js";
 
 import type { LoadedBreedData } from "../../lib/types.js";
@@ -14,6 +15,7 @@ export function createCompareRouter(dependencies?: CompareRouteDependencies): Ro
 
   router.get(
     "/compare",
+    compareRateLimiter,
     asyncHandler(async () => {
       throw badRequest("Both breeds are required");
     }),
@@ -21,6 +23,7 @@ export function createCompareRouter(dependencies?: CompareRouteDependencies): Ro
 
   router.get(
     "/compare/:left",
+    compareRateLimiter,
     asyncHandler(async () => {
       throw badRequest("Both breeds are required");
     }),
@@ -28,6 +31,7 @@ export function createCompareRouter(dependencies?: CompareRouteDependencies): Ro
 
   router.get(
     "/compare/:left/:right",
+    compareRateLimiter,
     asyncHandler(async (request, response) => {
       const left = getSingleParam(request.params.left, "Both breeds are required");
       const right = getSingleParam(request.params.right, "Both breeds are required");

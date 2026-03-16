@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import { getBreedContent } from "../../api/getBreedContent.js";
+import { breedContentRateLimiter } from "../middleware/rateLimit.js";
 import { asyncHandler, badRequest, notFound } from "../errors.js";
 
 import type { LoadedBreedData } from "../../lib/types.js";
@@ -16,6 +17,7 @@ export function createContentRouter(dependencies: ContentRouteDependencies): Rou
 
   router.get(
     "/breed/:input/content",
+    breedContentRateLimiter,
     asyncHandler(async (request, response) => {
       const input = getSingleParam(request.params.input, "Breed input is required");
       const result = await getBreedContent(input, {

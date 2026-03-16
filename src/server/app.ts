@@ -1,6 +1,7 @@
 import cors, { type CorsOptions } from "cors";
 import express from "express";
 
+import { apiSafetyLimiter } from "./middleware/rateLimit.js";
 import { createBreedsRouter } from "./routes/breeds.js";
 import { errorHandler } from "./errors.js";
 import { createBreedRouter } from "./routes/breed.js";
@@ -55,11 +56,13 @@ export function createApp(dependencies?: AppDependencies) {
     credentials: false,
   };
 
+  app.set("trust proxy", 1);
   app.use(express.json());
   app.use(cors(corsOptions));
 
   app.use(createRootRouter());
   app.use(createHealthRouter());
+  app.use(apiSafetyLimiter);
   app.use(createBreedsRouter(sharedBreedData));
   app.use(
     createContentRouter({
