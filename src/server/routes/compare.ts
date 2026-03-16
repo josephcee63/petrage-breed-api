@@ -4,6 +4,7 @@ import { compareBreeds } from "../../api/compareBreeds.js";
 import { compareRateLimiter } from "../middleware/rateLimit.js";
 import { asyncHandler, badRequest, notFound } from "../errors.js";
 
+import type { Response } from "express";
 import type { LoadedBreedData } from "../../lib/types.js";
 
 export interface CompareRouteDependencies {
@@ -47,10 +48,15 @@ export function createCompareRouter(dependencies?: CompareRouteDependencies): Ro
         throw notFound("One or both breeds not found");
       }
 
+      attachFinalCacheControlDebugHeader(response);
       response.setHeader("Cache-Control", COMPARE_CACHE_CONTROL);
       response.setHeader("X-Debug-Cache-Policy", "compare-success");
       response.setHeader("X-Debug-Build", "cache-pr-debug-1");
       response.setHeader("X-Debug-Cache-Control-Target", COMPARE_CACHE_CONTROL);
+      response.setHeader(
+        "X-Debug-PreSend-Cache-Control",
+        getHeaderStringValue(response.getHeader("Cache-Control")),
+      );
       response.json(comparison);
     }),
   );
@@ -64,4 +70,29 @@ function getSingleParam(value: string | string[] | undefined, errorMessage: stri
   }
 
   return value;
+}
+
+function attachFinalCacheControlDebugHeader(response: Response): void {
+  const originalWriteHead = response.writeHead;
+
+  response.writeHead = function writeHead(this: Response, ...args: Parameters<Response["writeHead"]>) {
+    this.setHeader(
+      "X-Debug-Final-Cache-Control",
+      getHeaderStringValue(this.getHeader("Cache-Control")),
+    );
+
+    return originalWriteHead.apply(this, args);
+  } as Response["writeHead"];
+}
+
+function getHeaderStringValue(value: number | string | string[] | undefined): string {
+  if (Array.isArray(value)) {
+    return value.join(", ");
+  }
+
+  if (value === undefined) {
+    return "";
+  }
+
+  return String(value);
 }

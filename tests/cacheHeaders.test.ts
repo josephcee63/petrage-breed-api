@@ -38,6 +38,12 @@ describe("cache headers", () => {
     expect(response.headers["x-debug-cache-control-target"]).toBe(
       "public, max-age=300, s-maxage=86400",
     );
+    expect(response.headers["x-debug-presend-cache-control"]).toBe(
+      "public, max-age=300, s-maxage=86400",
+    );
+    expect(response.headers["x-debug-final-cache-control"]).toBe(
+      "public, max-age=300, s-maxage=86400",
+    );
   });
 
   it("HEAD /breeds success includes the breeds cache header", async () => {
@@ -68,6 +74,12 @@ describe("cache headers", () => {
     expect(response.headers["x-debug-cache-control-target"]).toBe(
       "public, max-age=300, s-maxage=3600",
     );
+    expect(response.headers["x-debug-presend-cache-control"]).toBe(
+      "public, max-age=300, s-maxage=3600",
+    );
+    expect(response.headers["x-debug-final-cache-control"]).toBe(
+      "public, max-age=300, s-maxage=3600",
+    );
   });
 
   it("HEAD /compare success includes the compare cache header", async () => {
@@ -93,6 +105,8 @@ describe("cache headers", () => {
     expect(response.headers["x-debug-cache-policy"]).toBeUndefined();
     expect(response.headers["x-debug-build"]).toBeUndefined();
     expect(response.headers["x-debug-cache-control-target"]).toBeUndefined();
+    expect(response.headers["x-debug-presend-cache-control"]).toBeUndefined();
+    expect(response.headers["x-debug-final-cache-control"]).toBeUndefined();
   });
 
   it("compare not-found responses do not get the success cache header", async () => {
@@ -105,6 +119,8 @@ describe("cache headers", () => {
     expect(response.headers["x-debug-cache-policy"]).toBeUndefined();
     expect(response.headers["x-debug-build"]).toBeUndefined();
     expect(response.headers["x-debug-cache-control-target"]).toBeUndefined();
+    expect(response.headers["x-debug-presend-cache-control"]).toBeUndefined();
+    expect(response.headers["x-debug-final-cache-control"]).toBeUndefined();
   });
 });
 
