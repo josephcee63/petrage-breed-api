@@ -1,10 +1,6 @@
 import { Router } from "express";
 
 import { getBreedList } from "../../api/getBreedList.js";
-import {
-  enforceBreedsCacheHeadersOnSuccess,
-  setBreedsCacheHeaders,
-} from "../http/cacheHeaders.js";
 import { breedListRateLimiter } from "../middleware/rateLimit.js";
 import { asyncHandler } from "../errors.js";
 
@@ -14,19 +10,23 @@ export interface BreedsRouteDependencies {
   breedData?: LoadedBreedData;
 }
 
+const BREEDS_CACHE_CONTROL = "public, max-age=300, s-maxage=86400";
+
 export function createBreedsRouter(dependencies?: BreedsRouteDependencies): Router {
   const router = Router();
 
   router.get(
     "/breeds",
     breedListRateLimiter,
-    enforceBreedsCacheHeadersOnSuccess,
     asyncHandler(async (_request, response) => {
       const breeds = await getBreedList(
         dependencies?.breedData ? { breedData: dependencies.breedData } : {},
       );
 
-      setBreedsCacheHeaders(response);
+      response.setHeader("Cache-Control", BREEDS_CACHE_CONTROL);
+      response.setHeader("X-Debug-Cache-Policy", "breeds-success");
+      response.setHeader("X-Debug-Build", "cache-pr-debug-1");
+      response.setHeader("X-Debug-Cache-Control-Target", BREEDS_CACHE_CONTROL);
       response.json(breeds);
     }),
   );

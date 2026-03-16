@@ -1,10 +1,6 @@
 import { Router } from "express";
 
 import { compareBreeds } from "../../api/compareBreeds.js";
-import {
-  enforceCompareCacheHeadersOnSuccess,
-  setCompareCacheHeaders,
-} from "../http/cacheHeaders.js";
 import { compareRateLimiter } from "../middleware/rateLimit.js";
 import { asyncHandler, badRequest, notFound } from "../errors.js";
 
@@ -13,6 +9,8 @@ import type { LoadedBreedData } from "../../lib/types.js";
 export interface CompareRouteDependencies {
   breedData?: LoadedBreedData;
 }
+
+const COMPARE_CACHE_CONTROL = "public, max-age=300, s-maxage=3600";
 
 export function createCompareRouter(dependencies?: CompareRouteDependencies): Router {
   const router = Router();
@@ -36,7 +34,6 @@ export function createCompareRouter(dependencies?: CompareRouteDependencies): Ro
   router.get(
     "/compare/:left/:right",
     compareRateLimiter,
-    enforceCompareCacheHeadersOnSuccess,
     asyncHandler(async (request, response) => {
       const left = getSingleParam(request.params.left, "Both breeds are required");
       const right = getSingleParam(request.params.right, "Both breeds are required");
@@ -50,7 +47,10 @@ export function createCompareRouter(dependencies?: CompareRouteDependencies): Ro
         throw notFound("One or both breeds not found");
       }
 
-      setCompareCacheHeaders(response);
+      response.setHeader("Cache-Control", COMPARE_CACHE_CONTROL);
+      response.setHeader("X-Debug-Cache-Policy", "compare-success");
+      response.setHeader("X-Debug-Build", "cache-pr-debug-1");
+      response.setHeader("X-Debug-Cache-Control-Target", COMPARE_CACHE_CONTROL);
       response.json(comparison);
     }),
   );
