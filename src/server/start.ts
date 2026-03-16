@@ -5,8 +5,6 @@ const DEFAULT_HOST = "0.0.0.0";
 const DEFAULT_PORT = 3000;
 const DEFAULT_WORDPRESS_BASE_URL = "https://petrage.net";
 const DEFAULT_ALLOWED_ORIGINS = [
-  "http://127.0.0.1:5500",
-  "http://localhost:5500",
   "https://petrage.net",
   "https://www.petrage.net",
   "https://alldogbreeds.net",

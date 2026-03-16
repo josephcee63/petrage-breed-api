@@ -378,6 +378,15 @@ Rate-limit values are parsed as positive integers. Missing, empty, zero, negativ
 
 The current rate limiting is in-memory and local to a single app instance. If this API is later scaled across multiple instances, the next step would be moving the limiter store to a shared backend.
 
+### Security
+
+Browser CORS access is restricted to:
+
+- `petrage.net`
+- `alldogbreeds.net`
+
+Server-to-server requests without an `Origin` header can still succeed, but browser clients from other domains will be blocked.
+
 ### Root Route And Caching
 
 The API now includes a friendly root route at `GET /` that returns a small JSON index of the available endpoints.

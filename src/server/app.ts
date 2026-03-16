@@ -1,6 +1,7 @@
 import cors, { type CorsOptions } from "cors";
 import express from "express";
 
+import { HttpError } from "./errors.js";
 import { apiSafetyLimiter } from "./middleware/rateLimit.js";
 import { createBreedsRouter } from "./routes/breeds.js";
 import { errorHandler } from "./errors.js";
@@ -15,8 +16,6 @@ import type { LoadedBreedData } from "../lib/types.js";
 
 const DEFAULT_WORDPRESS_BASE_URL = "https://petrage.net";
 const DEFAULT_ALLOWED_ORIGINS = [
-  "http://127.0.0.1:5500",
-  "http://localhost:5500",
   "https://petrage.net",
   "https://www.petrage.net",
   "https://alldogbreeds.net",
@@ -48,7 +47,8 @@ export function createApp(dependencies?: AppDependencies) {
         return;
       }
 
-      callback(new Error(`CORS blocked for origin: ${origin}`));
+      console.warn("Blocked CORS origin:", origin);
+      callback(new HttpError(403, "Forbidden"));
     },
     methods: ["GET", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -59,6 +59,7 @@ export function createApp(dependencies?: AppDependencies) {
   app.set("trust proxy", 1);
   app.use(express.json());
   app.use(cors(corsOptions));
+  app.options(/.*/, cors(corsOptions));
 
   app.use(createRootRouter());
   app.use(createHealthRouter());
